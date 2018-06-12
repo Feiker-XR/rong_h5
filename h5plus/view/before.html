@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>H5PLUS项目组 - 企业后台管理</title>
+    <% include ./_g/css_default.html %>
+    <script type="text/javascript">
+    var $$r = {
+        rootUrl : '<%= data['res'] %>'
+    }
+    </script>
+</head>
+
+<body class="page_index">
+    
+    <header class="l_header" id="j_header">
+        <div class="header_left">
+             <span>
+                &nbsp;
+            </span> 
+        </div>
+        <div class="header_right">
+            管理员 XX  于2015-12-21 15:30<a href="javacript:;">退出系统</a>
+        </div>
+    </header>
+
+    <section class="l_contain">
+    	<div class="l_sidebar"  id="j_sidebar" >
+            <div id="j_tree_index" class="ztree"></div>
+        </div>
+        <div  class="l_wrap" id="j_wrap">
+            <div class="l_tab" id="j_tab">
+                <ul id="j_tab_box">
+                    <li id="mTab_home" data-tid="home"><i>我的主页</i></li>
+                </ul>
+            </div>
+            <div class="l_frame" id="j_frame">
+                <div class="j_iframe_item" id="mIframe_home" style="display: block;"><h2>欢迎新用户来到H5plus平台</h2></div>
+            </div>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    <% include ./_g/script.html %>
+    <script type="text/javascript" src="<%= data['js'] %>/common/index.js<%= data['v'] %>"></script>
+</body>
+</html>

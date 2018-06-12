@@ -1,0 +1,30 @@
+<% include ../../../m/head.html %>
+<link rel="stylesheet" type="text/css" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/details.css">
+<meta name="description" content="商品详情页,微商城,h5plus" />
+<title>限时购详情 - 团购</title>
+<script type="text/javascript">
+    $$r.routers = {
+        "data": {
+            "link": {
+                "pageGet" : $$r.path + 'ruixue.hfive.weidian.goods.getdetail',
+                "orderAdd" : $$r.path + 'ruixue.hfive.weidian.order.add',
+                "cartAdd" : $$r.path + 'ruixue.hfive.weidian.cart.add',
+                "orderFoot" : $$r.path + 'ruixue.hfive.weidian.pay.geturl',
+                "cartSave" : $$r.path + 'ruixue.hfive.weidian.cart.save'
+            },
+            "add": './good?action=add',
+            "edit": './good?action=edit'
+        }
+    };
+</script>
+</head>
+<body class="">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<% include ../../../m/js.html %>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>/limit_detail.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

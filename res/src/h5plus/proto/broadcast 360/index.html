@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="./style/css/photon.css">
+    <link rel="stylesheet" href="style/css/photon-pt2.css" media="all" />
+    <link rel="stylesheet" href="style/css/photon-responsive.css" media="all" />
+    <link rel="stylesheet" href="./style/style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/plugins/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.pnotify.min.js"></script>
+    <script type="text/javascript" src="js/plugins/less-1.3.1.min.js"></script>        
+    <script type="text/javascript" src="js/plugins/xbreadcrumbs.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.maskedinput-1.3.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.autotab-1.1b.js"></script>
+    <script type="text/javascript" src="js/plugins/charCount.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.textareaCounter.js"></script>
+    <script type="text/javascript" src="js/plugins/elrte.min.js"></script>
+    <script type="text/javascript" src="js/plugins/elrte.en.js"></script>
+    <script type="text/javascript" src="js/plugins/select2.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery-picklist.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/plugins/additional-methods.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.form.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.metadata.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.mockjax.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.rating.pack.js"></script>
+    <script type="text/javascript" src="js/plugins/farbtastic.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.timeentry.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.jstree.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.mCustomScrollbar.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.flot.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.flot.stack.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.flot.pie.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.flot.resize.js"></script>
+    <script type="text/javascript" src="js/plugins/raphael.2.1.0.min.js"></script>
+    <script type="text/javascript" src="js/plugins/justgage.1.0.1.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.clock.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.countdown.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.jqtweet.js"></script>
+    <script type="text/javascript" src="js/plugins/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/plugins/bootstrap-fileupload.min.js"></script>
+    <script type="text/javascript" src="js/plugins/prettify/prettify.js"></script>
+    <script type="text/javascript" src="js/plugins/bootstrapSwitch.js"></script>
+    <script type="text/javascript" src="js/plugins/mfupload.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+  <div>
+    <div class="panel">
+    <div class="panel-content filler">
+        <div class="panel-logo"></div>
+        <div class="panel-header">
+            <h1><small>微信360°广播</small></h1>
+            <button type="submit" class="btn btn-mini" href="#radioModal" data-toggle="modal"><i class="icon-photon move_alt2"></i>新建广播</button>
+        </div>
+        <div class="panel-search container-fluid">
+            <form class="form-horizontal" action="javascript:;">
+                <input id="panelSearch" placeholder="Search" type="text" name="panelSearch" class="ui-autocomplete-input" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                <button class="btn btn-search"></button>
+                <script>
+                        
+                </script>
+            </form>
+        </div>
+    </div>
+    <div class="panel-slider">
+        <div class="panel-slider-center">
+            <div class="panel-slider-arrow"></div>
+        </div>
+    </div>
+</div>
+<div class="main-content">
+    <div class="container-fluid">
+                       <!-- Basic Responsive Table begin -->
+                       <div class="row-fluid">
+                           <div class="span12">
+                               <table class="table table-bordered table-striped">
+                                   <thead class="">
+                                       <tr>
+                                           <th>标题</th>
+                                           <th>创建时间</th>
+                                           <th>广播级别</th>
+                                           <th>状态</th>
+                                           <th>阅读量</th>
+                                           <th>操作</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody>
+                                       <tr>
+                                           <td>title1</td>
+                                           <td>YYYY-MM-DD  HH:MM:SS</td>
+                                           <td>推文</td>
+                                           <td>未发送</td>
+                                           <td>999</td>
+                                           <td><a href="javascript:;" class="deleteBroadcast">删除</a></td>
+                                       </tr>
+                                       <tr>
+                                           <td>title2</td>
+                                           <td>YYYY-MM-DD  HH:MM:SS</td>
+                                           <td>推文</td>
+                                           <td>发送中</td>
+                                           <td>999</td>
+                                           <td><a href="javascript:;" class="deleteBroadcast">删除</a></td>
+                                       </tr>
+                                       <tr>
+                                           <td>title3</td>
+                                           <td>YYYY-MM-DD  HH:MM:SS</td>
+                                           <td>推文</td>
+                                           <td>已发送</td>
+                                           <td>999</td>
+                                           <td><a href="javascript:;" class="deleteBroadcast">删除</a></td>
+                                       </tr>
+                                       <tr>
+                                           <td>title4</td>
+                                           <td>YYYY-MM-DD  HH:MM:SS</td>
+                                           <td>推文</td>
+                                           <td>未发送</td>
+                                           <td>999</td>
+                                           <td><a href="javascript:;" class="deleteBroadcast">删除</a></td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                           </div>
+                       </div>
+                       <!-- Basic Responsive Table end -->
+               </div>
+            </div>   
+
+      
+         
+        <!--新建广播Modal -->
+          <div id="radioModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <!-- 第一层选择是推文还是图片 -->
+            <div class="tweet" style="display:block">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="myRadioModalLabel">新建广播</h3>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <button class="btn btn-primary" >推文</button>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="btn closeBtn">关闭</div>
+              </div>
+            </div>
+             <!-- 第二层编辑推文 -->
+            <div class="screen" style="display:none">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="myRadioModalLabel">新建广播>编辑推文</h3>
+              </div>
+              <div class="modal-body">
+                  <div class="screen" style="display:none">
+                    <form class="form-horizontal">
+                      <div class="fans">
+                        <label class="control-label" for="inputEmail">目标粉丝：</label>
+                        <div class="controls">
+                          <span class="number">共10人</span><div class="btn btn-info screenBtn">筛选</div>
+                        </div>
+                      </div>
+                      <div class="pushContent">
+                        <label class="control-label" for="inputEmail">推送内容：</label>
+                        <div class="controls">
+                          <div class="btn btn-info choiceBtn">选择</div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+              <div class="modal-footer btnScreen">
+                <div class="btn">返回上一级</div>
+                <div class="btn btn-primary closeBtn">完成并发送</div>
+              </div>
+            </div>
+           <!-- 第三层删选粉丝 -->
+            <div class="screenFans" style="display:none">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="myRadioModalLabel">新建广播>编辑推文>筛选粉丝</h3>
+              </div>
+              <div class="modal-body">
+                  <form>
+                    <div class="clearRadio control-group-radio">
+                      <label class="control-label" for="inputEmail" style="float:left">性别：</label>
+                      <div class="gender">
+                        <input name="Fruit" type="radio" value="" style="margin-left:0px;"/>男
+                        <input name="Fruit" type="radio" value="" />女
+                        <input name="Fruit" type="radio" value="" checked/>不限
+                      </div>
+                    </div>
+                    <div class="clearRadio control-group-radio">
+                      <label class="control-label" for="inputEmail" style="float:left;height:30px;line-height:30px;">地区：</label>
+                      <div class="region">
+                        <select>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                        <select>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                    </div>
+                   <div class="clearRadio control-group-radio">
+                      <label class="control-label" for="inputEmail" style="float:left;">标签：</label>
+                      <div class="">
+                      <!--  -->
+                        <div class="controls">
+                            <select multiple name="multiFilter" id="multiFilter">
+                                <option value="Beige">Beige</option>
+                                <option value="Black">Black</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Bronze">Bronze</option>
+                                <option value="Brown">Brown</option>
+                                <option value="Gold">Gold</option>
+                                <option value="Gray">Gray</option>
+                                <option value="Green">Green</option>
+                                <option value="Orange">Orange</option>
+                                <option value="Pink">Pink</option>
+                                <option value="Purple">Purple</option> 
+                                <option value="Red">Red</option>
+                                <option value="Silver">Silver</option>
+                                <option selected="" value="Turquoise">Turquoise</option>
+                                <option value="White">White</option>
+                                <option value="Yellow">Yellow</option>
+                            </select>
+                            <script>
+                                $().ready(function(){
+                                    $("#multiFilter").select2();
+                                });
+                            </script>
+                        </div>
+                      <!--  -->
+                      </div>
+                   </div>   
+                  </form>
+              </div>
+              <div class="modal-footer btnScreenFans">
+                <div class="btn">返回上一级</div>
+                <div class="btn btn-primary">确定</div>
+              </div>
+            </div>
+
+            <!-- 第三层选择图文 -->
+            <div class="teletext" style="display:none">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="myRadioModalLabel">新建广播>编辑推文>选择图文</h3>
+              </div>
+              <div class="modal-body">
+                  <div id="div1">
+                    <div class="indexClassContent">
+                      <span class="indexClassLeft"></span>
+                      <div class="indexClassFather">
+                        <ul class="indexClass clear">
+                          <li>
+                            <div>
+                              <img src="./images/classIcon01.png" alt="" class="classIcon">
+                              <div></div>
+                              <img src="./images/ok_.png" alt="">
+                            </div>
+                            <span>图文1</span>
+                          </li>
+                          <li>
+                            <div>
+                              <img src="./images/classIcon01.png" alt="" class="classIcon">
+                              <div></div>
+                              <img src="./images/ok_.png" alt="">
+                            </div>
+                            <span>图文2</span>
+                          </li>
+                          <li>
+                            <div>
+                              <img src="./images/classIcon01.png" alt="" class="classIcon">
+                              <div></div>
+                              <img src="./images/ok_.png" alt="">
+                            </div>
+                            <span>图文3</span>
+                          </li>
+                          <li>
+                            <div>
+                              <img src="./images/classIcon01.png" alt="" class="classIcon">
+                              <div></div>
+                              <img src="./images/ok_.png" alt="">
+                            </div>
+                            <span>图文4</span>
+                          </li>
+                          <li>
+                            <div>
+                              <img src="./images/classIcon01.png" alt="" class="classIcon">
+                              <div></div>
+                              <img src="./images/ok_.png" alt="">
+                            </div>
+                            <span>图文5</span>
+                          </li>
+                          <li>
+                            <div>
+                              <img src="./images/classIcon01.png" alt="" class="classIcon">
+                              <div></div>
+                              <img src="./images/ok_.png" alt="">
+                            </div>
+                            <span>图文6</span>
+                          </li>
+                          <li>
+                            <div>
+                              <img src="./images/classIcon01.png" alt="" class="classIcon">
+                              <div></div>
+                              <img src="./images/ok_.png" alt="">
+                            </div>
+                            <span>图文7</span>
+                          </li>
+                          <li>
+                            <div>
+                              <img src="./images/classIcon01.png" alt="" class="classIcon">
+                              <div></div>
+                              <img src="./images/ok_.png" alt="">
+                            </div>
+                            <span>图文8</span>
+                          </li>
+                          <li>
+                            <div>
+                              <img src="./images/classIcon01.png" alt="" class="classIcon">
+                              <div></div>
+                              <img src="./images/ok_.png" alt="">
+                            </div>
+                            <span>图文9</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="indexClassRight"></span>
+                    </div>
+                  </div>
+              </div>
+              <div class="modal-footer btnTeletext">
+                <div class="btn">返回上一级</div>
+                <div class="btn btn-primary">确定</div>
+              </div>
+            </div>
+          </div> 
+          
+        </div>   
+</body>
+</html>

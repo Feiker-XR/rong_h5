@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>视频素材</title>
+<link href="css/photon.css" rel="stylesheet">
+<link href="css/photon-pt2.css" rel="stylesheet">
+<link rel="stylesheet" href="css/photon-responsive.css" media="all" />
+<link href="css/upAudios.css" rel="stylesheet">
+</head>
+
+<body>
+<div>
+    <div class="breadcrumb-container">
+        <ul class="xbreadcrumbs" data_id="navTop">
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="icon-photon home margint3"></i>
+                </a>
+            </li>
+            <li class="current">
+                <a href="javascript:void(0);">素材文件</a>
+            </li>
+            <li class="current">
+                <a href="javascript:void(0);">视频素材</a>
+            </li>
+        </ul>
+    </div>
+    <div class="imageTextListWrap">
+        <div class="imageTextListTit">
+            <div class="fl"><a class="btn btn-info btnImageText" type="button" href="#">添加视频</a></div>
+            <div class="imageTextListSearch">
+                <input placeholder="请输入视频名称">
+                <div class="searchImg"></div>
+            </div>
+        </div>
+        <div class="picListWrap">
+            <div class="container-fluid">
+               <!--Basic Non-responsive Bordered Table begin-->
+               <div class="row-fluid">
+                   <div class="span12">
+                       <table class="table table-bordered table-striped">
+                           <thead class="">
+                               <tr>
+                                   <th>视频名称</th>
+                                   <th>创建时间</th>
+                                   <th>操作</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                   <td>视频名称</td>
+                                   <td>创建时间</td>
+                                   <td width="200px"><span class="caozuobox"><a href="#">播放</a><a href="#">复制链接</a><a href="#">删除</a></span></td>
+                               </tr>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+               <!--Basic Non-responsive Bordered Table end-->
+
+           </div>
+        </div>
+
+        <div class="dataTables_paginate paging_bootstrap pagination fl">
+            <ul class="margin020" data_id="pageShow">
+                <li class="prev"><a href="javascript:void(0);">«</a></li>
+                <li class="next"><a href="javascript:void(0);">»</a></li>
+            </ul>
+        </div>
+
+        <div id="modal-add-quick-launch" class="modal hide fade in" aria-hidden="false" style="display: block;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3>上传视频</h3>
+            </div>
+            <p class="uptipfile">上传提示：仅支持MP4格式， 大小不超过10MB。</p>
+            <div class="modal-body">
+                <div class="control-group row-fluid">
+                    <div class="span12">
+                        <div class="controls">
+                            <div class="upFilebox">
+                                <div class="floatAudiospan">本地视频：</div>
+                                <div class="fileuploadbox">
+                                    <input class="fileName" type="text" value="" name="" >
+                                    <div class="btn btn-info chooseFile">选择文件</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn" data-dismiss="modal">取消</a>
+                <a href="javascript:;" class="btn btn-primary" data-dismiss="modal">上传</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

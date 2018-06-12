@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>视频素材</title>
+</head>
+
+<body>
+<div id="j_p">
+  <div id="leftNav" class="nav-fixed-left"></div>
+  <!-- start -->
+      <div id="j_plat_state"></div>
+      <div class="page hide"  id="j_plat">
+          <div class="m-main label_content"  id="j_con_list"></div>
+      </div>
+    <!-- end -->
+    
+    <script  id="j_view_list" style="display:none" type="text/html">
+        <div class="panel panelSelf">
+            <div class="panel-content filler">
+                <div class="panel-logo"></div>
+                <div class="panel-header">
+                    <div class="activityTit">素材文件</div>
+                </div>
+                <div class="sidebarMenuHolder">
+                    <div class="JStree">
+                        <div id="jstree" class="jstree jstree-0 jstree-focused jstree-default">
+                            <ul data_id="imageTextMenuLeft">
+                                <li class="jstree-leaf" url="/subscriptionManage/material/imageText/imageTextList">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)" >
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>图文素材</span>
+                                    </a>
+                                </li>
+                                <li class="jstree-leaf" url="/subscriptionManage/material/upPic/upPic">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>图片素材</span>
+                                    </a>
+                                </li>
+                                <li class="jstree-leaf" url="/subscriptionManage/material/upAudios/upAudios">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>音频素材</span>
+                                    </a>
+                                </li>
+                                <li class="jstree-leaf" url="/subscriptionManage/material/video/video">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)" class="jstree-clicked">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>视频素材</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-slider">
+                <div class="panel-slider-center">
+                    <div class="panel-slider-arrow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="videoContainer">
+          <div class="breadcrumb-container">
+              <ul class="xbreadcrumbs" data_id="navTop">
+                  <li>
+                      <a href="javascript:void(0);">
+                          <i class="icon-photon home margint3"></i>
+                      </a>
+                  </li>
+                  <li class="current">
+                      <a href="javascript:void(0);">素材文件</a>
+                  </li>
+                  <li class="current">
+                      <a href="javascript:void(0);">视频素材</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="imageTextListWrap">
+              <div class="imageTextListTit">
+                  <div class="fl"><a class="btn btn-info btnImageText" type="button" href="#" data-toggle="modal" data-target="#modal-add-quick-launch" id="addVideoToggle">添加视频</a></div>
+                  <div class="imageTextListSearch">
+                      <input placeholder="请输入视频名称" id="title">
+                      <div class="searchImg" id="searchBtn"></div>
+                  </div>
+              </div>
+              <div class="picListWrap">
+                  <div class="container-fluid">
+                     <div class="row-fluid">
+                         <div class="span12"  data_id="upFileList">
+                             /*<table class="table table-bordered table-striped">
+                                 <thead class="">
+                                     <tr>
+                                         <th>视频名称</th>
+                                         <th>创建时间</th>
+                                         <th width="200px">操作</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                     <tr>
+                                         <td>视频名称</td>
+                                         <td>创建时间</td>
+                                         <td>
+                                            <span class="caozuobox">
+                                              <a href="#" data-toggle="modal" data-target="#playVideo">播放</a>
+                                              <a href="#">复制链接</a>
+                                              <a href="#">删除</a>
+                                            </span>
+                                          </td>
+                                     </tr>
+                                 </tbody>
+                             </table>*/
+                         </div>
+                     </div>
+                 </div>
+              </div>
+
+              <div class="dataTables_paginate paging_bootstrap pagination fr">
+                  <ul class="margin020" data_id="pageShow">
+                      <li class="prev"><a href="javascript:void(0);">«</a></li>
+                      <li class="next"><a href="javascript:void(0);">»</a></li>
+                  </ul>
+              </div>
+
+              <div id="modal-add-quick-launch" class="modal hide fade in" aria-hidden="false" style="display: none;">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="canselbtn1">×</button>
+                      <h3>上传视频</h3>
+                  </div>
+                  <p class="uptipfile">上传提示：仅支持MP4格式， 大小不超过10MB。</p>
+                  <div class="modal-body">
+                      <div class="control-group row-fluid">
+                          <div class="span12">
+                              <div class="controls">
+                                  <div class="upFilebox">
+                                      <div class="floatAudiospan">本地视频：</div>
+                                      <div class="fileuploadbox">
+                                          <input class="fileName" type="text" value="" name="" disabled id="fileName">
+                                          <div class="btn btn-info chooseFile"><input type="file" id="files">选择文件</div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <a href="javascript:;" class="btn" data-dismiss="modal" id="canselbtn">取消</a>
+                      <input type="button"  class="btn btn-primary" data-dismiss="" id="upVideobtn" disabled value="上传">
+                      /*<a href="javascript:;" class="btn btn-primary" data-dismiss="" id="upVideobtn" disabled>上传</a>*/
+                  </div>
+              </div>
+              <div id="playVideo" class="modal hide fade in" aria-hidden="false" style="display: none;">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="canselVideo">×</button>
+                      <h3>播放视频</h3>
+                  </div>
+                  <div class="modal-body">
+                      <div class="control-group row-fluid">
+                          <div class="span12">
+                              <div class="controls">
+                                  <div class="upFilebox videobox" id="Videotab">
+                                     
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+        </div>
+
+    </script>
+    <script id="j_view_upAudioList" style="display:none" type="text/html">
+    {{
+      var Data = it.hfive_wechat_video_list_response.videos.video;
+      var response = it.hfive_wechat_video_list_response;
+      var total=response.total||'';
+      var pageLength=it.pageLength;
+      var page_size=total/pageLength;
+      if(total%pageLength!=0){
+          page_size=parseInt(page_size)+1;
+      }
+    }}
+      <table class="table table-bordered table-striped" id="videoTablemain" page_size="{{=page_size}}">
+         <thead class="">
+             <tr>
+                 <th>视频名称</th>
+                 <th>创建时间</th>
+                 <th width="200px">操作</th>
+             </tr>
+         </thead>
+         <tbody>
+          {{
+          for(var i=0; i<Data.length; i++){
+            var videoData = Data[i];
+          }}
+              <tr id="{{=videoData.id}}">
+                 <td>{{=videoData.title}}</td>
+                 <td>{{=videoData.rx_inserttime}}</td>
+                 <td>
+                    <span class="caozuobox" style="position:relative;z-index:999">
+                        <a class="playVideo" href="javascript:void(0)" video_url="{{=videoData.video_url}}" title="{{=videoData.title}}" data-toggle="modal" data-target="#playVideo">播放</a>
+                        <a class="copyVideopath" id="copyVideopath" href="javascript:void(0)"  path="{{=videoData.path}}" >复制链接</a>
+                        <a class="deleteVideo" href="javascript:void(0)">删除</a>
+                    </span>
+                  </td>
+              </tr>
+          {{
+           }; 
+          }}
+    </script>    
+</div>
+<script type="text/javascript" src="../../../_g/pmsg.js"></script>
+</body>
+</html>

@@ -1,0 +1,592 @@
+.activityTit {
+	height: 60px;
+	line-height: 60px;
+	color: #fff;
+	font-size: 16px
+}
+
+.popBoxCon {
+	margin: 0 auto
+}
+
+.addCustomMenu1Con {
+	width: 198px
+}
+
+.activityConTit {
+	clear: both;
+	overflow: hidden;
+	zoom: 1;
+	padding: 5px 0;
+	margin: 5px 0 0 10px;
+	list-style: none
+}
+
+.activityConTit li {
+	float: left;
+	margin-right: 10px;
+	line-height: 30px
+}
+
+.activityConTit li.activityDel {
+	float: right
+}
+
+.lineheight30 {
+	line-height: 30px
+}
+
+.brandInfoCon {
+	padding: 10px 20px
+}
+
+.brandInfoCon .form-legend {
+	line-height: 40px;
+	height: 40px
+}
+
+.brandInfoCon .form-legend .pull-right {
+	margin-right: 5px
+}
+
+.brandInfoCon .form-legend .pull-right button {
+	margin-bottom: 5px
+}
+
+.brandInfoCon .span-inset dt {
+	width: 50;
+	float: left;
+	display: inline-block;
+	margin-right: 10px
+}
+
+.brandInfoCon .span-inset dt img {
+	display: inline-block;
+	width: 50px;
+	height: 50px
+}
+
+.brandInfoCon .span-inset dd {
+	float: left
+}
+
+.brandInfoCon .span-inset dd p {
+	line-height: 24px
+}
+
+.awardTable {
+	table-layout: fixed
+}
+
+.awardTable td,
+.awardTable th {
+	text-align: center;
+	word-wrap: break-word
+}
+
+.awardTable td.textLeft {
+	text-align: left
+}
+
+input[type=text].awardName {
+	width: 40%;
+	margin: 10px 10px 10px 0
+}
+
+.awardListTit label {
+	margin-left: 10px;
+	line-height: 50px
+}
+
+.activityRule {
+	width: 500px
+}
+
+.ruleTime input,
+.ruleTime label {
+	display: inline;
+	width: auto
+}
+
+.ruleTime label {
+	padding-left: 0
+}
+
+.rules {
+	border: 1px solid #ccc;
+	overflow: hidden;
+	zoom: 1
+}
+
+.ruleAdd {
+	float: right;
+	width: 75px;
+	text-align: right
+}
+
+#entypo-demo span,
+#iconic-demo span {
+	line-height: 20px;
+	margin: 0
+}
+
+.ruleTit {
+	height: 40px;
+	padding-left: 5px;
+	line-height: 40px;
+	overflow: hidden;
+	zoom: 1
+}
+
+.ruleLeft {
+	float: left;
+	width: 100px;
+	margin-right: 20px;
+	text-align: left;
+	padding-left: 10px
+}
+
+.ruleCon {
+	margin: 0;
+	text-align: center
+}
+
+.ruleCon li {
+	height: 40px;
+	line-height: 40px;
+	background: #eee;
+	border-top: 1px solid #ccc;
+	overflow: hidden;
+	zoom: 1
+}
+
+.ruleReward {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: left
+}
+
+.ruleAddDay {
+	line-height: 30px
+}
+
+.redBag {
+	margin-top: 15px
+}
+
+.redBag input,
+.ruleAddDay input {
+	margin: 0 5px
+}
+
+.radioGroup {
+	margin-top: 10px;
+	overflow: hidden;
+	zoom: 1
+}
+
+.radioGroup label.radio {
+	float: left;
+	margin: 0
+}
+
+.gift {
+	display: none
+}
+
+.awardTit label {
+	height: 60px;
+	line-height: 60px
+}
+
+.margin020 {
+	margin: 0 20px
+}
+
+.pointer {
+	cursor: pointer
+}
+
+.lineheight25 {
+	line-height: 25px
+}
+
+.table td.awardPlayerImg {
+	padding: 10px 0;
+	text-align: right
+}
+
+.awardPlayerImg img {
+	width: 50px;
+	height: 50px
+}
+
+#awardDelivery .modal-body label {
+	float: left;
+	line-height: 30px
+}
+
+#awardDelivery .modal-body label.lineHeight60 {
+	line-height: 60px
+}
+
+.margint20 {
+	margin-top: 20px
+}
+
+#j_con_tipsPhoton {
+	margin-top: -25px;
+	position: absolute;
+	top: 1.5rem;
+	left: 2rem;
+	right: 2rem;
+	z-index: 999;
+	text-align: center;
+	width: 98%
+}
+
+.greyRedBag {
+	color: #ccc;
+	cursor: default
+}
+
+.margint3 {
+	margin-top: 3px
+}
+
+.margint5 {
+	margin-top: 5px
+}
+
+#Simple_Select_Box .controls,
+#subscription .controls {
+	width: 220px
+}
+
+.grayView {
+	color: #aaa
+}
+
+.dataTables_filter input[type=text] {
+	width: 220px;
+	margin-right: 5px
+}
+
+.panel-header button.activityAddBtn {
+	padding: 5px 7px
+}
+
+.activityAddBtn i {
+	line-height: 20px
+}
+
+.order .ui-dialog-mask {
+	z-index: 1000
+}
+
+.order .ui-dialog .ui-dialog-content {
+	clear: both
+}
+
+.jstree ins {
+	display: inline-block;
+	height: 18px;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	width: 18px
+}
+
+.order .page {
+	padding: 25px
+}
+
+.order .ui-dialog {
+	width: 500px
+}
+
+.order #tableSortableResMed_info {
+	display: none
+}
+
+.order .dataTables_filter input {
+	margin-right: 5px
+}
+
+.order #awardDelivery input[type=text],
+.order select {
+	margin: 0
+}
+
+.order .alert-block {
+	z-index: 9999
+}
+
+.order .cont-all {
+	z-index: auto
+}
+
+.order .xbreadcrumbs li {
+	min-width: inherit
+}
+
+.order .retracted.panel {
+	left: -280px
+}
+
+.order .panel {
+	width: 300px
+}
+
+.order .panel-content {
+	padding: 0 20px
+}
+
+.order .main-content {
+	left: 300px
+}
+
+.order .main-content.contentRetracted {
+	left: 20px
+}
+
+.order input.noEdit[readonly] {
+	cursor: auto;
+	background: #fff
+}
+
+.order .table th,
+.table td {
+	vertical-align: middle
+}
+
+.ui-dialog-mask {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	position: fixed;
+	left: 0;
+	top: 0;
+	filter: alpha(opacity=11);
+	-moz-opacity: .11;
+	opacity: .11;
+	z-index: 10000
+}
+
+.ui-dialog {
+	left: 50%;
+	top: 50%;
+	position: fixed;
+	z-index: 10002;
+	width: 100%;
+	margin-left: -150px;
+	margin-top: -73px;
+	border: 1px solid #b6b6b6;
+	color: #585858;
+	background: #f5f5f5
+}
+
+.ui-dialog .ui-dialog-head {
+	height: 28px;
+	line-height: 28px;
+	padding: 0 10px;
+	background: #FFF
+}
+
+.ui-dialog .ui-dialog-head p {
+	float: left
+}
+
+.ui-dialog .ui-dialog-head i {
+	float: right;
+	cursor: pointer
+}
+
+.ui-dialog .ui-dialog-head i:after {
+	content: "x"
+}
+
+.ui-dialog .ui-dialog-content {
+	padding-top: 20px;
+	text-align: center;
+	width: 100%;
+	height: 180px
+}
+
+.ui-dialog .ui-dialog-footer {
+	margin: 20px 0 30px
+}
+
+.ui-dialog .ui-dialog-footer input {
+	float: left;
+	margin: 5px 0
+}
+
+.ui-dialog .ui-dialog-footer .j_op {
+	width: 59px;
+	margin-right: 3px;
+	padding: 0;
+	background: #5fafe4;
+	color: #FFF;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer
+}
+
+.ui-dialog .ui-dialog-footer .j_op:nth-child(1) {
+	margin-left: 30%
+}
+
+.ui-dialog .ui-dialog-footer .j_op:nth-child(2) {
+	background: #f5f5f5;
+	border: 1px solid #d2d2d2;
+	color: #585858
+}
+
+.j_gdCls {
+	width: 110px;
+	height: 150px;
+	display: inline-block;
+	cursor: pointer
+}
+
+.j_gdCls dt img {
+	display: block;
+	width: 100px;
+	height: 100px
+}
+
+.j_gdCls dd {
+	text-align: center
+}
+
+.j_gdCls dd p {
+	line-height: 34px;
+	text-align: center
+}
+
+.circlePlus {
+	font-size: 45px;
+	line-height: 0;
+	cursor: pointer
+}
+
+#goodsAddEditLast {
+	width: 800px
+}
+
+#goodsAddEdit {
+	width: 600px
+}
+
+.j_goodAttrC {
+	margin-right: 20px
+}
+
+.j_goodAttrC .j_goodAttr_sigle {
+	position: relative;
+	width: 100%;
+	min-height: 130px;
+	border: 1px solid #eee;
+	float: left;
+	margin-right: 10px
+}
+
+.j_goodAttrC .j_goodAttr_sigle .close {
+	position: absolute;
+	font-size: 16px;
+	cursor: pointer;
+	z-index: 999;
+	right: 0
+}
+
+.j_goodAttrC .j_goodAttr_sigle .addAttr_add .sigleBox {
+	float: left;
+	margin-right: 10px;
+	width: 600px
+}
+
+.j_goodAttrC .j_goodAttr_sigle .addAttr_add .sigleBox .sigle {
+	position: relative;
+	width: 100px;
+	height: 120px;
+	border: 1px solid #eee;
+	float: left;
+	background: #fff;
+	margin-top: 5px;
+	margin-right: 10px
+}
+
+.j_goodAttrC .j_goodAttr_sigle .addAttr_add .sigleBox .sigle p {
+	height: 24px;
+	line-height: 24px;
+	text-align: center
+}
+
+.j_goodAttrC .j_goodAttr_sigle .addAttr_add .sigleBox .sigle .close {
+	position: absolute;
+	font-size: 14px;
+	cursor: pointer;
+	z-index: 999;
+	right: 0
+}
+
+.j_goodAttrC .j_goodAttr_sigle .addAttr_add .sigleBox .sigle .sigle_img {
+	width: 80px;
+	height: 80px;
+	margin-left: 10px;
+	border: 1px solid #eee
+}
+
+.j_goodAttrC .j_goodAttr_sigle .addAttr_add .sigleBox .sigle .sigle_img img {
+	display: block;
+	width: 80px;
+	height: 80px
+}
+
+.j_goodAttrC .j_goodAttr_sigle .addAttr_add .sigleBox .sigle .upFile {
+	display: block;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	top: 30px;
+	right: 10px;
+	background: #222;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	font-size: 23px;
+	direction: ltr;
+	cursor: pointer
+}
+
+.j_goodAttrC .j_goodAttr_sigle .addAttr_add .addAttrBtn {
+	float: right
+}
+
+.j_goodAttrC .j_goodAttr_sigle .addAttr_add .addAttrBtn button {
+	margin-top: 10px
+}
+
+.goodAttrAdd {
+	height: 60px;
+	line-height: 60px;
+	text-align: center
+}
+
+.goodStock .batchSet .batch_setting button {
+	height: 30px;
+	line-height: 20px
+}
+
+.goodStock .batchSet .batch_setting .batchBtn {
+	margin-left: 15%;
+	margin-right: 2%
+}
+
+.sorthead th {
+	min-width: 100px
+}

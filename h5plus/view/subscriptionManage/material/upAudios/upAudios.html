@@ -1,0 +1,26 @@
+<% include ../../../_g/header.html %>
+<title>音频素材</title>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>/<%= data['cat3'] %>.css<%= data['v'] %>">
+<script type="text/javascript">
+    $$r.path = '/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'soundList': $$r.path + 'ruixue.hfive.wechat.sound.list',
+                'soundDelete': $$r.path + 'ruixue.hfive.wechat.sound.delete',
+                'soundAdd': $$r.path + 'ruixue.hfive.wechat.sound.add',
+                'multimediaUpload': $$r.path + 'ruixue.hfive.core.filemanager.activity.multimedia.upload'
+            }
+        }
+    };
+</script>
+</head>
+<body class="<%= data['cat3'] %>">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>/<%= data['cat3'] %>.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

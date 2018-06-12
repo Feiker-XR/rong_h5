@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div id="j_p">
+    
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+    <!--html start-->
+    <div id="j_plat_state"></div>
+    <div class="page hide"  id="j_plat">
+        <div class="m-main label_content"  id="j_con_list"></div>
+    </div>
+    <!--html end-->
+    <script id="j_view_list" style="display:none" type="text/html">
+        <div class="panel panelSelf">
+            <div class="panel-content filler">
+                <div class="panel-logo"></div>
+                <div class="panel-header">
+                    <div class="activityTit">素材文件</div>
+                </div>
+                <div class="sidebarMenuHolder">
+                    <div class="JStree">
+                        <div id="jstree" class="jstree jstree-0 jstree-focused jstree-default">
+                            <ul data_id="imageTextMenuLeft">
+                                <li class="jstree-leaf" url="/subscriptionManage/material/imageText/imageTextList">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)" class="jstree-clicked">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>图文素材</span>
+                                    </a>
+                                </li>
+                                <li class="jstree-leaf" url="/subscriptionManage/material/upPic/upPic">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>图片素材</span>
+                                    </a>
+                                </li>
+                                <li class="jstree-leaf" url="/subscriptionManage/material/upAudios/upAudios">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>音频素材</span>
+                                    </a>
+                                </li>
+                                <li class="jstree-leaf" url="/subscriptionManage/material/video/video">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>视频素材</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-slider">
+                <div class="panel-slider-center">
+                    <div class="panel-slider-arrow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="overflow imageTextContent">
+            <div class="breadcrumb-container">
+                <ul class="xbreadcrumbs" data_id="navTop">
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="icon-photon home margint3"></i>
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="javascript:void(0);">素材文件</a>
+                    </li>
+                    <li class="current">
+                        <a href="javascript:void(0);">图文素材</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="imageTextListWrap">
+                <div class="imageTextListTit">
+                    <div class="fl"><a class="btn btn-info btnImageText" type="button" data_id="imageTextNew" href="imageTextCon{{=RKC.mainSuffix}}">创建图文</a></div>
+                    <div class="imageTextListSearch">
+                        <input placeholder="请输入图文名称" data_id="imageTextTit">
+                        <div class="searchImg" data_id="searchBtn"></div>
+                    </div>
+                </div>
+                <div data_id="imageTextList"></div>
+                <div class="dataTables_paginate paging_bootstrap pagination">
+                    <ul class="margin020" data_id="pageShow">
+                            <li class="prev"><a href="javascript:void(0);">«</a></li>
+                            <li class="next"><a href="javascript:void(0);">»</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="j_view_imageTextList" style="display:none" type="text/html">
+        {{
+            console.log(it);
+            var response=it.hfive_wechat_imagetext_list_response;
+            var total=response.total||'';
+            var pageLength=it.pageLength;
+            var page_size=total/pageLength;
+            if(total%pageLength!=0){
+                page_size=parseInt(page_size)+1;
+            }
+        }}
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="imageTextList" page_size="{{=page_size}}">
+        {{
+            var imageTextList=response.imagetexts.imagetext;
+            for(var i=0;i<imageTextList.length;i++){
+                var imageText=imageTextList[i];
+        }}
+            <tr id="{{=imageText.id}}">
+                <td width="60%">
+                    <div class="imageTextListImg"><img src="{{=imageText.image_url}}"></div>
+                    <ul class="imageTextListActivity" data_id="imageTextListActivityHover">
+                        {{ 
+                            var imageTextTitList=imageText.sub_titles.sub_title;
+                            for(var j=0;j<imageTextTitList.length;j++){
+                                var imageTextTit=imageTextTitList[j];
+                        }}
+                                <li subId="{{=imageTextTit.sub_id}}" class="imageTextLinks">
+                                    <span class="imageTextTitCon"><span>{{=imageTextTit.title}}</span></span>
+                                    <div class="imageTextLink">
+                                        <div><a href="{{=imageTextTit.modle_jump_url}}" target="_blank">图文浏览</a></div>
+                                        <div><a href="http://www.cubicube.net/h5/html/index.html?mts_project_id={{=imageTextTit.piwik_id}}" target="_blank">数据分析</a></div>
+                                        <span class="arrow1">
+                                            <span class="arrow2"></span>
+                                        </span>
+                                    </div>
+                                </li>
+                        {{  }; }}
+                    </ul>
+                </td>
+                <td width="22%">{{=imageText.create_time}}</td>
+                <td width="18%" class="imageTextOpr">
+                    <span data_id="imageTextEdit">编辑</span>
+                    <span data_id="imageTextDel">删除</span>
+                </td>
+            </tr>
+        {{};}}
+        </table>
+    </script>
+</div>
+<script type="text/javascript" src="../../../_g/pmsg.js"></script>
+</body>
+</html>

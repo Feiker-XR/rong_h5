@@ -1,0 +1,28 @@
+<% include ../../m/head.html %>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat2'] %>.css<%= data['v'] %>">
+<link rel="stylesheet" type="text/css" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/idangerous.swiper.css">
+<meta name="description" content="首页,微商城,h5plus" />
+<title>首页 - 微商城</title>
+<script type="text/javascript">
+    $$r.routers = {
+        "data": {
+            "link": {
+                "pageGet" : $$r.path + 'ruixue.hfive.weidian.page.get',
+            	"pageList" : $$r.path + 'ruixue.hfive.weidian.page.list'
+            },
+            "add": './details?action=add',
+            "edit": './details?action=edit'
+        }
+    };
+</script>
+</head>
+<body class="home <%= data['cat2'] %>">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<% include ../../m/js.html %>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/index.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

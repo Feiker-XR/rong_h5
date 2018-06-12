@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <![endif]-->
+    <title>购物车 - 微商城</title>
+    <meta name="description" content="购物车,微商城,h5plus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" type="image/ico" href="http://3gimg.qq.com/web/webapp_webmarket/android/images/favicon.ico" />
+
+    <link rel="stylesheet" href="index.css">
+    <style type="text/css">
+    #wrapper{ top:3.1em;bottom: 7rem;}
+    .cart .s1-thumb .price:before{ font-size:inherit; }
+    .cart{
+    	padding-top: 3.125rem;
+    	height: auto;
+    }
+    header{ height: auto; }
+
+    section.com.s1-thumb.cart{
+    	border-bottom: 1px solid #eee;
+    	position: relative;
+    	padding-left:2em;
+    }
+    section.cart p.intro{ white-space: normal; }
+    section.cart p.price{ font-size:14px; }
+    section.cart > i, .bottom-bar .sum i{
+	width: 1.3em;
+    height: 1.3em;
+    position: absolute;
+    border: 1px solid #f31434;
+	background: url(./sprite.png) -4.9rem -4rem #fff;
+	background-size: 9.4375rem auto;
+	border: 1px solid #f31434;
+    left: 1rem;
+    top: 45%;
+    border-radius: 60%;
+    margin: 0 1rem 0 0;
+    }
+    /*section.cart > i:hover,section.cart > i:active, .bottom-bar .sum i:hover{*/
+    section.cart > i.checked, .bottom-bar .sum i.checked{
+    background: url(./sprite.png) -5.66rem -4.6rem #f31434;
+    background-size: 11rem auto;
+    border-radius: 60%;
+    }
+    .bottom-bar .sum i{
+        background: transparent;
+    	top: .8rem;
+    }
+    section.cart .num{
+    	position: relative;
+	    width: 5em;
+	    height: 1.2em;
+	    text-align: center;
+	    display: inline-block;
+	    padding: .5rem;
+    }
+    section.cart .num > i{
+	    border: 1px solid #f41e34;
+	    width: 1.2em;
+	    height: 1.2em;
+	    line-height: 1.2em;
+	    position: absolute;
+	    left: .8rem;
+	    color: #f41e34;
+	    vertical-align: bottom;
+    }
+    section.cart .num > i:active{
+    	background:#f41e34;
+    	color: white;
+    }
+    section.cart .num > i:last-child{
+    	left: initial;
+    	right: .8rem;
+    }
+   	.bottom-bar{
+	position: fixed;
+    background: #1f1f1f;
+    color: white;
+    left: 0;
+    right: 0;
+    bottom: 4rem;
+    text-align: left;
+	}
+	.bottom-bar div{ padding: 1em; }
+	.bottom-bar .sum{
+	    position: relative;
+    	height: 1rem;
+    	width: 4.9rem;
+	}
+	.bottom-bar .sum:before{
+		content: '全选';
+	    position: absolute;
+	    left: 2.9rem;
+	}
+	.bottom-bar .pay{
+	position: absolute;
+    top: 0;
+    right: 0;
+    background: red;
+    min-width: 14em;
+    text-align: center;
+	}
+	.bottom-bar .pay:before{
+		content:'合计：￥';
+	}
+	.bottom-bar .pay:after{
+		content: '去结算 >';
+	    font-family: -webkit-body;
+	    font-weight: bold;
+	    margin-left: .5em;
+	}
+    section.cart .num span{}
+    </style>
+</head>
+<body class="home cart">
+
+	<header>
+		<div class="top-row">
+			<a href="javascript:window.history.go(-1);" title="返回"><img src="images/pic1.png"></a>
+			<div class="title">拼划算微商城</div>
+			<a href="javascript:;"><img src="images/pic2.png"></a>
+		</div>
+	</header>
+
+<div id="wrapper">
+	<div id="scroller">
+
+	<section class="com s1-thumb cart">
+		<i></i>
+		<img src="./fruits.jpg">
+		<aside>
+			<p class="title">烟台富士苹果</p>
+			<p class="price">7.9</p>
+			<p class="intro">中国四分之三的苹果从这里买中国四分之三的苹果从这里买</p>
+			<div class="num"><i>-</i> <span>1</span> <i>+</i></div>
+		</aside>
+	</section>
+
+	<section class="com s1-thumb cart">
+		<i></i>
+		<img src="./fruits.jpg">
+		<aside>
+			<p class="title">烟台富士苹果</p>
+			<p class="intro">中国四分之三的苹果从这里买</p>
+			<p class="price">7.9</p>
+			<div class="num"><i>-</i> <span>1</span> <i>+</i></div>
+		</aside>
+	</section>
+
+	<section class="com s1-thumb cart">
+		<i></i>
+		<img src="./fruits.jpg">
+		<aside>
+			<p class="title">烟台富士苹果</p>
+			<p class="intro">中国四分之三的苹果从这里买</p>
+			<p class="price">7.9</p>
+			<div class="num"><i>-</i> <span>1</span> <i>+</i></div>
+		</aside>
+	</section>
+
+	<section class="com s1-thumb cart">
+		<i></i>
+		<img src="./fruits.jpg">
+		<aside>
+			<p class="title">烟台富士苹果</p>
+			<p class="intro">中国四分之三的苹果从这里买</p>
+			<p class="price">7.9</p>
+			<div class="num"><i>-</i> <span>1</span> <i>+</i></div>
+		</aside>
+	</section>
+
+	<section class="com s1-thumb cart">
+		<i></i>
+		<img src="./fruits.jpg">
+		<aside>
+			<p class="title">烟台富士苹果</p>
+			<p class="intro">中国四分之三的苹果从这里买</p>
+			<p class="price">7.9</p>
+			<div class="num"><i>-</i> <span>1</span> <i>+</i></div>
+		</aside>
+	</section>
+
+	<section class="com s1-thumb cart">
+		<i></i>
+		<img src="./fruits.jpg">
+		<aside>
+			<p class="title">烟台富士苹果</p>
+			<p class="intro">中国四分之三的苹果从这里买</p>
+			<p class="price">7.9</p>
+			<div class="num"><i>-</i> <span>1</span> <i>+</i></div>
+		</aside>
+	</section>
+
+	</div>
+</div>
+	
+	<section class="bottom-bar">
+		<div class="sum"><i></i></div>
+		<div class="pay" onclick="window.location.href='orderFoot.html';">7.9</div>
+	</section>
+
+
+	<footer>
+		<ul>
+			<li onclick="window.location.href='index.html';">首页</li>
+			<li onclick="window.location.href='javascript:;';">组团购</li>
+			<li class="cur" onclick="window.location.href='cart.html';">购物车</li>
+			<li onclick="window.location.href='usercenter.html';">我的</li>
+		</ul>
+	</footer>
+
+	<script type="text/javascript" src="./script/dist/zepto.min.js"></script>
+	<script type="text/javascript" src="iscroll.js"></script>
+    <script type="text/javascript">
+		var isWeChat = /MicroMessenger/g.test(window.navigator.userAgent)
+		if(isWeChat) {
+			// document.querySelector('#wrapper').style.top = '3.25rem'
+			// document.querySelector('.top-row').style.display = 'none'
+		}
+
+		(function (doc, win) { 
+          var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              docEl.style.fontSize = 14 * (clientWidth / 320) + 'px';
+            };
+
+          if (!doc.addEventListener) return;
+          win.addEventListener(resizeEvt, recalc, false);
+          doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+
+		function loaded () {
+			// document.querySelector('.text').textContent = window.navigator.userAgent;
+			var myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
+
+			$('section.cart aside').on('click', function (e) {
+				var cur = e.target
+				if(/div|span|i/g.test(cur.tagName.toLowerCase())) return
+				window.location.href = './details_page.html'
+			})			
+
+			$('.bottom-bar .sum').on('touchstart', function (e) {
+				e.preventDefault()
+			})
+			$('section.cart > i, .bottom-bar .sum i').on('touchstart', function (e) {
+				var that = $(this)
+				that.toggleClass('checked')
+				if(that.parent().hasClass('sum')){
+					if(that.hasClass('checked')){
+						$('section.cart > i').addClass('checked')
+					}else{
+						$('section.cart > i').removeClass('checked')
+					}
+				}
+			})
+			
+			$('section.cart .num').on('click', function (e) {
+				var num_box = $(this).find('span'),
+					number = +num_box.text()
+				if(e.target.textContent==='-'){
+					if (number==1) return
+					number--
+				}else{
+					number++
+				}
+				num_box.text(number)
+			})
+		}
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		window.onload = loaded
+	</script>
+
+  </body>
+
+</html>

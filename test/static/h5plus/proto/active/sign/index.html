@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<style>
+		*{
+			list-style: none; margin: 0; padding: 0; font-family: "微软雅黑";
+		}
+		body,html{
+			width: 100%; height: 100%;
+		}
+		.wrap{
+			width: 100%; height: 100%; background: url(images/bg.png) no-repeat; background-size: 100% 100%;
+		}
+		.da{
+			width: 88%; height: 86%; background: #d6a770; position: absolute; left: 5%; top: 7%; border-radius: 30px; border: 1px solid #a67d48;
+		}
+		.da1{
+			width: 96%; height: 97%; background: #f5e3a9; position: absolute; left: 2%; top: 1.5%; border-radius: 30px; border: 1px solid #a67d48;
+		}
+		.headline{
+			width: 212px; height: 53px; background: url(images/headline.png) no-repeat; background-size: 100% 100%; position: absolute; left: 50%;
+			margin-left: -106px; top: -30px; 
+		}
+		.centent{
+			width: 90%; height: 55%; margin: 0 auto; overflow: auto;  margin-top: 30px; margin-bottom: 10px;
+		}
+		.centent .ping{
+			width: 90%; height: 21px; background: url(images/ping.png); background-size: 100% 100%; margin: -20px auto; z-index: 2; position: relative;
+		}
+		.centent .ping:nth-child(1){
+			margin: 0 auto; margin-top: 10px;
+		}
+		.centent .shuR{
+			width: 90%; height: 73px; background: url(images/shu.png) right center no-repeat; background-size: 21px 100%;margin: -20px auto;
+		}
+		.centent .shuL{
+			width: 90%; height: 73px; background: url(images/shu.png) left center no-repeat; background-size: 21px 100%;margin: -20px auto;
+		}
+		.centent .ping .qian{
+			width: 31px; height: 25px; background: url(images/weiqian.png); background-size: 100% 100%; position: absolute; left: -5%;
+		}
+		.centent .ping .qian.on{
+			background: url(images/yiqian.png); background-size: 100% 100%;
+		}
+		.centent .ping .qian.jiang{
+			width: 40px; height: 32px; background: url(images/baoxiang.png); background-size: 100% 100%; margin-left: -2%; margin-top: -5px;
+		}
+		.centent .ping .qian.jiang1{
+			width: 40px; height: 32px; background: url(images/yikai.png); background-size: 100% 100%; margin-left: -2%; margin-top: -5px;
+		}
+		.centent .ping .qian:nth-child(2){
+			left:11%;
+		}
+		.centent .ping .qian:nth-child(3){
+			left:27%;
+		}
+		.centent .ping .qian:nth-child(4){
+			left:43%;
+		}
+		.centent .ping .qian:nth-child(5){
+			left:59%;
+		}
+		.centent .ping .qian:nth-child(6){
+			left:75%;
+		}
+		.centent .ping .qian:nth-child(7){
+			left:91%;
+		}
+		.da .portrait{
+			position: fixed; width: 50px; height: 50px;left: 280px; top: 30px;
+		}
+		.da .portrait>div{
+			-webkit-animation:myfirst 1s infinite ; position: relative; background: #d9c87c; box-shadow: 0 0 5px #888; width: 50px; height: 50px;
+		}
+		.da .portrait img{
+			position: absolute; width: 44px; height: 44px; left: 50%; top: 50%; margin-left: -22px; margin-top: -22px;
+		}
+		.da .portrait .jiao{
+			width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid #d9c87c;
+			position: absolute; left: 50%; margin-left: -8px; bottom: -8px;
+		}
+		@-webkit-keyframes myfirst{
+			0%{
+				top: 0;
+			}
+			50%{
+				top:10px;
+			}
+			100%{
+				top: 0;
+			}
+		}
+		.da1 p{
+			color: #e95f27; width: 88%; margin: 0 auto;font-size: 14px; 
+		}
+		.da1 .award{
+			width: 90%; height: 22%; background: #f6d751; border: 1px solid #f7c753; margin: 0 auto; margin-top: 10px; border-radius: 10px; position: relative;
+		}
+		.da1 .award .awardL{
+			width: 25px; height: 100%; background: url(images/awardL.png) right center no-repeat; background-size: 25px 20px; position: absolute; left:2px;
+		}
+		.da1 .award .awardL.awardL1{
+			background: url(images/awardL1.png) right center no-repeat; background-size:25px 20px;
+		}
+		.da1 .award .awardR{
+			width: 25px; height: 100%; background: url(images/awardR.png) left center no-repeat; background-size: 25px 20px; position: absolute; right:2px;
+		}
+		.da1 .award .awardR.awardR1{
+			background: url(images/awardR1.png) right center no-repeat; background-size: 25px 20px;
+		}
+		.da1 .award .awardZ{
+			width: 75%; height: 100%; margin: 0 auto;overflow: hidden;
+		}
+		.da1 .award .awardC{
+			width: 100%; height: 100%; display: box; display:-webkit-box;
+		}
+		.awardC1{
+			height: 100%; -webkit-box-flex:1; padding-top: 2%;
+		}
+		.awardC1 img{
+			width: 50px; height: 43px; position: relative; left: 50%; margin-left: -25px;
+		}
+		.awardC1 .state{
+			width: 60px; height: 24px; background: url(images/state.png) no-repeat; background-size: 100% 100%; text-align: center; line-height: 20px;  font-size: 12px; font-weight: bold; color: #fff; position: relative; left: 50%; margin-left: -30px;
+		}
+		.awardC1 .state1{
+			width: 60px; height: 24px; background: url(images/state1.png) no-repeat; background-size: 100% 100%; text-align: center; line-height: 20px;  font-size: 12px; font-weight: bold; color: #fff; position: relative; left: 50%; margin-left: -30px;
+		}
+		.awardC1 .time{
+			width: 100%; font-size: 12px; color: #976325; text-align: center;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="da">
+			<div class="da1">
+				<div class="headline"></div>
+				<div class="centent">
+					<div class="ping">
+						<div class="qian on"></div>
+						<div class="qian on"></div>
+						<div class="qian on"></div>
+						<div class="qian jiang"></div>
+						<div class="qian on"></div>
+						<div class="qian on"></div>
+						<div class="qian on"></div>
+					</div>
+					<div class="shuR"></div>
+					<div class="ping">
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+					</div>
+					<div class="shuL"></div>
+					<div class="ping">
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+					</div>
+					<div class="shuR"></div>
+					<div class="ping">
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+					</div>
+					<div class="shuL"></div>
+					<div class="ping">
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+					</div>
+					<div class="shuR"></div>
+					<div class="ping">
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+					</div>
+					<div class="shuL"></div>
+					<div class="ping">
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+						<div class="qian"></div>
+					</div>
+				</div>
+				<p>您已连续“三天”签到，即将获得宝箱奖励，请继续努力！</p>
+				<div class="award">
+					<div class="awardL awardL1" id="awardL"></div>
+					<div class="awardR" id="awardR"></div>
+					<div class="awardZ">
+						<div class="awardC" id="awardCon">
+							<div class="awardC1">
+								<img src="images/yikai.png" alt="">
+								<div class="state">已开启</div>
+								<div class="time">2016-2-26<br>14:21</div>
+							</div>
+							<div class="awardC1">
+								<img src="images/baoxiang.png" alt="">
+								<div class="state1">还差7天</div>
+								<div class="time">2016-2-26<br>14:21</div>
+							</div>
+							<div class="awardC1">
+								<img src="images/baoxiang.png" alt="">
+								<div class="state1">还差8天</div>
+								<div class="time">2016-2-26<br>14:21</div>
+							</div>
+						</div>
+						<div class="awardC">
+							<div class="awardC1">
+								<img src="images/yikai.png" alt="">
+								<div class="state">已开启</div>
+								<div class="time">2016-2-26<br>14:21</div>
+							</div>
+							<div class="awardC1">
+								<img src="images/baoxiang.png" alt="">
+								<div class="state1">还差6天</div>
+								<div class="time">2016-2-26<br>14:21</div>
+							</div>
+							<div class="awardC1">
+								<img src="images/baoxiang.png" alt="">
+								<div class="state1">还差9天</div>
+								<div class="time">2016-2-26<br>14:21</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="portrait">
+				<div>
+					<div class="jiao"></div>
+					<img src="images/tou.png" alt="">
+				</div>
+		</div>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script>
+		$('#awardR').on('click',function(){
+			if(!$(this).hasClass('awardR1')){
+				$('#awardL').removeClass('awardL1');
+				$('#awardCon').hide();
+				$('#awardCon').attr('id','').next().attr('id','awardCon');
+				if($('#awardCon').index()==$('.awardC').size()-1){
+					$(this).addClass('awardR1');
+				}
+			}
+		})
+		$('#awardL').on('click',function(){
+			if(!$(this).hasClass('awardL1')){
+				$('#awardR').removeClass('awardR1');
+				$('#awardCon').prev().show();
+				$('#awardCon').attr('id','').prev().attr('id','awardCon');
+				if($('#awardCon').index()==0){
+					$(this).addClass('awardL1');
+				}
+			}
+		})
+
+		window.onload=window.onresize=function(){
+ document.documentElement.style.fontSize=document.documentElement.clientWidth/16+'px';
+};
+	</script>
+</body>
+</html>

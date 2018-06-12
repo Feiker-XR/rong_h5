@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<div id="j_p">
+
+    <!--html start-->
+    <div id="j_plat_state"></div>
+    <div class="page"  id="j_plat">
+        <div class="m-title" id="j_con_title"></div>
+        <div class="m-form2" id="j_con_form"></div>
+        <div class="m-main label_content" id="j_con_content"></div>
+    </div>
+    <!--html end-->
+
+    <script id="j_view_title" style="display:none" type="text/html">
+        <div class="label_title clearfix">
+            <div class="pull-left">
+                <ul class="nav nav-tabs"> 
+                  <li class="active">一般页面</li> 
+                  <li>特殊页面</a></li> 
+                  <li>模板设置</li> 
+                </ul> 
+            </div>
+            <div class="pull-right">
+                <a href="../selectTemp.html" class="fs-14 marig10">切换模板</a>
+                <button type="button" class="btn btn-primary btn-sm active" id="j_refresh"><i class="fa fa-refresh fa-lg"></i>&nbsp;&nbsp;刷&nbsp;新</button>
+            </div>
+        </div>
+    </script>
+
+    <script id="j_view_content_add" type="html" style="display:none" >
+        <h5 class="basicset" id="j_cont_title"><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;新建页面</h5>
+        
+        <div id="j_content">
+            <div class="phone detail">
+                <div class="phonetop"></div>
+                <div class="phonebody tipsui">
+                    <div class="phonenav posiTips" id="j_con_content_title" data-op="setName">
+                        <input type="hidden" name="page_name" id="j_page_name" value="" />
+                        <input type="hidden" name="order" id="j_order" value="" />
+                        <ul><li class="on" id="j_pageName" data-order="">未命名</li></ul>
+                    </div>
+                    <input type="hidden" name="listType" id="setType" value=0 />
+                    <div class="phonebodycont" id="j_con_content_listBody"></div>
+                    <div class="uiTip hide" id="j_con_content_uiTips">
+                        <div class="tipscontent" id="j_con_content_setNameTips" style="padding-top:20px;"></div>
+                        <span class="poptip-arrow ui-tip-left"><em>◆</em><i>◆</i></span>
+                    </div>
+                </div>
+                <div class="phonetip"></div>
+                <div class="phonebottom">
+                    <p>添加内容</p>
+                    <div class="phonemenu">
+                        <ul>
+                            <li id="j_goods" data-op="showGoods">商品</li>
+                            <li id="j_teams" data-op="showTeams">组团购</li>
+                            <li id="j_banner" data-op="showBanner">广告栏</li>
+                            <li id="j_texttitle" data-op="showTexttitle">文字标题</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 opreatbars navbar-fixed-bottom">
+            <button class="btn btn btn-infos btn-sm" data-op="submit">保存</button>
+            <button type="button" class="btn btn-default btn-sm" data-op="cancel">取消</button>
+        </div>
+    </script>
+
+    <script id="j_view_content_edit" type="html" style="display:none" >
+        <h5 class="basicset" id="j_cont_title"><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;编辑页面</h5>
+        
+        <div id="j_content">
+            <div class="phone detail">
+                <div class="phonetop"></div>
+                <div class="phonebody tipsui">
+                    {{
+                        var res = it.hfive_weidian_page_get_response,
+                            page_name = res.page_name,
+                            page_order = res.order,
+                            page_info = res.page_info;
+                    }}
+                    <div class="phonenav posiTips" id="j_con_content_title" data-op="setName">
+                        <input type="hidden" name="page_name" id="j_page_name" value={{=page_name}} />
+                        <input type="hidden" name="order" id="j_order" value={{=page_order}} />
+                        <ul><li class="on" id="j_pageName" data-order={{=page_order}}>{{=page_name}}</li></ul>
+                    </div>
+                    <input type="hidden" name="listType" id="setType" value=0 />
+                    <div class="phonebodycont" id="j_con_content_listBody">
+                        {{~page_info :item:index}}
+                            {{?item.type=="ads"}}
+                                <div class="banner removeDom j_mark" data-op="showBannerListTips" id="j_banner{{=index}}" data-idx="{{=index}}" data-save="{'type': 'ads','adlist':[{{ for (var i = 0; i < item.adlist.length; i++) { }}{{var aditem = item.adlist[i];}}{{?i==item.adlist.length-1}}{'id': {{=aditem.id}},'url': '{{=aditem.url}}','image': '{{=aditem.image}}'}{{??}}{'id': {{=aditem.id}},'url': '{{=aditem.url}}','image': '{{=aditem.image}}'},{{?}}{{ };}}]}">
+                                    <span class="close" data-op="removeList"><i class="fa fa-times-circle"></i></span>
+                                    <div class="banner_over">
+                                     <ul>
+                                        {{ for (var i = 0; i < item.adlist.length; i++) { }}
+                                        {{var aditem = item.adlist[i];}}
+                                            <li data-url={{=aditem.url}} data-rid={{=aditem.id}}><img src={{=aditem.image}} alt=""/></li>
+                                        {{ };}}
+                                    </ul>
+                                    </div>
+                                    <ol id="j_bannerOl">
+                                        {{ for (var i = 0; i < item.adlist.length; i++) { }}
+                                        {{var aditem = item.adlist[i];}}
+                                            <li></li>
+                                        {{ };}}
+                                    </ol>
+                                </div>
+                            {{?}}
+                            {{?item.type=="txt"}}
+                                <div class="removeDom titleList j_mark" id="j_texttitle{{=index}}" data-save="{'type': 'txt','style': 0,'name': '{{=item.name}}'}">
+                                    <span class="close" data-op="removeList"><i class="fa fa-times-circle"></i></span>
+                                    <div class="texttltle" id="j_titleName" data-op="showTexttitleListTips"  data-idx="{{=index}}">{{=item.name}}</div>
+                                </div>
+                            {{?}}
+                            {{?item.type=="group"}}
+                                <div class="showlist removeDom conmmonList j_mark" id="j_teams{{=index}}" data-save="{'type': 'group','id': {{=item.id}},'staff': '{{=item.staff}}','name': '{{=item.name}}','intro': '{{=item.intro}}','price': '{{=item.price}}','url': '{{=item.url}}','image': '{{=item.image}}'}">
+                                    <span class="close hide" data-op="removeList"><i class="fa fa-times-circle"></i></span>
+                                    <dl data-op="showTeamsListTips"  data-idx="{{=index}}">
+                                        <dt><img src={{=item.image}} alt={{=item.name}}/></dt>
+                                        <dd>
+                                            <h5 class="j_goods_name">{{=item.name}}</h5>
+                                            <p class="j_goods_intro">{{=item.intro}}</p>
+                                            <p class="price"><span>团购价&nbsp;￥<samp>{{=item.price}}</samp></span></p>
+                                            <div class="pull-right goteam">
+                                                {{if(item.staff == "undefined"){ }}
+                                                    <span class="pull-left text-center j_person">已有0人成团</span>
+                                                {{ } else{ }}
+                                                    <span class="pull-left text-center j_person">已有{{=item.staff}}人成团</span>
+                                                {{}}}
+                                                <a href="#">去开团&nbsp;&nbsp;<i class="fa fa-caret-right align-top icon-on-right"></i>
+                                                </a>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            {{?}}
+                            {{?item.type=="goods"}}
+                                {{?item.style==0}}
+                                    <div class="removeDom j_mark" id="j_goodDomds{{=index}}" data-save="{'type': 'goods','id': {{=item.id}},'style': 0,'salenum':'{{=item.salenum}}','name': '{{=item.name}}','intro': '{{=item.intro}}','price': '{{=item.price}}','price_old': '{{=item.price_old}}','url': '{{=item.url}}','image': '{{=item.image}}'}">
+                                    <div class="showlist conmmonList" data-style={{=item.style}}>
+                                            <span class="close hide" data-op="removeList"><i class="fa fa-times-circle"></i></span>
+                                            <dl data-op="showConmmonListTips" data-idx="{{=index}}">
+                                                <dt><img src={{=item.image}} alt={{=item.name}}/></dt>
+                                                <dd>
+                                                    <h5 class="j_goods_name">{{=item.name}}</h5>
+                                                    <p class="j_goods_intro">{{=item.intro}}</p>
+                                                    <p class="price"><span>￥<samp>{{=item.price}}</samp></span></p>
+                                                    <button type="button" class="btn btn-orange btn-xs">立即购买</button>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                {{?}}
+                                {{?item.style==1}}
+                                    <div class="removeDom j_mark" id="j_goodDomds{{=index}}" data-save="{'type': 'goods','id': {{=item.id}},'style': 1,'salenum':'{{=item.salenum}}', 'name': '{{=item.name}}','intro': '{{=item.intro}}','price': '{{=item.price}}','price_old': '{{=item.price_old}}','url': '{{=item.url}}','image': '{{=item.image}}'}">
+                                        <div class="showlist specialList" data-style={{=item.style}}>
+                                            <span class="close hide" data-op="removeList"><i class="fa fa-times-circle"></i></span>
+                                            <dl data-op="showConmmonListTips" data-idx="{{=index}}">
+                                                <dt>
+                                                    <img src={{=item.image}} alt={{=item.name}}/>
+                                                    <div class="listLayer">
+                                                        <span class="sthName j_goods_name">{{=item.name}}</span>
+                                                        <span class="sthCount">月销量：<samp>{{=item.salenum}}</samp></span>
+                                                    </div>
+                                                </dt>
+                                                <dd>
+                                                    <div class="part">
+                                                        <span class="price">￥<samp>{{=item.price}}</samp></span>
+                                                        <span class="oldPrice">￥{{=item.price_old}}</span>
+                                                        <button type="button" class="btn btn-orange btn-xs">立即购买</button>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                {{?}}
+                            {{?}}
+                        {{~}}
+                    </div>
+                    <div class="uiTip hide" id="j_con_content_uiTips">
+                        <div class="tipscontent" id="j_con_content_setNameTips" style="padding-top:20px;"></div>
+                        <span class="poptip-arrow ui-tip-left"><em>◆</em><i>◆</i></span>
+                    </div>
+                </div>
+                <div class="phonetip"></div>
+                <div class="phonebottom">
+                    <p>添加内容</p>
+                    <div class="phonemenu">
+                        <ul>
+                            <li id="j_goods" data-op="showGoods">商品</li>
+                            <li id="j_teams" data-op="showTeams">组团购</li>
+                            <li id="j_banner" data-op="showBanner">广告栏</li>
+                            <li id="j_texttitle" data-op="showTexttitle">文字标题</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 opreatbars navbar-fixed-bottom">
+            <button class="btn btn btn-infos btn-sm" data-op="submit">保存</button>
+            <button type="button" class="btn btn-default btn-sm" data-op="cancel">取消</button>
+        </div>
+    </script>
+
+    <script id="j_view_content_setNameTips" type="html" style="display:none" >
+        <form id="j_form_setName">
+            <div class="form-group col-xs-12 col-sm-12">
+                <label for="page_name" class="col-xs-12 col-sm-3 control-label gray">页面名称：</label>
+                <div class="col-xs-12 col-sm-8">
+                  <input type="text" class="form-control col-xs-12 col-sm-8" id="page_name" name="page_name" value="{{=it.page_name}}" placeholder="不超过4个字">
+                </div>
+            </div>
+            <div class="form-group col-xs-12 col-sm-12">
+                <label for="order" class="col-xs-12 col-sm-3 control-label gray">页面顺序：</label>
+                <div class="col-xs-12 col-sm-8">
+                  <input type="text" class="form-control col-xs-12 col-sm-8" id="order" name="order" value="{{=it.order}}" placeholder="0-99">
+                </div>
+            </div>
+            <div class="form-group col-xs-12 col-sm-12" style="height:50px;"></div>
+            <div class="col-xs-12 col-sm-12 opreatbar detail-tips">
+                <button type="button" class="btn btn btn-infos btn-sm" data-op="saveTips_title">确定</button>
+                <button type="button" class="btn btn-default btn-sm" data-op="cancleTips">取消</button>
+            </div>
+        </form>
+    </script>
+
+    <script id="j_view_content_j_goods" type="html" style="display:none" >
+        <div class="removeDom j_mark" id="j_goodDomds" data-save="{'type': 'goods','style': 0,'salenum':'X','name': '商品名称','intro': '商品简介','price': '价格','price_old': '原价','image': 'http://172.16.13.135:1000/h5plus/img/weMall/shelf/bg_default1.png'}"></div>
+    </script>
+
+    <script id="j_view_content_j_goods_0" type="html" style="display:none" >
+        <div class="showlist conmmonList" data-style={{=it.style}}>
+                <span class="close hide" data-op="removeList"><i class="fa fa-times-circle"></i></span>
+                <dl data-op="showConmmonListTips">
+                    <dt><img src={{=it.image}} alt={{=it.name}}/></dt>
+                    <dd>
+                        <h5 class="j_goods_name">{{=it.name}}</h5>
+                        <p class="j_goods_intro">{{=it.intro}}</p>
+                        <p class="price"><span>￥<samp>{{=it.price}}</samp></span></p>
+                        <button type="button" class="btn btn-orange btn-xs">立即购买</button>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </script>
+
+    <script id="j_view_content_j_goods_1" type="html" style="display:none" >
+        <div class="showlist specialList" data-style={{=it.style}}>
+            <span class="close hide" data-op="removeList"><i class="fa fa-times-circle"></i></span>
+            <dl data-op="showConmmonListTips">
+                <dt>
+                    <img src={{=it.image}} alt={{=it.name}}/>
+                    <div class="listLayer">
+                        <span class="sthName j_goods_name">{{=it.name}}</span>
+                        <span class="sthCount">月销量：<samp>{{=it.salenum}}</samp></span>
+                    </div>
+                </dt>
+                <dd>
+                    <div class="part">
+                        <span class="price">￥<samp>{{=it.price}}</samp></span>
+                        <span class="oldPrice">￥{{=it.price_old}}</span>
+                        <button type="button" class="btn btn-orange btn-xs">立即购买</button>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </script>
+
+    <script id="j_view_content_goodsTips" type="html" style="display:none" >
+        <div class="form-group col-xs-12 col-sm-12">
+            <label for="inputEmail3" class="col-xs-12 col-sm-3 control-label gray">选择商品：</label>
+            <div class="col-xs-12 col-sm-8" id="j_selgs" data-op="selShowRedioList" data-type="goods">
+              <div class="showsPic">
+                <img src="http://172.16.13.135:1000/h5plus/img/weMall/shelf/bg_showsPic.png" alt=""/>
+              </div>
+            </div>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12">
+            <label class="col-xs-12 col-sm-3 control-label gray">商品样式：</label>
+            <div class="col-xs-12 col-sm-8" id="j_formradio">
+                <label class="radio-inline" for="inlineRadio1">
+                  <input type="radio" name="setname" id="inlineRadio1" checked=true data-rid=0 value="一般陈列"> 一般陈列
+                </label>
+                <label class="radio-inline" for="inlineRadio2">
+                  <input type="radio" name="setname" id="inlineRadio2" data-rid=1 value="特殊陈列"> 特殊陈列
+                </label>
+            </div>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 hide" id="specailBg"> 
+            <label for="exampleInputFile" class="col-xs-12 col-sm-3 control-label gray">背景图片：</label>
+            <div class="col-xs-12 col-sm-8">
+                <div id="myId" class="j_maId"><img src="" alt=""/></div>
+                <input type="file" class="upFile" data_id="imgFile" />
+                <p class="imgsize">建议尺寸750x375</p>
+            </div>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12" style="height:50px;"></div>
+        <div class="col-xs-12 col-sm-12 opreatbar detail-tips">
+            <button type="button" class="btn btn btn-infos btn-sm" data-op="saveTips_goods">确定</button>
+            <button type="button" class="btn btn-default btn-sm" data-op="cancleTips">取消</button>
+        </div>
+    </script>
+
+    <script id="j_view_content_j_teams" type="html" style="display:none" >
+        <div class="showlist removeDom conmmonList j_mark" data-save="{'type': 'group','id': '','staff': 'X','name': '商品名称','intro': '商品简介','price': '价格','url': '','image': 'http://172.16.13.135:1000/h5plus/img/weMall/shelf/bg_default1.png'}">
+            <span class="close hide" data-op="removeList"><i class="fa fa-times-circle"></i></span>
+            <dl data-op="showTeamsListTips">
+                <dt><img src={{=it.image}} alt={{=it.name}}/></dt>
+                <dd>
+                    <h5 class="j_goods_name">{{=it.name}}</h5>
+                    <p class="j_goods_intro">{{=it.intro}}</p>
+                    <p class="price"><span>团购价&nbsp;￥<samp>{{=it.price}}</samp></span></p>
+                    <div class="pull-right goteam">
+                        <span class="pull-left text-center j_person">已有{{=it.staff}}人成团</span>
+                        <a href="#">去开团&nbsp;&nbsp;<i class="fa fa-caret-right align-top icon-on-right"></i>
+                        </a>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </script>
+
+    <script id="j_view_content_teamsTips" type="html" style="display:none" >
+        <div class="form-group col-xs-12 col-sm-12">
+            <input id="j_selts" name="" type="hidden"/>
+            <label for="inputEmail3" class="col-xs-12 col-sm-4 control-label gray">选择组团购：</label>
+            <div class="col-xs-12 col-sm-8" id="j_selgs" data-op="selShowRedioList" data-type="group">
+              <div class="showsPic">
+                <img src="http://172.16.13.135:1000/h5plus/img/weMall/shelf/bg_showsPic.png" alt=""/>
+              </div>
+            </div>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12" style="height:50px;"></div>
+        <div class="col-xs-12 col-sm-12 opreatbar detail-tips">
+            <button type="button" class="btn btn btn-infos btn-sm" data-op="saveTips_teams">确定</button>
+            <button type="button" class="btn btn-default btn-sm" data-op="cancleTips">取消</button>
+        </div>
+    </script>
+
+    <script id="j_view_content_j_banner" type="html" style="display:none" >
+        <div class="banner removeDom j_mark" data-op="showBannerListTips" data-save="{'type': 'ads','adlist': [{'id':'','url':'','image':'http://172.16.13.135:1000/h5plus/img/weMall/shelf/upload_icon2.png'}]}">
+            <span class="close" data-op="removeList"><i class="fa fa-times-circle"></i></span>
+            <div class="banner_over">
+                <ul></ul>
+            </div>
+            <ol id="j_bannerOl" class="">
+            </ol>
+        </div>
+    </script>
+
+    <script id="j_view_content_bannerTips" type="html" style="display:none" >
+        <div id="j_bannerTipsContent" class="addBanerContent">
+            
+        </div>
+        <div id="j_addBan" class="addBanermenu" data-op="addBanerMenu">
+            <i class="fa fa-plus"></i>添加菜单选项
+        </div>
+        <div class="form-group col-xs-12 col-sm-12" style="height:50px;"></div>
+        <div class="col-xs-12 col-sm-12 opreatbar detail-tips">
+            <button type="button" class="btn btn btn-infos btn-sm" data-op="saveTips_banners">确定</button>
+            <button type="button" class="btn btn-default btn-sm" data-op="cancleTips">取消</button>
+        </div>
+    </script>
+
+    <script id="j_view_content_bannerTips_edit" type="html" style="display:none" >
+        <div id="j_bannerTipsContent" class="addBanerContent">
+            {{~it.adlist :item:index}}
+                <div id="j_addBanerDom " class="addBanerDom removeDom" data-rid="{{=item.id}}" data-list="{'id': '{{=item.id}}','url': '{{=item.url}}','image': '{{=item.image}}'}">
+                    <span class="close hide" data-op="removeAddMemu"><i class="fa fa-times-circle"></i></span>
+                        <div class="form-group col-xs-12 col-sm-12"> 
+                            <label for="exampleInputFile" class="col-xs-12 col-sm-3 control-label">背景图片：</label>
+                            <div class="col-xs-12 col-sm-8">
+                                <div id="myIds{{=item.id}}" class="j_maId" data-url="{{=item.image}}"><img src="{{=item.image}}" alt=""/></div>
+                                <input type="file" class="upFile" data_id="imgFile" />
+                                <p class="imgsize">建议尺寸750x375</p>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-12"> 
+                            <form id="j_form_setUrl">
+                                <label for="exampleInputFile" class="col-xs-12 col-sm-3 control-label">设置链接：</label>
+                                 <div class="col-xs-12 col-sm-9">
+                                    <select id="j_selBanType" class="BanType pull-left form-control">
+                                      <option>商品</option>
+                                      <option>外链</option>
+                                    </select>
+                                   <div id="selShowsOpt" class="addBanerOpt pull-left">
+                                       <input id="j_selbs" name="" type="hidden"/>
+                                       <div id="selShowsOpt1" id="j_selgs" class="addBanerOpt_sel">
+                                            <div class="addBanerOpt1" data-op='bannerRedioList'>
+                                                <img src="http://172.16.13.135:1000/h5plus/img/weMall/shelf/bg_showsPic.png" alt=""/>
+                                            </div>
+                                            <input type="text" id="j_banner_sel_url" value="{{=item.url}}" readonly="readonly">
+                                       </div>
+                                       <div id="selShowsOpt2" class="addBanerOpt2 hide">
+                                            <input type="text" class="form-control" name="showLink" value="" placeholder="http://">
+                                       </div>
+                                    </div>
+                                </div>
+                            <form>
+                        </div>
+                </div>
+            {{~}}
+        </div>
+        <div id="j_addBan" class="addBanermenu" data-op="addBanerMenu">
+            <i class="fa fa-plus"></i>添加菜单选项
+        </div>
+        <div class="form-group col-xs-12 col-sm-12" style="height:50px;"></div>
+        <div class="col-xs-12 col-sm-12 opreatbar detail-tips">
+            <button type="button" class="btn btn btn-infos btn-sm" data-op="saveTips_banners">确定</button>
+            <button type="button" class="btn btn-default btn-sm" data-op="cancleTips">取消</button>
+        </div>
+    </script>
+
+    <script id="j_view_content_addBannerTips" type="html" style="display:none" >
+        <div id="j_addBanerDom " class="addBanerDom removeDom" data-list="{'id': '','url': '','image': ''}">
+            <span class="close hide" data-op="removeAddMemu"><i class="fa fa-times-circle"></i></span>
+                <div class="form-group col-xs-12 col-sm-12"> 
+                    <label for="exampleInputFile" class="col-xs-12 col-sm-3 control-label">背景图片：</label>
+                    <div class="col-xs-12 col-sm-8">
+                        <div id="myIds" class="j_maId"><img src="" alt=""/></div>
+                        <input type="file" class="upFile" data_id="imgFile" />
+                        <p class="imgsize">建议尺寸750x375</p>
+                    </div>
+                </div>
+                <div class="form-group col-xs-12 col-sm-12"> 
+                    <form id="j_form_setUrl">
+                        <label for="exampleInputFile" class="col-xs-12 col-sm-3 control-label">设置链接：</label>
+                         <div class="col-xs-12 col-sm-9">
+                            <select id="j_selBanType" class="BanType pull-left form-control">
+                              <option>商品</option>
+                              <option>外链</option>
+                            </select>
+                           <div id="selShowsOpt" class="addBanerOpt pull-left">
+                               <input id="j_selbs" name="" type="hidden"/>
+                               <div id="selShowsOpt1" id="j_selgs" class="addBanerOpt_sel">
+                                    <div class="addBanerOpt1" data-op='bannerRedioList'>
+                                        <img src="http://172.16.13.135:1000/h5plus/img/weMall/shelf/bg_showsPic.png" alt=""/>
+                                    </div>
+                                    <input type="text" id="j_banner_sel_url" value="" readonly="readonly">
+                               </div>
+                               <div id="selShowsOpt2" class="addBanerOpt2 hide">
+                                    <input type="text" class="form-control" name="showLink" placeholder="http://">
+                               </div>
+                            </div>
+                        </div>
+                        <form>
+                </div>
+        </div>
+    </script>
+
+    <script id="j_view_content_j_texttitle" type="html" style="display:none" >
+       <div class="removeDom titleList j_mark" data-save="{'type': 'txt','style': 0,'name': ''}">
+           <span class="close" data-op="removeList"><i class="fa fa-times-circle"></i></span>
+           <div class="texttltle" id="j_titleName" data-op="showTexttitleListTips">{{=it.name}}</div>
+       </div>
+    </script>
+
+    <script id="j_view_content_texttitleTips" type="html" style="display:none" >
+        <form id="j_form_setTitle">
+            <div class="form-group col-xs-12 col-sm-12">
+                <label for="titleName" class="col-xs-12 col-sm-3 control-label gray">文字标题：</label>
+                <div class="col-xs-12 col-sm-8">
+                  <input type="text" class="form-control col-xs-12 col-sm-8" id="titleName" name="name" value="{{=it.name}}" placeholder="不超过10个字">
+                </div>
+            </div>
+        </form>
+        <div class="form-group col-xs-12 col-sm-12" style="height:50px;"></div>
+        <div class="col-xs-12 col-sm-12 opreatbar detail-tips">
+            <button type="button" class="btn btn btn-infos btn-sm" id="saveTips_text">确定</button>
+            <button type="button" class="btn btn-default btn-sm" data-op="cancleTips">取消</button>
+        </div>
+    </script>
+
+</div>
+
+<script type="text/javascript" src="../../../_g/pmsg.js"></script>
+
+</body>
+</html>

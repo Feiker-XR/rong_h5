@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="renderer" content="webkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="shortcut icon" href="http://test.h5plus.net/static/comlibjs/v3/favicon.ico" />
+        <link rel="apple-touch-icon" href="http://test.h5plus.net/static/comlibjs/v3/favicon.png" />
+        <link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/v3/css/css/index.css" media="all" />
+        <link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/third/areaselector/cityLayout.css" type="text/css" />
+        <link rel="stylesheet" href="http://test.h5plus.net/static/h5plus/css/animate/portal.anim.css?v=20151221">
+        <script type="text/javascript">
+        var $$r = { rootUrl : 'http://test.h5plus.net/static' }
+        $$r.origin = window.location.origin
+        $$r.test = 'http://test.h5plus.net'
+        $$r.online = 'http://h5plus.net'
+        $$r.isServ = /http:\/\/(|test.)h5plus.net/.test($$r.origin)
+        $$r.localStamp = $$r.isServ?'&t='+(+new Date):''
+        $$r.hosts = $$r.isServ?$$r.origin+'/pc':$$r.origin
+        </script>
+        <script type="text/javascript" src="http://test.h5plus.net/static/comlibjs/lib/seajq.js?v=20151221"></script>
+        <script type="text/javascript" src="http://test.h5plus.net/static/h5plus/js/_g/base.js?v=20151221"></script>
+
+    <title>登录 - H5PLUS企业后台管理</title>
+    <script type="text/javascript" src="http://test.h5plus.net/static/h5plus/js/common/index.js?v=20151221" id="j_portal"></script>
+    <script type="text/javascript">
+        $$r.pathLogin = $$r.test + '/auth-portal/login/portal'
+        $$r.pathLogout = $$r.test + '/auth-portal/logout'
+        $$r.pathUserInfo = $$r.test + '/auth-portal/userinfo'
+        $$r.path = '/auth-portal/api/?method='
+        $$r.routers = {
+            "data": {
+                "link": {
+                    // 'sideNav': $$r.path + 'ruixue.hfive.portal.menu.tree',
+                    'verifyCode': $$r.test + $$r.path + 'ruixue.hfive.portal.verifycode.create',
+                    'tel': $$r.test + $$r.path + 'ruixue.hfive.portal.message.send',
+                    'verifyCheck': $$r.test + $$r.path + 'ruixue.hfive.portal.verifycode.check',
+                    'confirmRegist': $$r.test + $$r.path + 'ruixue.hfive.portal.company.register',
+                    'resetPwd': $$r.test + $$r.path + 'ruixue.hfive.portal.password.reset'
+                }
+            }
+        };
+      window.onload=window.onresize=function(){
+        document.documentElement.style.fontSize=document.documentElement.clientWidth/16+'px';    
+      };
+    </script>
+</head>
+    <body class="Photon body-login" style="overflow-y:hidden;">
+
+        <div class="cont-all" id="j_p">
+            <p class="loading"></p>
+        </div>
+
+        <script type="text/javascript" src="http://test.h5plus.net/static/comlibjs/v3/js/login.js"></script>
+    </body>
+</html>

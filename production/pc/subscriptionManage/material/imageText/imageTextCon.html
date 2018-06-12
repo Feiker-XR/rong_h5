@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="shortcut icon" href="http://h5plus.net/static/comlibjs/v3/favicon.ico" />
+        <link rel="apple-touch-icon" href="http://h5plus.net/static/comlibjs/v3/favicon.png" />
+        <link rel="stylesheet" href="http://h5plus.net/static/comlibjs/v3/css/css/index.css" media="all" />
+        <script type="text/javascript">
+		var $$r = { rootUrl : 'http://h5plus.net/static' }
+        $$r.origin = window.location.origin
+        $$r.test = 'http://h5plus.net'
+        $$r.online = 'http://h5plus.net'
+        $$r.isServ = /http:\/\/(|test.)h5plus.net/.test($$r.origin)
+        $$r.localStamp = $$r.isServ?'&t='+(+new Date):''
+        $$r.hosts = $$r.isServ?$$r.origin+'/pc':$$r.origin
+		</script>
+        <script type="text/javascript" src="http://h5plus.net/static/comlibjs/lib/seajq.js?v=20151221"></script>
+        <script type="text/javascript" src="http://h5plus.net/static/h5plus/js/_g/base.js?v=20151221"></script>
+
+<title>图文</title>
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/subscriptionManage/material/imageText/imageTextCon.css?v=20151221">
+<script type="text/javascript">
+    $$r.path = '/auth-portal/api/?method='
+    $$r.pathImg = '/auth-portal/api/upload?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'imageTextMenu': $$r.path + 'ruixue.hfive.wechat.imagetext.query',
+                'imageLibAdd': $$r.path + 'ruixue.hfive.wechat.image.add',
+                'imgUpload': $$r.pathImg + 'ruixue.hfive.core.filemanager.activity.picture.upload',
+                'imgTextSave': $$r.path + 'ruixue.hfive.wechat.imagetext.save'
+            }
+        }
+    };
+</script>
+</head>
+<body class="imageText">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+<script type="text/javascript" src="http://h5plus.net/static/comlibjs/third/ueditor1_4_3_2-src/ueditor.config.js"></script>
+<script type="text/javascript" src="http://h5plus.net/static/comlibjs/third/ueditor1_4_3_2-src/ueditor.all.js"></script>
+<script type="text/javascript" src="http://h5plus.net/static/comlibjs/third/ueditor1_4_3_2-src/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="http://h5plus.net/static/h5plus/js/subscriptionManage/material/imageText/imageTextCon.js?v=20151221" id="j_js"></script>
+</body>
+</html>

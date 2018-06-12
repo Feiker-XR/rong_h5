@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<div id="j_p">
+
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+	<!--html start-->
+	<div id="j_plat_state"></div>
+	<div class="page"  id="j_plat">
+	    <div class="m-main label_content"  id="j_con_table" style="margin-bottom:-10px;"></div>
+	    <div class="ui-paging" id="j_con_page"></div>
+
+	    <input type="hidden" name="page" id="setPage" value="1">
+	</div>
+	<!--html end-->
+
+	<script id="j_view_table" type="html" style="display:none" >
+		<div class="container_label">
+		    <div class="label_title clearfix">
+		        <p class="text-center" style="font-size:18px;font-weight: bold;">选择模板</p>
+		    </div>
+		</div>
+		<div class="breadcrumbs" id="breadcrumbs">
+			<ul class="breadcrumb">
+				<li><a href="#">所有模板</a></li>
+				<li class="active">电商模板</li>
+			</ul>
+		</div>
+		{{
+		    var res = it.hfive_weidian_template_list_response,
+		    selTemp_list = res.list;
+		}}
+		<div class="row">
+		 	{{ for (var i = 0; i < selTemp_list.length; i++) { }}
+		 	{{var item = selTemp_list[i];}}
+				<div class="modal_minw j_group col-xs-1 col-md-1 col-sm-1" style="margin-bottom:15px;">
+					<div class="modelinit">
+			 		 	<div class="a" data-op="selTemp" data-id="{{=item.id}}">
+			 				<dl>
+			 					<dd>
+			 						<img src="{{=item.picture}}" alt="{{=item.name}}">
+			 					</dd>
+			 					<dt>{{=item.name}}</dt>
+			 				</dl>
+			 			</div>
+					</div>
+				</div>
+		 	{{ };}}
+		</div>
+	</script>
+
+	<script id="j_con_page" type="text/javascript">
+	</script>
+
+</div>
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>
+
+</body>
+</html>

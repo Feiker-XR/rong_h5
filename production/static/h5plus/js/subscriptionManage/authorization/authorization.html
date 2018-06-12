@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div id="j_p">
+    
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+    <!--html start-->
+    <div id="j_plat_state"></div>
+    <div class="page hide"  id="j_plat">
+        <div class="m-main label_content"  id="j_con_list"></div>
+    </div>
+    <!--html end-->
+    <script id="j_view_list" style="display:none" type="text/html">
+        <div class="main-content authorizationCon">
+            <div class="breadcrumb-container">
+                <ul class="xbreadcrumbs" data_id="navTop">
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="icon-photon home margint3"></i>
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="javascript:void(0);">公众号管理</a>
+                    </li>
+                    <li class="current">
+                        <a href="javascript:void(0);">微信公众号列表</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="authorizationLists" data_id="authorizationLists">
+                    <li class="authorizationAdd" data_id="authorizationAdd">
+                        <a href="http://h5plus.net/auth-portal/module/redirect?module_name=wechatauth" target="_black">
+                            <span class="authorizationAddIconWrap">
+                                <span class="authorizationAddIcon">+</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        //启用公众号提示框
+        <div id="modal-dialog" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>提示</h3>
+            </div>
+            <div class="modal-body">
+                <div>新的公众号启用后，各业务系统将随之进行切换。</div>
+                <div>是否确定切换公众号？</div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-primary">确定</a>
+                <a href="javascript:;" class="btn" data-dismiss="modal">取消</a>
+            </div>
+        </div>
+    </script>
+    <script id="j_view_authorizationList" style="display:none" type="text/html">
+        {{console.log(it);}}
+        {{var wechatpub=it.hfive_wechat_pub_list_response.wechatpubs.wechatpub;}}
+        {{for(var i=0;i<wechatpub.length;i++){}}
+            {{
+                var item=wechatpub[i];
+                var pub_state=item.pub_state||'';
+                var classMask,classAuthorizationTip,classStatus;
+                if(pub_state=='已启用'){
+                    classStatus='authorizationUsed';
+                    classMask='displayNone';
+                    authorizationTip='displayNone';
+                }else if(pub_state=='未启用'){
+                    classStatus='authorizationStop';
+                    classMask='authorizationMask';
+                    authorizationTip='authorizationTip';
+                };
+            }}
+            <li id="{{=item.id}}">
+                <a href="javascript:void(0);">
+                    <div class="authorizationImg"><img src="{{=item.header_url||''}}"></div>
+                    <div class="paddingL20">{{=item.name||''}}</div>
+                    <div class="paddingL20">{{=item.service_type_info||''}}</div>
+                    <div class="paddingL20">授权时间：{{=item.create_time||''}}</div>
+                    <div class="authorizationStatus {{=classStatus}}"></div>
+                    <div class="{{=classMask}}"></div>
+                    <div class="{{=authorizationTip}}" data_id="authorizationStatus"  data-toggle="modal"  data-target="#modal-dialog" weixin_id="{{=item.weixin_id}}">启用公众号</div>
+                </a>
+            </li>
+        {{};}}
+    </script>
+</div>
+<script type="text/javascript" src="../../_g/pmsg.js"></script>
+</body>
+</html>

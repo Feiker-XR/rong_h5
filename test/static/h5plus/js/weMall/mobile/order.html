@@ -1,0 +1,70 @@
+<div id="j_p">
+
+
+	<!-- <header></header> -->
+	<div id="cont"></div>
+	<footer></footer>
+
+
+
+	<script id="j_header" type="text/html">
+		<div class="top-row">
+			<a href="javascript:window.history.go(-1);" title="返回"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic1.png"></a>
+			<div class="title">订单页</div>
+			<a href="javascript:location.reload();"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic2.png"></a>
+		</div>
+	</script>
+
+	<script id="j_cont" type="text/html">
+		{{~it.orders:item:index}}
+		<div orderno="{{=item.order_no}}" orderid="{{=item.order_id}}" storeid="{{=item.store_id}}" uid="{{=item.uid}}" data-op="" class="cont_wrap">
+			<div class="timer_box">
+				{{=new Date(item.add_time*1000).Format("yyyy-MM-dd hh:mm:ss")}}
+			</div>
+
+			<div class="swiper-container thumbs-cotnainer">
+				<div class="swiper-wrapper">
+					{{~item.product_list:pl:i}}
+						<div class="swiper-slide">
+							<img id="{{=pl.product_id}}" src="{{=pl.image}}" height="150" width="150" alt="{{=pl.name}}">
+						</div>
+					{{~}}
+				</div>
+			</div>
+			<div class="state_box">
+				<div class="state_box_left">
+				{{var status_arr = ["已提交","已支付","已发货","已签收"];}}
+					<ul class="clearfix">
+						{{for(var j=0;j<4;j++){}}
+							<li {{?j+1<=item.status}}class="size_red"{{?}}>
+								<span><img  {{?j===1}}class="minwidth"{{?}} src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic{{=5+j}}.png"/></span>
+								{{=status_arr[j]}}
+							</li>
+							{{?j<3}}<i></i>{{?}}
+						{{}}}
+					</ul>
+				</div>
+				<div class="state_box_right">
+					<span>￥{{=item.total}}</span>
+					<h1>去付款</h1>
+				</div>
+			</div>
+		</div>
+		{{~}}
+	</script>
+
+
+	<script id="j_footer" type="text/html">
+		<ul>
+			<li data-op="home">首页</li>
+			<li data-op="group">组团购</li>
+			<li data-op="cart" class="cur">购物车</li>
+			<li data-op="uc">我的</li>
+		</ul>
+	</script>
+
+<!-- <script type="text/javascript" src="script/idangerous.swiper.min.js"></script> -->
+<!-- <script src="script/idangerous.swiper.3dflow-2.0.js"></script> -->
+<!-- <script src="script/appstore.js"></script> -->
+</div>
+<script type="text/javascript" src="../../_g/pmsg.js"></script>

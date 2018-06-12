@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>收货地址</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="css/goods_site.css">
+    <link rel="stylesheet" type="text/css" href="script/dist/mobile-select-area.css">
+    <link rel="stylesheet" type="text/css" href="script/dist/dialog.min.css">
+    <style>
+    	body,html{
+    		overflow: hidden;
+    	}
+    </style>
+    <script type="text/javascript" src="script/accommodate.js"></script>
+    <script type="text/javascript" src="script/dist/zepto.js"></script>
+    <script type="text/javascript" src="script/dist/dialog.js"></script>
+    <script type="text/javascript" src="script/dist/mobile-select-area.js"></script>
+</head>
+<body>
+	
+	<header>
+		<span class="header_left" onclick="window.history.go(-1);"><img src="images/pic1.png"></span>
+		品划算微商城
+		<span class="header_right"><img src="images/pic2.png"></span>
+	</header>
+	
+	<div class="goods_site clearfix">
+		<h1>收货人：</h1>
+		<input value="333333" type="text" />
+	</div>
+	<div class="goods_site text_indent_one clearfix">
+		<h1>手机号码：</h1>
+		<input value="" type="tel" />
+	</div>
+	<div class="goods_site text_indent_one clearfix">
+		<h1>所在地区：</h1>
+		<!--<input value="" type="text" />-->
+		<input type="text" id="txt_area" value=""/>
+        <input type="hidden" id="hd_area" value="1,1,1"/>
+        <script>
+        	var selectArea = new MobileSelectArea();
+        	selectArea.init({trigger:$('#txt_area'),data:'script/dist/data.json'});
+        </script>
+	</div>
+	<div class="goods_site text_indent_one clearfix">
+		<h1>所在地址：</h1>
+		<input value="" type="text" />
+	</div>
+	<div class="goods_site text_indent_two clearfix">
+		<h1>邮编：</h1>
+		<input value="" type="tel" />
+	</div>
+	<div class="save">保存</div>
+	
+	<div class="alert_error">错误提示</div>
+
+</body>
+</html>

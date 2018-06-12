@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div id="j_p">
+    
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+    <!--html start-->
+    <div id="j_plat_state"></div>
+    <div class="page hide"  id="j_plat">
+        <div class="m-main label_content"  id="j_con_list"></div>
+    </div>
+    <!--html end-->
+    <script id="j_view_list" style="display:none" type="text/html">
+        <div class="paddingB80 overflowX">
+            <div class="imageTextCon">
+                <div class="imageTextConTit"><span class="fanhui"><返回</span id="mingcheng">活动名称<span class="dian">...</span></div>
+                <div class="positionRelative">
+                    <div class="left" id="wrapper">
+                        <div id="scroller">
+                            <div class="moni"></div>
+                        </div>
+                    </div>
+                    <div class="right"> 
+                       <div class="titleH">
+                            <h1>活动设置</h1>
+                            <div class="ruleName">
+                                <label>活动名称：&nbsp;&nbsp;&nbsp;</label>
+                                <input type="text" id="staff_number" class="span3 noEdit">
+                            </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+            <div class="saveBtns">
+                <button class="btn btn-info btnImageText" type="button" data_id="save">保存</button>
+                <a class="btn btn-info btnImageText" type="button" href="../helanrn{{=RKC.mainSuffix}}">返回列表</a>
+            </div>
+        </div>
+        <!-- 选择商品 -->
+        <div id="dig-select-wood-chair" style="" class="dig-select-wood-stpe hide">
+            <div class="choose-title modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding-right: 5px;" id="quxiao1">×</button>
+                <div style="float:left;text-align: left;width: 49%;">
+                    <h4><span bnt-type="albuncancel" style="display: inline-block;">选择商品</span></h4>
+                </div>
+                <div style="float:right;text-align:right;width: 50%;margin-top: -45px;margin-right:5px;"><span bnt-type="albunok"><input style="display: inline-block;height: 30px;margin-top: 66px;width: 212px;display:none;position: absolute;margin-left: -213px;" type="text" placeholder="品牌    商品名称" id="good-name-input"></span>
+                </div>
+            </div>
+            <div>
+                <div style="height: 58px">
+                    <div style="float: left;margin-top: 21px;margin-left: 10px;margin-right: 10px;">品牌:</div>
+                    <div style="margin-top: 15px;">
+                        <select style="" class="brandopt">
+                        
+                        <option data-id="1">不限</option>
+                    </select>
+                    </div>
+                </div>
+                <div>
+                    <div style="margin:0px 10px;height: 276px;overflow: hidden;overflow-y: auto;">
+                        <table class="table table-striped" style="border:1px solid #CCCCCC;">
+                            <thead class="">
+                                <tr>
+                                    <th style="min-width:45px;">序号</th>
+                                    <th>商品名称</th>
+                                    <th style="min-width:50px;">品牌</th>
+                                </tr>
+                            </thead>
+                            <tbody class="moodtable" id="moodtable">
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="albun-bnt" style="clear: both; padding-top: 26px;">
+                <div style="float: left;text-align: center;width: 50%;margin-bottom: 15px;"><span role="button" style="float:right;margin-right:10px" class="btn activityAddBtn" data-toggle="modal" bnt-type="cancel" id="quxiao">取消</span></div>
+                <div style="float: right;text-align: center;width: 50%;margin-bottom: 15px;"><span role="button" style="float:left;margin-left:10px" class="btn activityAddBtn" data-toggle="modal" bnt-type="ok" id="queding">确定</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- 选择商品 -->
+    </script>
+    <script id="j_view_ImageTextMenu" style="display:none" type="text/html">
+        {{
+        console.log(it);
+        var imageTextMenus=it.hfive_wechat_imagetext_query_response.imagetexts.imagetext;
+        if(imageTextMenus.length==0){
+        }}
+            <li class="liActive">
+                <a href="javascript:void(0);">
+                    <img src="{{=it.defaultImgMainUrl}}" data_id="imageTextMain">
+                    <div class="imgeTextMainTit"><span></span></div>
+                </a>
+            </li>
+        {{
+        }else if(imageTextMenus.length==1){
+        }}
+            <li class="liActive" id="{{=imageTextMenus[0].id||''}}">
+                <a href="javascript:void(0);">
+                    <img src="{{=imageTextMenus[0].image_url||it.defaultImgMainUrl}}" data_id="imageTextMain">
+                    <div class="imgeTextMainTit"><span>{{=imageTextMenus[0].title||''}}</span></div>
+                </a>
+            </li>
+        {{
+        }else{
+        }}
+            <li class="liActive" id="{{=imageTextMenus[0].id||''}}">
+                <a href="javascript:void(0);">
+                    <img src="{{=imageTextMenus[0].image_url||it.defaultImgMainUrl}}" data_id="imageTextMain">
+                    <div class="imgeTextMainTit"><span>{{=imageTextMenus[0].title||''}}</span></div>
+                    <div class="imageTextSubMask"></div>
+                    <div class="imageTextSubMaskCon">
+                        <span class="imageTextDown"></span>
+                    </div>
+                </a>
+            </li>
+        {{
+            for(var i=1;i<imageTextMenus.length-1;i++){
+                var imageTextMenu=imageTextMenus[i];
+        }}
+                <li id="{{=imageTextMenu.id||''}}">
+                    <a href="javascript:void(0);">
+                        <div class="paddingLeftLi">
+                            <div class="imgSub"><img src="{{=imageTextMenu.image_url||it.defaultImgSubUrl}}" data_id="imageTextSub"></div>
+                            <div class="imageTextSubTit">{{=imageTextMenu.title||''}}</div>
+                        </div>
+                        <div class="imageTextSubMask"></div>
+                        <div class="imageTextSubMaskCon">
+                            <span class="imageTextUp"></span>
+                            <span class="imageTextDown"></span>
+                            <span class="imageTextDel"></span>
+                        </div>
+                    </a>
+                </li>
+            {{};}}
+                <li id="{{=imageTextMenus[imageTextMenus.length-1].id||''}}">
+                    <a href="javascript:void(0);">
+                        <div class="paddingLeftLi">
+                            <div class="imgSub"><img src="{{=imageTextMenus[imageTextMenus.length-1].image_url||it.defaultImgSubUrl}}" data_id="imageTextSub"></div>
+                            <div class="imageTextSubTit">{{=imageTextMenus[imageTextMenus.length-1].title||''}}</div>
+                        </div>
+                        <div class="imageTextSubMask"></div>
+                        <div class="imageTextSubMaskCon">
+                            <span class="imageTextUp"></span>
+                            <span class="imageTextDel"></span>
+                        </div>
+                    </a>
+                </li>
+        {{};}}          
+    </script>
+</div>
+<script type="text/javascript" src="../../../_g/pmsg.js"></script>
+</body>
+</html>

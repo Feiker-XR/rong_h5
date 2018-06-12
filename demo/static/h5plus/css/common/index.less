@@ -1,0 +1,60 @@
+@import "../style.less";
+@import "../../../comlibjs/third/ztree/zTreeStyleHome.css?v=20151221";
+
+
+.page_index{
+	#j_tab{width: 10000px;}
+	#mTab_home{}
+	.l_tab ul{
+   		float: left;
+	}
+	.l_tab ul li{
+	   	float: left;
+	   	height: 26px;
+		line-height: 26px;
+		padding-left: 2px;
+		margin: 3px 1px 0 0 ;
+	    /*.border1(1px);
+	    .border-radius2(3px);
+	    background:#d6e7fc;*/
+	    position: relative;
+	    padding-right: 16px;
+	    color: #313542;
+	    word-break:keep-all;          
+		white-space:nowrap;    
+		
+	    b{
+	    	right: 0;
+			top: 12px;
+			
+			cursor:pointer;
+			background:url("../../img/g/reload.png@{v}") no-repeat;
+			width: 16px;
+			height: 16px; 
+			position: absolute;
+			display: block;
+	    }
+	    i{
+	    	float: left;
+	    	overflow: hidden;
+	    }
+	    
+	}
+	.l_tab ul .selected{
+	    /*background:#f5f9fe;*/
+	    background:#2862C9;
+	    color: #ffffff;
+	}
+	.l_tab ul li span{
+		right: 0;
+		top: 0;
+		
+		cursor:pointer;
+		background:url("../../img/g/close.gif@{v}") no-repeat;
+		width: 11px;
+		height: 11px; 
+		position: absolute;
+		display: block;
+	}
+}
+

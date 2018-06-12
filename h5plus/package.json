@@ -1,0 +1,12 @@
+{
+  "name": "my-guanggu-weixin",
+  "version": "0.1.0",
+  "dependencies": {
+    "express": "4.x",
+    "ejs": "*"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-ejs-static": "*3"
+  }
+}

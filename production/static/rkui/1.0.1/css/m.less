@@ -1,0 +1,266 @@
+@import "style.less";
+
+
+/*le-item*/
+
+.m-list {
+	.le-item{
+	border-bottom:1px dashed #999;
+	padding:10px;
+	}
+	.le_checkbox{
+		width: 20px;
+		height: 150px;
+		float: left;
+	}
+	.le_img{
+	width: 110px;
+	height: 150px;
+	float: left;
+	}
+	.le_img img{
+	width: 100px;
+	height: 150px;
+	line-height:150px;
+	}
+	.le_box{
+	margin-left: 110px
+	}
+	.le_box_checkbox{
+	margin-left: 130px
+	}
+	dt{
+	font-size:14px;
+	font-weight: bold;
+	line-height:24px;
+	}
+	.le-tr {
+	text-align: right;
+	}
+	dd{margin-top:4px}
+	dd p{height:40px;line-height:20px;overflow:hidden}
+	dd a{
+	margin-left: 10px;
+	}
+}
+
+/*le-item1*/
+
+.m-title{
+	padding:0 10px 10px 10px;
+	font-weight: bold;
+	height: 24px;
+	margin-bottom: 10px ;
+	// border-bottom:1px solid #999;
+}
+.m-title h2{
+	background:none;
+	color:#000;
+	display : inline;
+	font-size: 24px;
+}
+
+
+.m-title span{
+	float:right; margin-left: 10px;
+}
+.m-list1{
+	padding:10px;
+
+	dl{
+	border-bottom:1px dashed #999;
+	padding:10px 5px 10px 5px;
+	}
+	 dt{ 
+	font-weight: bold;
+	padding: 10px 0 10px 0;
+	}
+	dd{
+	}
+	.le-tr {
+	text-align: right;
+	}
+	.le-tr a{
+	padding:5px;
+	}
+}
+
+
+/*m-form 纵向左右结构表单 或者 list*/
+.m-form{
+	li{margin: 15px 0; }
+	.le_tit{
+	float: left;
+	width: 100px;
+	text-align: right;
+	}
+	.le_box {
+    margin-left: 110px
+	}
+
+	samp{ 
+    color: red;
+	}
+}
+/*横向表单*/
+.m-form1{
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	li{margin: 15px 0;  float: left;}
+	.le_tit{
+		float: left;
+		width: 50px;
+		text-align: right;
+	}
+	.le_box {
+   		margin-left: 55px;
+   		padding-left: 1px;
+	}
+	samp{ 
+    	color: red;
+	}
+	.le_fieldset{
+		display: inline-block;
+		vertical-align: top;
+		.le_val{
+			display: inline-block;
+			vertical-align: middle;
+			position: relative;
+			.ui-msg-error{border: 1px solid #ddd}
+		}
+	}
+	.le_item{margin-top: 10px}
+	/*by chenyiqi*/
+	.le_fieldset .ui-msg-error{position: absolute;bottom: -20px;z-index: 20}
+	.hight {color: #69c}
+}
+/**纵向表单，提示信息在右侧*/
+.m-form2{
+	padding: 10px;
+	samp{
+		color: red;
+	}
+	.le_tit{
+		float: left;
+		width: 120px;
+		text-align: right;
+		line-height: 24px;
+	}
+	.le_box{
+		position: relative;
+		margin-left: 130px;
+		margin-bottom: 10px;
+		.ui-input{
+			width: 300px;
+		}
+		.ui-textarea{
+			width: 300px;
+		}
+		.ui-msg-error{
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 10px;
+		}
+		.hide{
+			display: none;
+		}
+		.ui-msg-message{
+			margin: 2px 0;
+		}
+	}
+	.le_box .tag-input{
+		width: 330px;
+		height: 18px;
+		line-height: 16px;
+		padding: 2px;
+	}
+	.le_box .tag-add-btn{
+		margin-left: -1px;
+		margin-top: 0;
+		border: none;
+		height: 24px;
+		line-height: 24px;
+		vertical-align: top;
+	}
+}
+/*textarea超出提醒样式*/
+.input-limit{
+	position: absolute;
+	right: -10px;
+	top: 0;
+	height: 100%;
+	line-height: 24px;
+	color: #ccc;
+}
+
+.input-number{
+	color: #ae4a4a;
+}
+
+/*左右存储区域*/
+.m-listarea{
+	dl{
+		display: inline-block;
+		vertical-align: top;
+		dd {
+			border: 1px solid #ccc;
+			max-height: 400px;
+			min-width: 150px;
+			height: 200px;
+			overflow-y: auto;
+			p{
+				padding: 5px;
+				
+				position: relative;
+				span{position: absolute;right: 0;cursor: pointer;}
+				margin: 2px;
+			}
+			p.on{
+				background: #3399cc;
+				cursor: default;
+				color: #fff
+			}
+			p.on:hover{background: #3399cc;}
+			p:hover{background: #f7f7f7}
+		}
+	}
+}
+
+
+/**buttons**/
+.m-buttons{margin-top: 10px}
+
+/***tag moudle*/
+.m-tag{
+	position: relative;
+	.ui-msg-loading{
+		position: absolute;
+		margin: auto;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 63px;
+		height: 20px;
+	}
+}
+
+
+/*信息列表*/
+
+.m-infolist{
+	li{margin: 15px 0; }
+	.le_tit{
+	float: left;
+	width: 100px;
+	text-align: right;
+	}
+	.le_box {
+    margin-left: 110px
+	}
+
+	samp{ 
+    color: red;
+	}
+}

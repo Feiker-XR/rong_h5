@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>图片</title>
+
+</head>
+
+<body>
+<div id="j_p">
+  <div id="leftNav" class="nav-fixed-left"></div>
+  <!-- start -->
+      <div id="j_plat_state"></div>
+      <div class="page hide"  id="j_plat">
+          <div class="m-main label_content"  id="j_con_list"></div>
+      </div>
+    <!-- end -->
+
+<script  id="j_view_list" style="display:none" type="text/html">
+    <div class="panel panelSelf">
+        <div class="panel-content filler">
+            <div class="panel-logo"></div>
+            <div class="panel-header">
+                <div class="activityTit">素材文件</div>
+            </div>
+            <div class="sidebarMenuHolder">
+                <div class="JStree">
+                    <div id="jstree" class="jstree jstree-0 jstree-focused jstree-default">
+                        <ul data_id="imageTextMenuLeft">
+                            <li class="jstree-leaf" url="/subscriptionManage/material/imageText/imageTextList">
+                                <ins class="jstree-icon">&nbsp;</ins>
+                                <a href="javascript:void(0)">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <span>图文素材</span>
+                                </a>
+                            </li>
+                            <li class="jstree-leaf" url="/subscriptionManage/material/upPic/upPic">
+                                <ins class="jstree-icon">&nbsp;</ins>
+                                <a href="javascript:void(0)"  class="jstree-clicked">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <span>图片素材</span>
+                                </a>
+                            </li>
+                            <li class="jstree-leaf" url="/subscriptionManage/material/upAudios/upAudios">
+                                <ins class="jstree-icon">&nbsp;</ins>
+                                <a href="javascript:void(0)">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <span>音频素材</span>
+                                </a>
+                            </li>
+                            <li class="jstree-leaf" url="/subscriptionManage/material/video/video">
+                                <ins class="jstree-icon">&nbsp;</ins>
+                                <a href="javascript:void(0)">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <span>视频素材</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-slider">
+            <div class="panel-slider-center">
+                <div class="panel-slider-arrow"></div>
+            </div>
+        </div>
+    </div>
+    <div class="picContainer">
+        <div class="breadcrumb-container">
+            <ul class="xbreadcrumbs" data_id="navTop">
+                <li>
+                    <a href="javascript:void(0);">
+                        <i class="icon-photon home margint3"></i>
+                    </a>
+                </li>
+                <li class="current">
+                    <a href="javascript:void(0);">素材文件</a>
+                </li>
+                <li class="current">
+                    <a href="javascript:void(0);">图片</a>
+                </li>
+            </ul>
+        </div>
+        <div class="imageTextListWrap">
+            <div class="imageTextListTit">
+                <div class="fl"><a class="btn btn-info btnImageText" type="button" href="javascript:void(0)" data-toggle="modal" data-target="#modal-add-quick-launch" id="uploadPicbtn">上传图片</a></div>
+              <div class="imageTextListSearch">
+                    <input placeholder="请输入图片名称" id="title">
+                    <div class="searchImg" id="searchBtn"></div>
+                </div>
+            </div>
+            <div class="picListWrap">
+                <div class="container-fluid"  data_id="upFileList">
+                    /* <div class="row-fluid">
+                       <div class="span2">
+                            <div class="statBox">
+                                <div class="imgBox">
+                                    <img src="" alt="">
+                                </div>
+                                <span class="picTitle">图片名称图图片名称图片名称图片名称图片名称片名称图片名称图片名称</span>
+                                <div class="deal-butbox">
+                                    <a href="#">改名</a>
+                                    <a href="#">链接</a>
+                                    <a href="#">删除</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>*/
+                </div>
+            </div>
+
+            <div class="dataTables_paginate paging_bootstrap pagination fr">
+                <ul class="margin020" data_id="pageShow">
+                    <li class="prev"><a href="javascript:void(0);">«</a></li>
+                    <li class="next"><a href="javascript:void(0);">»</a></li>
+                </ul>
+            </div>
+
+            <div id="modal-add-quick-launch" class="modal hide fade in" aria-hidden="false" style="display: none;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="canselbtn1">×</button>
+                    <h3>上传图片</h3>
+                </div>
+                <p class="uptipfile">上传提示：仅支持jpg、gif、png三种格式, 大小不超过1 MB,每次限传50张。</p>
+                <div class="modal-body">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <div class="upFilebox">
+                                    <div class="floatAudiospan">本地图片：</div>
+                                    <div class="fileupImgbox">
+                                        <div class="file-main-box">
+                                            <!-- <input type="button" value="上传文件" class="but-input"> -->
+                                            <div class="upfile-box">
+                                                <div class="parentFileBox" style="display:block">                         
+                                                    <ul class="fileBoxUl">
+                                                       <div id="upfile"></div>
+                                                        
+                                                    </ul>                  
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="javascript:;" class="btn" data-dismiss="modal" id="canselbtn">取消</a>
+                    <input type="button" class="btn btn-primary" data-dismiss="modal" value="上传" disabled id="upPicbut">
+                </div>
+            </div>
+            <div id="updateName" class="modal hide fade in" aria-hidden="false" style="width:480px;display: none;" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3>修改名称</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <div class="upFilebox">
+                                    <input type="text" id="updateNametext">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="javascript:;" class="btn" data-dismiss="modal">取消</a>
+                    <a href="javascript:;" class="btn btn-primary" data-dismiss="modal" id="confirmbtn">确定</a>
+                </div>
+            </div>
+            <div id="copyPath" class="modal hide fade in" aria-hidden="false" style="width:480px;display: none;" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeBut">×</button>
+                    <h3>复制链接</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <div class="upFilebox">
+                                    <input class="pathtext" type="text" value="" name="" id="pathtext" disabled>
+                                    <input type="button" class="btn btn-info copyPathBtn" id="copyPathBtn" value="复制链接">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="j_view_upAudioList" style="display:none" type="text/html">
+    {{
+        var Data = it.hfive_wechat_image_list_response.images.image;
+        var response = it.hfive_wechat_image_list_response;
+        var total=response.total||'';
+        var pageLength=it.pageLength;
+        var page_size=total/pageLength;
+        if(total%pageLength!=0){
+            page_size=parseInt(page_size)+1;
+        }
+    }}
+        <div class="row-fluid" page_size="{{=page_size}}" id="picTablemain">
+    {{
+        for(var i=0;i <Data.length; i++){
+            var imgData = Data[i];
+    }}
+            <div class="span2" data-id="{{=imgData.id}}">
+                <div class="statBox">
+                    <div class="imgBox">
+                        <img src="{{=imgData.image_url}}" alt="">
+                    </div>
+                    <span class="picTitle">{{=imgData.title}}</span>
+                    <div class="deal-butbox">
+                        <a href="#" class="updateNamebtn" name="{{=imgData.title}}" data-id="{{=imgData.id}}" data-toggle="modal" data-target="#updateName">改名</a>
+                        <a href="#" class="copybtn" dataUrl="{{=imgData.path}}" data-toggle="modal" data-target="#copyPath">链接</a>
+                        <a href="#" class="deletebtn" data-id="{{=imgData.id}}">删除</a>
+                    </div>
+                    
+                </div>
+            </div>
+    {{
+        };
+    }}
+     </div>
+   
+</script>
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="../../../_g/pmsg.js"></script>

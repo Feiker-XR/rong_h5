@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<div id="j_p">
+
+	<!--html start-->
+	<div id="j_plat_state"></div>
+	<div class="page"  id="j_plat">
+	    <div class="m-title" id="j_con_title"></div>
+	    <div class="m-main label_content">
+		    <div class="row">
+		    	<div class="j_group col-xs-12 col-sm-4" id="j_con_phone"></div>
+		    	<div class="table_minw j_group col-xs-12 col-sm-8" id="j_con_table"></div>
+		    </div>
+	    </div>
+	    <div class="ui-paging" id="j_con_page"></div>
+	    <input type="hidden" name="page" id="setPage" value="1">
+	</div>
+	<!--html end-->
+
+
+	<script id="j_view_title" style="display:none" type="text/html">
+        <div class="label_title clearfix">
+	    	<div class="pull-left">
+	    		<ul class="nav nav-tabs"> 
+	    		  <li class="active">一般页面</li> 
+	    		  <li>特殊页面</a></li> 
+	    		  <li>模板设置</li> 
+			    </ul> 
+	    	</div>
+            <div class="pull-right">
+            	<a href="../selectTemp.html" class="fs-14 marig10">切换模板</a>
+            	<button type="button" class="btn btn-primary btn-sm active" id="j_refresh"><i class="fa fa-refresh fa-lg"></i>&nbsp;&nbsp;刷&nbsp;新</button>
+            </div>
+        </div>
+	</script>
+
+	<script id="j_view_phone" type="html" style="display:none" >
+		<div class="phone common">
+			<div class="phonetop"></div>
+			<div class="phonebody">
+				<div class="phonenav">
+					<ul id="j_nav_menu">
+						
+					</ul>
+				</div>
+				<div class="phonemenu">
+					<ul>
+						<li class="on">
+							<span class="menuhome"></span>
+						</li>
+						<li>
+							<span class="menuteam"></span>
+						</li>
+						<li>
+							<span class="menucar"></span>
+						</li>
+						<li>
+							<span class="menuowm"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="phonebottom"></div>
+		</div>
+	</script>
+
+	<script id="j_view_table" type="html" style="display:none" >
+		<button class="btn btn-infos" data-op="add" style="display:block;margin-bottom:20px;">新&nbsp;&nbsp;建</button>
+		<table border="0" cellspacing="0" cellpadding="0" class="tableWrap table-hover">
+		    <tbody>
+		        <tr>
+		            <th width="240">页面名称</th>
+		            <th width="100">顺序</th>
+		            <th width="240">创建时间</th>
+		            <th width="100">pv/uv</th>
+		            <th width="180">状态</th>
+		            <th width="400">操作</th>
+		        </tr>
+		       
+		        {{if(it.hfive_weidian_page_list_response){ }}
+	                {{
+    				    var res = it.hfive_weidian_page_list_response,
+    				        weidian_list = res.list;
+    				}}
+    				{{ for (var i = 0; i < weidian_list.length; i++) { }}
+    				    {{var item = weidian_list[i];}}
+    				        <tr>
+    				            <td>{{=item.page_name}}</td>
+    				            <td>{{=item.order}}</td>
+    				            <td>{{=item.create_time}}</td>
+    				            {{if(item.pv == null && item.uv == null){ }}
+    				                <td>N/A</td>
+    				            {{ } else{ }}
+    				            	<td>{{=item.pv}}/{{=item.uv}}</td>
+    				            {{}}}
+    				            {{if(item.status == 0){ }}
+    				                <td class="downact">下架</td>
+    				            {{ } else{ }}
+    				            	<td class="upact">上架</td>
+    				            {{}}}
+    				            <td class="pad-20">
+    				            	<input type="hidden" id="j_hidden" data-store_id="{{=item.store_id}}" data-page_id="{{=item.page_id}}" data-name="{{=item.page_name}}">
+    				            	<button class="btn btn-infos btn-sm cp1" data-op="copyclip" data-clipboard-text="" type="button">复制链接</button>
+    				            	<button type="button" class="btn btn-infos btn-sm" data-op="qcode">二维码</button>
+    				            	<button type="button" class="btn btn-infos btn-sm" data-op="edit">编辑</button>
+    				            	{{if(item.status == 0){ }}
+    				            	    <button type="button" class="btn btn-infos btn-sm" data-op="upshelf">上架</button>
+    				            	{{ } else{ }}
+    				            		<button type="button" class="btn btn-infos btn-sm" data-op="offshelf">下架</button>
+    				            	{{}}}
+    				            	<button type="button" class="btn btn-infos btn-sm" data-op="delete">删除</button>
+    				            </td>
+    				        </tr>
+    				{{ };}}
+	            {{ } else{ }}
+		            <tr>
+		            	<td colspan=6 align="center" valign="middle" style="border:none">{{= it.error_response.msg}}</td>
+		            </tr>
+	            {{}}}
+
+		    </tbody>
+		</table>
+	</script>
+
+	<script id="j_con_page" type="text/javascript">
+	</script>
+
+</div>
+
+<script type="text/javascript" src="../../../_g/pmsg.js"></script>
+
+</body>
+</html>

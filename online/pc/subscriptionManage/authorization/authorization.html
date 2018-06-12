@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>公众号授权</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/g/g.css?v=20151221">
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/module/module.css?v=20151221">
+
+<script type="text/javascript">
+var $$r = {
+    rootUrl : 'http://h5plus.net/static'
+}
+</script>
+<link rel="stylesheet" href="http://h5plus.net/static/comlibjs/third/theme_photon/css/css/photon.css" media="all" />
+<link rel="stylesheet" href="http://h5plus.net/static/comlibjs/third/theme_photon/css/css/photon-pt2.css" media="all" />
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/subscriptionManage/authorization/authorization.css?v=20151221">
+<script type="text/javascript">
+    $$r.path = 'http://h5plus.net/auth-portal/api/?method='
+    $$r.pathLogin = 'http://h5plus.net/auth-portal/userinfo'
+    //$$r.path = '/subscriptionManage/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'authorizationList': $$r.path + 'ruixue.hfive.wechat.pub.list',
+                'setsessionstoreid': $$r.path + 'ruixue.hfive.weidian.common.setsessionstoreid',
+                'compyId': $$r.pathLogin
+            }
+        }
+    };
+</script>
+</head>
+<body class="authorization browser">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="http://h5plus.net/static/comlibjs/lib/seajq.js?v=20151221"></script>
+    	<script type="text/javascript" src="http://h5plus.net/static/h5plus/js/_g/base.js?v=20151221"></script>
+<script type="text/javascript" src="http://h5plus.net/static/h5plus/js/subscriptionManage/authorization/authorization.js?v=20151221" id="j_js"></script>
+</body></html>

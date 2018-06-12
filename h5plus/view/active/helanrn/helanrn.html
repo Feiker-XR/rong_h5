@@ -1,0 +1,40 @@
+<% include ../../_g/header.html %>
+<title>员工自营销</title>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat2'] %>.css<%= data['v'] %>">
+<script type="text/javascript">
+    $$r.path = '/auth-portal/api/?method='
+    $$r.pathImg = '/auth-portal/api/upload?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'activityAdd': $$r.path + 'ruixue.hfive.activity.activity.add',
+                'activityList': $$r.path + 'ruixue.hfive.activity.activity.list',
+                'playerCount': $$r.path + 'ruixue.hfive.activity.signin.player.count',
+                'awardList': $$r.path + 'ruixue.hfive.activity.award.list',
+                'activityDel': $$r.path + 'ruixue.hfive.activity.activity.delete',
+                'activityRule': $$r.path + 'ruixue.hfive.activity.signin.rule.list',
+                'activityRuleAdd': $$r.path + 'ruixue.hfive.activity.signin.rule.add',
+                'activityRuleDel': $$r.path + 'ruixue.hfive.activity.signin.rule.delete',
+                'activityRuleEdit': $$r.path + 'ruixue.hfive.activity.signin.rule.update',
+                'activityEdit': $$r.path + 'ruixue.hfive.activity.activity.update',
+                'awardPlayer': $$r.path + 'ruixue.hfive.activity.award.address.getbyawardid',
+                'activityRuleEditData': $$r.path + 'ruixue.hfive.activity.signin.rule.get',
+                'awardDelivery': $$r.path + 'ruixue.hfive.activity.award.logistics.save',
+                'imgUpload': $$r.pathImg + 'ruixue.hfive.core.filemanager.activity.picture.upload',
+                'subscription': $$r.path + 'ruixue.hfive.weixin.pubid.list',
+                'copylink': $$r.path + 'ruixue.hfive.activity.activity.copylink',
+                'pid': $$r.path + 'ruixue.tools.api.generatepid'
+            }
+        }
+    };
+</script>
+</head>
+<body class="<%= data['cat2'] %>">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat2'] %>.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

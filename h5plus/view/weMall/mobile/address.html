@@ -1,0 +1,27 @@
+<% include ../../m/head.html %>
+<meta name="description" content="收货地址,微商城,h5plus" />
+<title>收货地址 - 微商城</title>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat2'] %>.css<%= data['v'] %>">
+<script type="text/javascript">
+    $$r.routers = {
+        "data": {
+            "link": {
+                "getAddress" : $$r.path + 'ruixue.hfive.weidian.address.get',
+            	"setAddress" : $$r.path + 'ruixue.hfive.weidian.address.save'
+            },
+            "add": './details?action=add',
+            "edit": './details?action=edit'
+        }
+    };
+</script>
+</head>
+<body class="address">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<% include ../../m/js.html %>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/address.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="shortcut icon" href="http://test.h5plus.net/static/comlibjs/v3/favicon.ico" />
+        <link rel="apple-touch-icon" href="http://test.h5plus.net/static/comlibjs/v3/favicon.png" />
+        <link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/v3/css/css/index.css" media="all" />
+        <script type="text/javascript">
+        var $$r = { rootUrl : 'http://test.h5plus.net/static' }
+        $$r.origin = window.location.origin
+        $$r.test = 'http://test.h5plus.net'
+        $$r.online = 'http://h5plus.net'
+        $$r.isServ = /http:\/\/(|test.)h5plus.net/.test($$r.origin)
+        $$r.localStamp = $$r.isServ?'&t='+(+new Date):''
+        $$r.hosts = $$r.isServ?$$r.origin+'/pc':$$r.origin
+        </script>
+        <script type="text/javascript" src="http://test.h5plus.net/static/comlibjs/lib/seajq.js?v=20151221"></script>
+        <script type="text/javascript" src="http://test.h5plus.net/static/h5plus/js/_g/base.js?v=20151221"></script>
+
+<title>微社区</title>
+
+<!-- <link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/v3/css/css/index.css" media="all" /> -->
+<link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/v3/css/css/index.css" media="all" />
+<link rel="stylesheet" href="http://test.h5plus.net/static/h5plus/css/wechatBBS/wechatBBS.css?v=20151221">
+<link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/third/swiper/swiper.min.css" media="all" />
+<link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/third/hammer/style.css" media="all" />
+<link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/third/jcrop/main.css" type="text/css" />
+<link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/third/jcrop/imgedit.css" type="text/css" />
+<link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/third/jcrop/demos.css" type="text/css" />
+<link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/third/jcrop/jquery.Jcrop.css" type="text/css" />
+<link rel="stylesheet" href="http://test.h5plus.net/static/h5plus/css/g/g.css?v=20151221" type="text/css" />
+
+<!-- 
+<link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/v3/css/css/photon-pt2.min.css" type="text/css" />
+<link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/v3/css/css/photon.css" type="text/css" /> -->
+<!-- <link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/third/easyui/easyui.css?v=20151221"> -->
+
+<!-- <link rel="stylesheet" href="http://test.h5plus.net/static/comlibjs/third/easyui/easyui.css?v=20151221"> -->
+<script type="text/javascript">
+//     $$r.path = '/auth-portal/?method='
+//    $$r.path = '/auth-portal/api/?method='
+    $$r.path = 'http://test.h5plus.net/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'getalbumlist': $$r.path + 'album',
+                'gettopic': $$r.path + 'topic',
+                'deltopic': $$r.path + 'topic',
+                'addtopicto': $$r.path + 'topic',
+                'settotop': $$r.path + 'topic&',
+                'deltopic': $$r.path + 'topic',
+                'getdiscu': $$r.path + 'topic',
+                'mood': $$r.path + 'mood',
+                'ptalbumlist': $$r.path + 'ruixue.hfive.community.album.findlist',
+                'ptcrealbum': $$r.path + 'ruixue.hfive.community.album.create',
+                'ptfindone': $$r.path + 'ruixue.hfive.community.album.findone',
+                'pttopic': $$r.path + 'ruixue.hfive.community.topic.findpaging',
+                'ptdelbattopic': $$r.path + 'ruixue.hfive.community.topic.deletebatch',
+                'ptaddbattopic': $$r.path + 'ruixue.hfive.community.topic.movebatch',
+                'ptlokdiscu': $$r.path + 'ruixue.hfive.community.topiccomment.findpaging',
+                'ptdeldiscu': $$r.path + 'ruixue.hfive.community.topic.delete',
+                'ptsettop': $$r.path + 'ruixue.hfive.community.topic.top',
+                'ptaddtopic':$$r.path +'ruixue.hfive.community.topic.move',
+                'ptcretopic':$$r.path +'ruixue.hfive.community.topic.create',
+                'ptgettopic':$$r.path +'ruixue.hfive.community.topic.findone',
+                'ptgetimglist':$$r.path +'ruixue.hfive.community.topicimg.findlist',
+                'ptgettaglist':$$r.path +'ruixue.hfive.community.tag.findlist',
+                'ptproductlist':$$r.path +'ruixue.hfive.weidian.product.list',
+                'upLoadImage':'http://test.h5plus.net/auth-portal/api/upload?method=ruixue.hfive.core.filemanager.picture.upload',
+                'updatedigInfo':$$r.path+'ruixue.hfive.community.album.update',
+                'ptdelimg':$$r.path+'ruixue.hfive.community.topicimg.delete',
+                'ptproductlist':$$r.path+'ruixue.hfive.weidian.product.list',
+                'ptuptopic':$$r.path+'ruixue.hfive.community.topic.update',
+                'ptcretage':$$r.path+'ruixue.hfive.community.tag.create',
+                'ptdeltag':$$r.path+'ruixue.hfive.community.tag.delete',
+                'ptupdatetag':$$r.path+'ruixue.hfive.community.tag.update',
+                'ptdelalbum':$$r.path+'ruixue.hfive.community.album.delete',
+                'ptcreimg':$$r.path+'ruixue.hfive.community.topicimg.create',
+                'ptselgood':$$r.path+'ruixue.hfive.weidian.goods.getdetail',
+                'ptselgoods':$$r.path+'ruixue.hfive.weidian.goods.get',
+                'getcompanygoods':$$r.path+'ruixue.hfive.weidian.goods.getcompanygoods',
+                'getbatwoods':$$r.path+'ruixue.hfive.weidian.goods.get',
+                'countdefault':$$r.path+'ruixue.hfive.community.topic.countdefault',
+                'checkbinduser':$$r.path+'ruixue.hfive.community.wechat.check',
+                'pubidlist':$$r.path+'ruixue.hfive.weixin.pubid.list',
+                'userbind':$$r.path+'ruixue.hfive.community.wechat.bind',
+                'authorlist':$$r.path+'ruixue.hfive.community.member.findeditor',
+                'gtWechatPid':$$r.path+'ruixue.tools.api.generatepid',
+                'copylink': $$r.path + 'ruixue.hfive.activity.activity.copylink',
+                'commentcount':$$r.path+'ruixue.hfive.community.square.topiccomment.count',
+                
+            },
+            "details": './detail'
+        }
+    };
+     //'checkbinduser':$$r.path+'ruixue.hfive.community.wechat.check'
+     //http://127/auth-portal/api/?method=ruixue.hfive.community.album.findlist
+      //http://test.h5plus.net/auth-portal/api/?method=ruixue.hfive.community.album.findlist
+     //ruixue.hfive.weidian.goods.get
+     //http://test.h5plus.net/auth-portal/api/upload?method=ruixue.hfive.core.filemanager.picture.upload
+     //http://test.h5plus.net/auth-portal/api/upload?method=ruixue.hfive.core.filemanager.picture.upload
+     //http://test.h5plus.net/auth-portal/api/?method=ruixue.hfive.core.filemanager.picture.upload
+     //ruixue.hfive.core.filemanager.picture.upload
+     //http://test.h5plus.net/auth-portal/api/upload?method=ruixue.hfive.core.filemanager.activity.picture.upload
+    //http://test.h5plus.net/auth-portal/api/upload?method=ruixue.hfive.core.filemanager.activity.picture.upload
+    //ruixue.hfive.activity.picture.upload
+    //ruixue.hfive.core.filemanager.picture.upload
+</script>
+</head>
+<body class="list">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+<script type="text/javascript" src="http://test.h5plus.net/static/h5plus/js/wechatBBS/list/community.js?v=20151221" id="j_js"></script>
+
+</body>
+</html>

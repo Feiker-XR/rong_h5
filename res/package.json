@@ -1,0 +1,25 @@
+{
+  "name": "rongcapital-fe",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-htmlmin": "*",
+    "grunt-contrib-imagemin": "0.7.2",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-nodeunit": "*",
+    "grunt-contrib-uglify": "0.4.0",
+    "grunt-ejs-static": "^0.4.3",
+    "gulp-less": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "4.x",
+    "express-less": "*",
+    "grunt-htmlmin": "^0.1.4",
+    "less-middleware": "^2.1.0",
+    "svn-interface": "*"
+  }
+}

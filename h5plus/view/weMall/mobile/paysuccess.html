@@ -1,0 +1,26 @@
+<% include ../../m/head.html %>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat2'] %>.css<%= data['v'] %>">
+<meta name="description" content="购买成功,微商城,h5plus" />
+<title>购买成功 - 微商城</title>
+<script type="text/javascript">
+    $$r.routers = {
+        "data": {
+            "link": {
+            	"getSucc" : $$r.path + 'ruixue.hfive.weidian.order.get'
+            },
+            "add": './details?action=add',
+            "edit": './details?action=edit'
+        }
+    };
+</script>
+</head>
+<body class="success">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<% include ../../m/js.html %>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/success.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

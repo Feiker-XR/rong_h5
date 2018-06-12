@@ -1,0 +1,108 @@
+<div id="j_p">
+
+
+	<header></header>
+	<div id="wrapper"></div>
+	<footer></footer>
+
+
+	<script id="j_header" type="text/html">
+		<div class="top-row hide">
+			<a title="返回"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic1.png"></a>
+			<div class="title">拼划算微商城</div>
+			<a href="javascript:;"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic2.png"></a>
+		</div>
+
+		<div id="tabList">
+			<div id="tabScroll">
+			{{console.log.apply(console, it.list);}}
+			{{var _pageId = $Rk.getUrlParam("page_id") || 0; }}
+				<ul class="tag-list">
+					{{~it.list:item:index}}
+						<li id="{{=item.page_id}}" storeid="{{=item.store_id}}" {{?_pageId==item.page_id}}class="cur"{{?}} data-op="tab">{{=item.page_name||"N/A"}}</li>
+					{{~}}
+				</ul>
+			</div>
+		</div>
+	</script>
+
+	<script id="j_page_com" type="text/html">
+		<div id="scroller">
+		{{~it:item:index}}
+			{{?item.type==='ads'}}
+				{{console.log('ads:',index);}}
+				<section id="{{=item.id}}" class="ad">
+					<div class="swiper-container">
+					    <div class="swiper-wrapper">
+					    	{{~item.adlist:ad:i}}
+					        	<a href="{{=ad.url||"javascript:;"}}" id="{{=ad.id||0}}" class="swiper-slide an" style="background-image:url({{=ad.image||"http://weidian.h5plus.net/upload/images/two_demo_goods.jpg"}});"></a>
+					        {{~}}
+					    </div>
+						<div class="pagination"></div>
+					</div>
+				</section>
+			{{?}}
+			{{?item.type==='goods'}}
+				{{console.log('goods:',index);}}
+				{{?item.style==0}}
+					<section id="{{=item.id}}" class="com s1-thumb" data-op="gotoDetail">
+						<img src="{{=item.image||"http://weidian.h5plus.net/upload/images/two_demo_goods.jpg"}}">
+						<aside>
+							<p class="title">{{=item.name||""}}</p>
+							<p class="intro">{{=item.intro||""}}</p>
+							<p class="price">{{=item.price||"0.00"}}</p>
+							<a href="javascript:;">立即购买</a>
+						</aside>
+					</section>				
+				{{?}}
+				{{?item.style==1}}
+					{{console.log('item:', item);}}
+					<section id="{{=item.id}}" class="com s2-banner" style="background-image: url({{=item.image}});" data-op="gotoDetail">
+						<aside class="info">
+							<p>
+								<i>{{=item.name||""}}</i>
+								<em>月销量：{{=item.salenum||"0"}}</em>
+							</p>
+							<p>
+								<i class="price">{{=item.price||"0.00"}}<em>{{=item.price_old||"0.00"}}</em></i>
+								<a href="javascript:;">立即购买</a>
+							</p>
+						</aside>
+					</section>				
+				{{?}}
+			{{?}}
+			{{?item.type==='txt'}}
+				{{console.log('txt:',index);}}
+				<a class="text" href="javascript:;">
+					{{=item.name||""}}
+				</a>
+			{{?}}
+			{{?item.type==='group'}}
+				{{console.log('group:',index);}}
+				<section id="{{=item.id}}" class="com s3-group" data-op="gotoDetail">
+					<img src="{{=item.image||"http://weidian.h5plus.net/upload/images/two_demo_goods.jpg"}}">
+					<aside>
+						<p class="title">{{=item.name||""}}</p>
+						<p class="intro">{{=item.intro||""}}</p>
+						<p class="price">{{=item.price||"0.00"}}</p>
+						<a href="javascript:;">已有{{=item.staff||"0"}}人成团</a>
+					</aside>
+				</section>				
+			{{?}}
+		{{~}}
+		</div>
+	</script>
+
+
+	<script id="j_footer" type="text/html">
+		<ul>
+			<li data-op="home" class="cur">首页</li>
+			<li data-op="group">组团购</li>
+			<li data-op="cart">购物车</li>
+			<li data-op="uc">我的</li>
+		</ul>
+	</script>
+
+</div>
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>

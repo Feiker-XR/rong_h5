@@ -1,0 +1,37 @@
+﻿<% include ../../_g/header.html %>
+<title>移动微社区</title>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0;",name="viewport">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/mobilefront/mobilephone.css<%= data['v'] %>" type="text/css">
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/jqm/jquery.mobile-1.4.5.min.css<%= data['v'] %>" type="text/css"  />
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/jqm/jqm-demos.css<%= data['v'] %>" type="text/css"  />
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/jqm/css.css<%= data['v'] %>" type="text/css"  />
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/swiper/swiper.min.css<%= data['v'] %>" type="text/css"  />
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/jcrop/main.css<%= data['v'] %>" type="text/css" />
+
+<script type="text/javascript">
+    //$$r.path = '/auth-portal/?method='
+    $$r.path = '/auth-portal/api/?method='
+    //$$r.path = 'http://test.h5plus.net/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'getalbumlist': $$r.path + 'album'
+            },
+            "details": './detail'
+        }
+    };
+
+</script>
+</head>
+<body class="<%= data['cat2'] %>">
+
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>.js<%= data['v'] %>" id="j_js"></script>
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/jqm/jquery.min.js<%= data['v'] %>" id="2"></script>
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/jqm/jquery.mobile-1.4.5.min.js<%= data['v'] %>" id="3"></script>
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/swiper/swiper.min.js<%= data['v'] %>" id="4"></script>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/request.js<%= data['v'] %>" id="j_jss"></script>
+
+</body>
+</html>

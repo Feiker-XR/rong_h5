@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div id="j_p">
+
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+<!--html start-->
+<div id="j_plat_state"></div>
+<div class="page hide"  id="j_plat">
+    <div class="m-title" id="j_con_title"></div>
+    <div class="m-form1" id="j_con_form"></div>
+    <div class="m-main label_content"  id="j_con_main"></div>
+    <div class="ui-paging" id="j_con_page"></div>
+    <input type="hidden" name="page" id="setPage" value="1">
+</div>
+<!--html end-->
+
+
+<script id="j_view_form" style="display:none" type="text/html">
+   <div class="chooseSubscription">
+        <label for="subscription">选择公众号：</label>
+        <select id="subscription" class="select subscription">
+            {{console.log(it);}}                   
+            {{var subscriptions=it.hfive_core_tag_customMenu_subscription_response.subscriptions;}}
+            {{for(var i=0;i<subscriptions.length;i++){}}
+                <option>{{=subscriptions[i].subscription}}</option>
+            {{};}}
+        </select>
+        <input type="button" value="发布" class="button release">
+    </div>
+    <div class="customMenuTip">可创建最多 3 个一级菜单，每个一级菜单下可创建最多 5 个二级菜单。编辑中的菜单不会马上被用户看到，请放心调试。 </div>
+</script>
+
+
+<script id="j_view_con" type="html" style="display:none" >
+    <div class="customMenu">
+        <div class="customMenuList"></div>
+        <div class="customMenuCon">
+            <div class="customMenuConTit">
+                <label for="customMenuConChoose">内容编辑：</label>
+                <select id="customMenuConChoose" class="select customMenuConChoose">
+                    <option value="text">文本</option>
+                    <option value="image">图文消息</option>
+                    <option value="link">链接</option>
+                </select>
+                <input type="button" value="保存" class="button save">
+            </div>
+            <div id="textEidt">
+                <textarea id="editor_id" name="content"></textarea>
+            </div>
+            <div class="link">
+                <div class="linkTit">
+                    <span>
+                        <input type="radio" name="link" id="linkInner" checked>
+                        <label>内部链接</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="link" id="linkOuter">
+                        <label>外部链接</label>
+                    </span>
+                </div>
+                <div class="linkOuterCon">
+                    <label>URL:</label>
+                    <input class="text" id="outerTxt">
+                </div>
+                <div class="linkInnerCon">
+                    
+                </div>
+            </div>
+            <div class="imageText">
+                <div class="imageTextAdd">
+                    <div class="imageTextBg">
+                        <span class="imageTextIcon"></span>
+                    </div>
+                </div>
+                <div class="imageTextChoose"></div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<script id="j_menu_tree" type="text/html">
+    <div class="customMenuListTit">
+        <span id="addCustomMenu1" data-op="menu1Add"></span>
+        <span class="customMenu1Down"></span>
+        <span class="customMenu1Up"></span>
+    </div>
+    {{console.log(it);}}                   
+    {{
+        var menuTree = it.hfive_core_tag_customMenu_menuTree_response.menu1;
+    }}
+    <ul class="customMenuListCon">
+        {{for(var i=0;i<menuTree.length;i++){}}
+            {{var item=menuTree[i];}}
+            <li>
+                <a href="javascript:void(0);" data-id="{{=item.id}}">
+                    <div class="customMenu1Opr">
+                        <span class="customMenu2Add" data-op="menu2Add"></span>
+                        <span class="customMenu1Edit" data-op="menu1Edit"></span>
+                        <span class="customMenu1Delete" data-op="menu1Del"></span>
+                    </div>
+                    <div class="customMenu1">{{=item.menu1Tit}}</div>
+                </a>
+                {{if(typeof item.menu2!='undefined'&&item.menu2!=null&&item.menu2!=''){}}
+                    {{var menu2=item.menu2;}}
+                    <ul class="customMenuListSubCon">
+                        {{for(var j=0;j<menu2.length;j++){}}
+                            {{var subItem=menu2[j];}}
+                            <li>
+                                <a href="javascript:void(0);" data-id="{{=subItem.id}}">
+                                    <div class="customMenu1Opr customMenu2Opr">
+                                        <span class="customMenu2Edit" data-op="menu2Edit"></span>
+                                        <span class="customMenu1Delete" data-op="menu2Del"></span>
+                                    </div>
+                                    <div class="customMenu1 customMenu2">{{=subItem.menu2Tit}}</div>
+                                </a>
+                            </li>
+                        {{};}}
+                    </ul>
+                {{};}}
+            </li>
+        {{};}}
+    </ul>
+</script>
+
+
+<script id="j_img_info" type="text/html">
+    <div class="imageTextChooseTit">
+        <span>选择图文</span>
+        <span class="imageTextShut">X</span>
+    </div>
+    <div class="imageTextChooseCon">
+        <div class="imageTextChooseImgs">
+        /*<div class="imageTextChooseImg">
+                <div class="imageTextChooseImgTit">
+                    <span class="imageTextChooseImgTitIcon"></span>
+                    <span>图文标题1</span>
+                </div>
+                <div class="imageTextChooseImgDetail">
+                    <img src="../../../img/subscriptionManage/customMenu/imageTextChooseImg.jpg">
+                </div>
+                <div class="imageTextChooseImgIntro">摘要：</div>
+            </div>*/
+            {{console.log(it);}}                   
+            {{
+                var images = it.hfive_core_tag_customMenu_imageslibrary_response.images;
+            }}
+            {{for(var i=0;i<images.length;i++){ }}
+                {{var item=images[i]; }}
+                <div class="imageTextChooseImg" id="{{=item.id}}">
+                    <div class="imageTextChooseImgTit">
+                        <span class="imageTextChooseImgTitIcon"></span>
+                        <span>{{=item.imageTit}}</span>
+                    </div>
+                    <div class="imageTextChooseImgDetail">
+                        <img src="{{=item.imageurl}}">
+                    </div>
+                    <div class="imageTextChooseImgIntro">{{=item.imageDetail}}</div>
+                </div>
+            {{}; }}
+        </div>
+        <div class="imageTextChooseBtns">
+            <input type="button" value="确定" class="button imageTextChooseCertain">
+            <input type="button" value="取消" class="button imageTextChooseCancel">
+        </div>
+    </div>
+</script>
+
+<script id="j_link_info" type="text/html">
+    <select class="select" id="sort">
+        {{console.log(it);}}                   
+        {{
+            var sorts = it.hfive_core_tag_customMenu_sort_response.sorts;
+        }}
+        {{for(var i=0;i<sorts.length;i++){ }}
+            <option>{{=sorts[i].sort}}</option>
+        {{}; }}
+    </select>
+    <select class="select" id="page"></select>
+</script>
+</div>
+<script type="text/javascript" src="../../_g/pmsg.js"></script>
+</body>
+</html>

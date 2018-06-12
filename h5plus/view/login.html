@@ -1,0 +1,38 @@
+<% include ./_g/header.html %>
+    <title>登录 - H5PLUS企业后台管理</title>
+    <link rel="stylesheet" href="<%= data['comlibjs'] %>/third/areaselector/cityLayout.css" type="text/css" />
+    <link rel="stylesheet" href="<%= data['css'] %>/animate/portal.anim.css<%= data['v'] %>">
+    <script type="text/javascript" src="<%= data['js'] %>/common/index.js<%= data['v'] %>" id="j_portal"></script>
+    <script type="text/javascript">
+        $$r.pathLogin = $$r.test + '/auth-portal/login/portal'
+        $$r.pathLogout = $$r.test + '/auth-portal/logout'
+        $$r.pathUserInfo = $$r.test + '/auth-portal/userinfo'
+        $$r.path = '/auth-portal/api/?method='
+        $$r.routers = {
+            "data": {
+                "link": {
+                    // 'sideNav': $$r.path + 'ruixue.hfive.portal.menu.tree',
+                    'verifyCode': $$r.test + $$r.path + 'ruixue.hfive.portal.verifycode.create',
+                    'tel': $$r.test + $$r.path + 'ruixue.hfive.portal.message.send',
+                    'verifyCheck': $$r.test + $$r.path + 'ruixue.hfive.portal.verifycode.check',
+                    'confirmRegist': $$r.test + $$r.path + 'ruixue.hfive.portal.company.register',
+                    'resetPwd': $$r.test + $$r.path + 'ruixue.hfive.portal.password.reset'
+                }
+            }
+        };
+    </script>
+    <script>
+      window.onload=window.onresize=function(){
+        document.documentElement.style.fontSize=document.documentElement.clientWidth/16+'px';    
+      };
+    </script>
+</head>
+    <body class="Photon body-login" style="overflow-y:hidden;">
+
+        <div class="cont-all" id="j_p">
+            <p class="loading"></p>
+        </div>
+
+        <script type="text/javascript" src="<%= data['v3'] %>/js/login.js"></script>
+    </body>
+</html>

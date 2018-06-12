@@ -1,0 +1,100 @@
+<% include ../../_g/header.html %>
+<title>微社区</title>
+
+<!-- <link rel="stylesheet" href="<%= data['v3'] %>/css/css/index.css" media="all" /> -->
+<link rel="stylesheet" href="<%= data['v3'] %>/css/css/index.css" media="all" />
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat1'] %>.css<%= data['v'] %>">
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/swiper/swiper.min.css" media="all" />
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/hammer/style.css" media="all" />
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/jcrop/main.css" type="text/css" />
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/jcrop/imgedit.css" type="text/css" />
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/jcrop/demos.css" type="text/css" />
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/third/jcrop/jquery.Jcrop.css" type="text/css" />
+<link rel="stylesheet" href="<%= data['css'] %>/g/g.css<%= data['v'] %>" type="text/css" />
+
+<!-- 
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/v3/css/css/photon-pt2.min.css" type="text/css" />
+<link rel="stylesheet" href="<%= data['comlibjs'] %>/v3/css/css/photon.css" type="text/css" /> -->
+<!-- <link rel="stylesheet" href="<%= data['comlibjs'] %>/third/easyui/easyui.css<%= data['v'] %>"> -->
+
+<!-- <link rel="stylesheet" href="<%= data['comlibjs'] %>/third/easyui/easyui.css<%= data['v'] %>"> -->
+<script type="text/javascript">
+//     $$r.path = '/auth-portal/?method='
+//    $$r.path = '/auth-portal/api/?method='
+    $$r.path = 'http://test.h5plus.net/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'getalbumlist': $$r.path + 'album',
+                'gettopic': $$r.path + 'topic',
+                'deltopic': $$r.path + 'topic',
+                'addtopicto': $$r.path + 'topic',
+                'settotop': $$r.path + 'topic&',
+                'deltopic': $$r.path + 'topic',
+                'getdiscu': $$r.path + 'topic',
+                'mood': $$r.path + 'mood',
+                'ptalbumlist': $$r.path + 'ruixue.hfive.community.album.findlist',
+                'ptcrealbum': $$r.path + 'ruixue.hfive.community.album.create',
+                'ptfindone': $$r.path + 'ruixue.hfive.community.album.findone',
+                'pttopic': $$r.path + 'ruixue.hfive.community.topic.findpaging',
+                'ptdelbattopic': $$r.path + 'ruixue.hfive.community.topic.deletebatch',
+                'ptaddbattopic': $$r.path + 'ruixue.hfive.community.topic.movebatch',
+                'ptlokdiscu': $$r.path + 'ruixue.hfive.community.topiccomment.findpaging',
+                'ptdeldiscu': $$r.path + 'ruixue.hfive.community.topic.delete',
+                'ptsettop': $$r.path + 'ruixue.hfive.community.topic.top',
+                'ptaddtopic':$$r.path +'ruixue.hfive.community.topic.move',
+                'ptcretopic':$$r.path +'ruixue.hfive.community.topic.create',
+                'ptgettopic':$$r.path +'ruixue.hfive.community.topic.findone',
+                'ptgetimglist':$$r.path +'ruixue.hfive.community.topicimg.findlist',
+                'ptgettaglist':$$r.path +'ruixue.hfive.community.tag.findlist',
+                'ptproductlist':$$r.path +'ruixue.hfive.weidian.product.list',
+                'upLoadImage':'http://h5plus.net/auth-portal/api/upload?method=ruixue.hfive.core.filemanager.picture.upload',
+                'updatedigInfo':$$r.path+'ruixue.hfive.community.album.update',
+                'ptdelimg':$$r.path+'ruixue.hfive.community.topicimg.delete',
+                'ptproductlist':$$r.path+'ruixue.hfive.weidian.product.list',
+                'ptuptopic':$$r.path+'ruixue.hfive.community.topic.update',
+                'ptcretage':$$r.path+'ruixue.hfive.community.tag.create',
+                'ptdeltag':$$r.path+'ruixue.hfive.community.tag.delete',
+                'ptupdatetag':$$r.path+'ruixue.hfive.community.tag.update',
+                'ptdelalbum':$$r.path+'ruixue.hfive.community.album.delete',
+                'ptcreimg':$$r.path+'ruixue.hfive.community.topicimg.create',
+                'ptselgood':$$r.path+'ruixue.hfive.weidian.goods.getdetail',
+                'ptselgoods':$$r.path+'ruixue.hfive.weidian.goods.get',
+                'getcompanygoods':$$r.path+'ruixue.hfive.weidian.goods.getcompanygoods',
+                'getbatwoods':$$r.path+'ruixue.hfive.weidian.goods.get',
+                'countdefault':$$r.path+'ruixue.hfive.community.topic.countdefault',
+                'checkbinduser':$$r.path+'ruixue.hfive.community.wechat.check',
+                'pubidlist':$$r.path+'ruixue.hfive.weixin.pubid.list',
+                'userbind':$$r.path+'ruixue.hfive.community.wechat.bind',
+                'authorlist':$$r.path+'ruixue.hfive.community.member.findeditor',
+                'gtWechatPid':$$r.path+'ruixue.tools.api.generatepid',
+                'copylink': $$r.path + 'ruixue.hfive.activity.activity.copylink',
+                'commentcount':$$r.path+'ruixue.hfive.community.square.topiccomment.count',
+                
+            },
+            "details": './detail'
+        }
+    };
+     //'checkbinduser':$$r.path+'ruixue.hfive.community.wechat.check'
+     //http://127/auth-portal/api/?method=ruixue.hfive.community.album.findlist
+      //http://test.h5plus.net/auth-portal/api/?method=ruixue.hfive.community.album.findlist
+     //ruixue.hfive.weidian.goods.get
+     //http://test.h5plus.net/auth-portal/api/upload?method=ruixue.hfive.core.filemanager.picture.upload
+     //http://test.h5plus.net/auth-portal/api/upload?method=ruixue.hfive.core.filemanager.picture.upload
+     //http://test.h5plus.net/auth-portal/api/?method=ruixue.hfive.core.filemanager.picture.upload
+     //ruixue.hfive.core.filemanager.picture.upload
+     //http://test.h5plus.net/auth-portal/api/upload?method=ruixue.hfive.core.filemanager.activity.picture.upload
+    //http://test.h5plus.net/auth-portal/api/upload?method=ruixue.hfive.core.filemanager.activity.picture.upload
+    //ruixue.hfive.activity.picture.upload
+    //ruixue.hfive.core.filemanager.picture.upload
+</script>
+</head>
+<body class="<%= data['cat2'] %>">
+<p class="loading"></p>
+<div class="cont-all" id="j_p">
+    
+</div>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>.js<%= data['v'] %>" id="j_js"></script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://test.h5plus.net/static/h5plus/css/g/g.css?v=20151221">
+<link rel="stylesheet" href="http://test.h5plus.net/static/h5plus/css/module/module.css?v=20151221">
+
+<script type="text/javascript">
+var $$r = {
+    rootUrl : 'http://test.h5plus.net/static'
+}
+</script>
+<link rel="stylesheet" href="http://test.h5plus.net/static/h5plus/css/weMall/shelf/shelf.css?v=20151221">
+<title>一般页面 - 微商城-货架管理</title>
+<script type="text/javascript">
+    //$$r.path = 'http://172.20.2.10:8060/index.php?s=portal&php_token=beijing_test&method='
+    $$r.path = 'http://test.h5plus.net/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'loginUrl': $$r.path + 'ruixue.hfive.weidian.portal.login',
+                'list': $$r.path + 'ruixue.hfive.weidian.page.list',
+                'downpage': $$r.path + 'ruixue.hfive.weidian.page.downpage',
+                'uppage': $$r.path + 'ruixue.hfive.weidian.page.uppage',
+                'delete': $$r.path + 'ruixue.hfive.weidian.page.deletepage'
+            },
+            "details": './detail'
+        }
+    };
+</script>
+</head>
+<body class="shelf">
+
+<div id="j_p"><p class="ui-msg ui-msg-loading">页面初始化......</p></div>
+
+<script type="text/javascript" src="http://test.h5plus.net/static/comlibjs/lib/seajq.js?v=20151221"></script>
+        <script type="text/javascript" src="http://test.h5plus.net/static/h5plus/js/_g/base.js?v=20151221"></script>
+<script type="text/javascript" src="http://test.h5plus.net/static/h5plus/js/weMall/shelf/common/list.js?v=20151221" id="j_js"></script>
+</body>
+</html>

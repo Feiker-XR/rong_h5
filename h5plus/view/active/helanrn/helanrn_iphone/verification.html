@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>员工认证</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="<%= data['comlibjs'] %>/lib/jquery.js"></script>
+	<scriptsrc="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script src="http://resource.h5plus.net/h5plus-resource/js/h5sdk/1.01/test/h5sdk.js"></script>
+	<script>
+		var wx_id='gh_e611846d32ee';
+		var pid='55cbf3a3986a9b483376f279';
+		h5sdk.wxOpenidInit(pid,wx_id);
+	</script>
+	<style>
+		*{
+			list-style: none; margin: 0; padding: 0;
+		}
+		html,body{
+			width: 100%; height: 100%；
+		}
+		.wrap{
+			width: 100%; height: 95%; padding-top: 5%;
+		}
+		.wrap div{
+			width: 90%; margin: 0 auto; height: 40px; margin-top: 15px;
+		}
+		.wrap input{
+			height: 40px; width: 98%; padding-left: 2%; border: none; border-bottom: 1px #ccc solid; margin: 0 auto;
+		}
+		.next{
+			width: 90%; height: 40px; background: #00c5a7; border-radius: 20px; margin: 0 auto; text-align: center; line-height: 40px; color: #fff; margin-top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div><input type="text" id="name" placeholder="真实姓名"></div>
+		<div><input type="text" id="phone" placeholder="请输入手机号"></div>
+		<div><input type="text" id="number" placeholder="员工编号"></div>
+		<p class="next" id="next">
+			认证绑定
+		</p>
+	</div>
+	<script>
+	h5sdk.wxOpenidReady(function(openid){
+		init(openid);
+	})
+	function init(openid){
+		$('#next').on('click',function(){
+			if($('#name').val()==''){
+				alert('名字不能为空');
+				return false
+			}
+			if($('#phone').val()==''){
+				alert('手机号不能为空');
+				return false
+			}
+			if($('#number').val()==''){
+				alert('员工编号不能为空');
+				return false
+			}
+			$.ajax({                      //员工认证
+		        type : 'post',
+		        url : 'http://test.h5plus.net/auth-template/api/?method=ruixue.hfive.weidian.staffsale.staff.validinfo&pid='+pid,
+		        dataType : 'json',
+		        xhrFields: {withCredentials: true},
+		        data:{'staff_name':$('#name').val(),'staff_phone':$('#phone').val(),'staff_no':$('#number').val()},
+		        success : function(res){
+		        	if(!res.error_response){
+	        			alert(res.hfive_weidian_staffsale_staff_validinfo_response.message);
+		        	}else{
+		        		alert(res.error_response.msg);
+		        	}
+		        }
+		    })		
+		})
+	}
+	</script>
+</body>
+</html>

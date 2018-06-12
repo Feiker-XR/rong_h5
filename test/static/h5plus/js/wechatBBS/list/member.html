@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
+
+	<body>
+		<div id="j_p">
+
+			<div id="leftNav" class="nav-fixed-left"></div>
+
+			<!--html start-->
+			<div id="j_plat_state"></div>
+			<div class="m-main label_content" id="j_con_main">
+				<!--控制菜单-->
+				<div class="panel">
+					<div class="panel-content filler">
+						<!--<div class="activityTit">社区会员</div>-->
+						<div class="panel-logo">
+							<div class="panel-logo-img">
+
+							</div>
+						</div>
+						<div class="panel-header">
+							<div class="activityTit">社区会员</div>
+						</div>
+						<div class="panel-search container-fluid">
+							<form class="form-horizontal" action="javascript:;">
+								<input id="panelSearch" placeholder="会员昵称" type="text" name="panelSearch">
+								<button class="btn btn-search" id="select-member-btn"></button>
+							</form>
+						</div>
+
+						<div class="sidebarMenuHolder">
+							<div class="JStree">
+								<div class="Jstree_shadow_top"></div>
+								<div id="jstree"></div>
+								<div class="Jstree_shadow_bottom"></div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-slider">
+						<div class="panel-slider-center">
+							<div class="panel-slider-arrow"></div>
+						</div>
+					</div>
+				</div>
+				<!--控制菜单ＥＮＤ-->
+				<!--<ol style="width: 100%;height: 5px;"></ol>-->
+				<div class="main-content">
+					<!--当前位置 -->
+					<div class="breadcrumb-container">
+						<div id="local-nav-tip"></div>
+						<div style="float: right;">
+							<div class="">
+								<label class="" id="member-select-wechat"></label>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="form-horizontal">
+						<div class="container-fluid" style="border: none !important;">
+							<div class="row-fluid">
+								<div class="span12">
+									<div class="dataTables_length awardTit"><label>社区会员：</label></div>
+									<!--选择微信公众号-->
+									<!--<div class="dataTables_length awardTit">
+										<label class="margin020" id="member-select-wechat"></label>
+									</div>-->
+
+									<!--存放表格和Page栏的容器-->
+									<div data_id="awardList" id="member-table-list">
+
+									</div>
+									<div id="page" style="display: none;">
+										<input type="hidden" name="page" id="setPage" value="1">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div ng-controller="labelController" style="width: 100%; height: 100%;" class="ng-scope hide-confirm">
+					<!--二次确认北京变灰色-->
+					<div class="Pop" ng-show="Pop" style="position: fixed;"></div>
+					<!--设置/取消编辑   二次确认的弹出窗口-->
+					<div class="ContainerLabelCommon">
+						<div class="AlertDelete_1" ng-show="delete_mark_A">
+							<div class="title">
+								<div class="title-name">title</div>
+								<div class="hand closeAlert"><span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="shut()"></span></div>
+							</div>
+							<div class="title1" id="mark_text">确定要删除标签"1111q"吗？</div>
+							<!--<div class="title2"><input type="checkbox" id="delete_mark_checkbox"><span>删除粉丝的已有标签</span></div>-->
+							<div class="title3">
+								<div class="closeAlert" data-action="sure">确定</div>
+								<div class="closeAlert" data-action="cancle">取消</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="m-form1" id="j_con_right"></div>
+			<div id="j_con_tipsPhoton"></div>
+			<script id="local-nav-tip-tml" style="display:none" type="text/html">
+				<ul class="xbreadcrumbs" data_id="navTop">
+					<li>
+						<a href="javascript:void(0);" target="_self">
+							<i class="icon-photon home margint3"></i>
+						</a>
+					</li>
+					<li class="current">
+						<a href="javascript:void(0);">微社区</a>
+					</li>
+					<li class="current">
+						<a href="javascript:void(0);">社区会员</a>
+					</li>
+				</ul>
+			</script>
+			<!--选择公众号模块-->
+			<script id="member-select-wechat-tml" type="text/x-dot-template" style="display:none">
+
+				<div style="margin-right:20px;float:right;height: 30px;">
+					<span style="height:30px;line-height:30px;display:block;float:left;padding-right:10px">选择公众号:</span>
+					<select id="usrbidsel" style="width: 160px;    width: 160px;  height: 25px; margin-top: 3px;">
+				        <!--<option weixin_id="" pub_id="">请选择公众号</option>-->
+				        {{ var wxinfo=it.hfive_weixin_pubid_list_response.wxinfos.wxinfo; }}
+				        {{for(var i = 0;i<wxinfo.length;i++){ }}
+				        {{var item=wxinfo[i];}}
+				       	 <option weixin_id ="{{=item.weixin_id }}"  pub_id="{{=item.pub_id}}">{{=item.name}}</option>
+				        {{ } }}
+				    </select>
+				</div>
+			</script>
+			<script id="j_view_tipsPhoton" type="text/html" style="display:none">
+				{{if(it.code==1){ var alertClass='alert-success'; var alertTitle='成功'; var alertTip=it.message; }else{ var alertClass='alert-error'; var alertTitle='失败'; var alertTip=it.msg; };}} {{console.log(alertTip);}}
+				<div class="alert {{=alertClass}} alert-block">
+					<i class="icon-alert icon-alert-info"></i>
+					<button data-dismiss="alert" class="close" type="button">×</button>
+					<strong>{{=alertTitle}}</strong>
+					<span>{{=alertTip}}</span>
+				</div>
+			</script>
+			<!--表格模块-->
+			<script id="member-table-tml" type="text/x-dot-template">
+				<div class="row-fluid memberTable">
+					<div class="span12">
+						{{var total=it.hfive_community_member_findpaging_response.total||0;}} {{var pageLength=it.pageLength||10;}} {{var page_size=total/pageLength;}} {{if(total%pageLength!=0){}} {{page_size=parseInt(page_size)+1;}} {{};}} {{var member=it.hfive_community_member_findpaging_response.members.member;}}
+						<table class="table table-striped table-responsive awardTable" page_size="{{=page_size||0}}">
+							<thead class="cf sorthead">
+								<tr>
+									<th style="display: none;">ID</th>
+									<th style="display:none;">OPEN_ID</th>
+									<th style="" class="nickname">会员</th>
+									<th style="width: 25%">发表话题数</th>
+									<th style="width: 25%">粉丝数</th>
+									<th style="width: 25%">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{ for(var i=0;i
+								<member.length;i++) { }} {{var item=member[i];}} <tr class="gradeX">
+									<td style="display:none;" title="{{=item.user_id}}">{{=item.user_id}}</td>
+									<td style="display:none;" class="open_id" data-openID="{{=item.open_id}}"></td>
+									<td width="" title="{{=item.nickname}}" class="nickname">
+										<span class="memberPlayerImg">
+											<img src="{{=item.head_url}}" style="vertical-align: top;padding-right: 10px;"/>
+											</span>
+										<span>
+												{{=item.nickname}}	
+											</span>
+									</td>
+									<td width="" title="发表话题数:{{=item.topic_count}}">{{=item.topic_count}}</td>
+									<td width="" title="粉丝数:{{=item.fans_count}}">{{=item.fans_count}}</td>
+
+									<td width="" id="editor_yn">
+										{{? item.editor_yn=="N"}}
+										<button type="button" id="set-editor-btn" class="btn btn-info" data-toggle="modal" bnt-type="bat-topic-add-to" title="设为作者" editor_yn="{{=item.editor_yn}}">设为作者</button> {{??}}
+										<button type="button" id="cancle-editor-btn" class="btn btn-info" data-toggle="modal" bnt-type="bat-topic-add-to" title="撤消" editor_yn="{{=item.editor_yn}}" style="padding: 4px 27px;">撤消</button> {{?}}
+									</td>
+									</tr>
+									{{ } }}
+							</tbody>
+						</table>
+
+					</div>
+					<!--page-->
+					<div class="dataTables_paginate paging_bootstrap pagination">
+						<ul class="margin020" data_id="pageShow">
+							<li class="prev"><a href="javascript:void(0);">«</a></li>
+							<li class="next"><a href="javascript:void(0);">»</a></li>
+						</ul>
+					</div>
+				</div>
+			</script>
+		</div>
+		<!--html End-->
+
+		<script type="text/javascript" src="../../_g/pmsg.js"></script>
+	</body>
+
+</html>

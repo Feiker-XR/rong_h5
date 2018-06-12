@@ -1,0 +1,25 @@
+<% include ../../_g/header.html %>
+<title>粉丝管理 -H5PLUS</title>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat2'] %>.css<%= data['v'] %>">
+<script type="text/javascript">
+    $$r.path = '/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link":{
+                'addDetail': $$r.path + 'ruixue.hfive.core.tag.fans.detail',
+                'editDetail': $$r.path + 'ruixue.hfive.core.tag.fans.detail'
+            },
+            'previous':'./list'
+        }
+    };
+</script>
+</head>
+<body class="<%= data['cat2'] %>">
+
+<div class="cont-all1" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

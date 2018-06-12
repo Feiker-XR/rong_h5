@@ -1,0 +1,19 @@
+@charset "utf-8";
+* { margin: 0; padding: 0;}
+ul { list-style: none;}
+.margin020 { margin-top: 20px;}
+/*.margint3 { margin-top: 3px;}*/
+.xbreadcrumbs > LI { background: url(../images/brd_separator@2x.png) no-repeat; position: relative; height: 30px; line-height: 30px; min-width: 130px; padding: 0 20px 0 0; background-position: center right; background-repeat: no-repeat; white-space: nowrap; background-size: 20px 30px;}
+.fl { float: left;}
+.imageTextListWrap { padding: 0 20px;}
+.imageTextListTit { padding: 20px 0; overflow: hidden; zoom: 1;}
+.imageTextListSearch { float: right; position: relative;}
+.imageTextListSearch input{ width: 300px; height: 28px; line-height: 28px; border: 1px solid #ccc; text-indent: 1em;}
+.searchImg { position: absolute; top: 0; right: 0; width: 36px; height: 28px; background: url(../images/imageTextListSearch.png) no-repeat center center; cursor: pointer;}
+.imageTextListImg { float: left; padding-left: 10px; margin-right: 18px;}
+.imageTextListImg img { width: 118px; height: 88px; border: 1px solid #dbd9d9;}
+.imageTextListActivity { overflow: hidden;}
+.imageTextList td{ border: 1px solid #d5d5d5; text-align: center; padding: 10px 0;}
+.imageTextListActivity li { text-align: left;}
+.imageTextOpr span { padding: 0 10px; color: #40ade9; cursor: pointer;}
+.btnImageText { background: #00a0e6; width: 111px; height: 30px; padding: 0; line-height: 30px;}

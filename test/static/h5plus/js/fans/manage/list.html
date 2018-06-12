@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<div id="j_p">
+
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+
+<!--html start-->
+<div id="j_plat_state"></div>
+<div class="page hide main-content body-inner container-fluid"  id="j_plat">
+    <div class="m-title" id="j_con_title"></div>
+    <div class="m-form1" id="j_con_form"></div>
+    <div class="m-main label_content"  id="j_con_main"></div>
+    <div class="ui-paging" id="j_con_page"></div>
+
+    <input type="hidden" name="page" id="setPage" value="1">
+</div>
+
+
+<!--html end-->
+<script id="j_view_title" style="display:none" type="text/html">
+    <header class="container_label container-fluid">
+        <div class="label_title clearfix ">
+            <ul class="clearfix label_title_ul">
+                <li class="on">我的站点</li>
+                <li>我的项目</li>
+            </ul>
+            <div class="title_break"><span class="glyphicon glyphicon-repeat glyphicon-top" aria-hidden="true"></span>&nbsp;刷新</div>
+            <div class="input-group-btn uecFansManageMarFu">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">拼划算 <span class="caret"></span>
+                    <div class="uecFansManageGongZhongH">公众号</div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li><a href="javascript:;">全部</a></li>
+                    <li><a href="javascript:;">全部</a></li>
+                    <li><a href="javascript:;">全部</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="javascript:;">全部</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</script>
+
+
+<script id="j_view_form" style="display:none" type="text/html">
+    <form id="j_searchform" action="" class="form-horizontal">
+        <div class="uecFansManageIiebiaoIable uecFansManageAnMarTop container-fluid">
+            <span class="uecFansManageIiebiaoIablesonspan">性别</span>
+            <button class="btn btn-default btn-sm" type="submit">不限</button>
+            <button class="btn btn-default btn-sm" type="submit">男</button>
+            <button class="btn btn-default btn-sm" type="submit">女</button>
+        </div>
+        <div class="uecFansManageIiebiaoIable container-fluid">
+            <span class="uecFansManageIiebiaoIablesonspan">地区</span>
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">全部 <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="javascript:;">全部</a></li>
+                        <li><a href="javascript:;">全部</a></li>
+                        <li><a href="javascript:;">全部</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="javascript:;">全部</a></li>
+                    </ul>
+                </div>
+            </div>
+            <strong class="uecFansManageSheng">省</strong>
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">全部 <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="javascript:;">全部</a></li>
+                        <li><a href="javascript:;">全部</a></li>
+                        <li><a href="javascript:;">全部</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="javascript:;">全部</a></li>
+                    </ul>
+                </div>
+            </div>
+            <strong class="uecFansManageSheng">市</strong>
+        </div>
+        <div class="uecFansManageIiebiaoIable">
+            <span class="uecFansManageIiebiaoIablesonspan">标签</span>
+            <div class="uecFansManageAddbiaoqian">+选择</div>
+            <p class="uecFansManageYesspan">已选标签：<span>双十一红包，抢红包，大转盘</span></p>
+        </div>
+
+        <div class="uecFansManageIiebiaoIable">
+            <div class="uecFansManageBoxLeft">
+                <span class="uecFansManageIiebiaoIablesonspan">关注状态</span>
+                <button class="btn btn-default btn-sm" type="submit">不限</button>
+                <button class="btn btn-default btn-sm" type="submit">关注中</button>
+                <button class="btn btn-default btn-sm" type="submit">已取消</button>
+            </div>
+            <div class="uecFansManageBoxLeft uecFansManageBorRighrNo">
+                <span class="uecFansManageIiebiaoIablesonspan uecFansManageMarginRighr">48活</span>
+                <button class="btn btn-default btn-sm" type="submit">不限</button>
+                <button class="btn btn-default btn-sm" type="submit">是</button>
+                <button class="btn btn-default btn-sm" type="submit">否</button>
+            </div>
+        </div>
+        <div class="uecFansManageIiebiaoIable">
+            <div class="uecFansManageBoxLeft">
+                <span class="uecFansManageIiebiaoIablesonspan">关注时间</span>
+                <div class="form-group">
+                    <!--<label class="sr-only" for="exampleInput">请输入</label>-->
+                    <input type="text" class="form-control" id="exampleInput" placeholder="不限">
+                </div>
+                <p class="uecFansManageMarLeRi">-</p>
+                <div class="form-group">
+                    <!--<label class="sr-only" for="exampleInput">请输入</label>-->
+                    <input type="text" class="form-control" id="exampleInput" placeholder="不限">
+                </div>
+            </div>
+            <div class="uecFansManageBoxLeft uecFansManageBorRighrNo">
+                <span class="uecFansManageIiebiaoIablesonspan uecFansManageMarginRighr">交互时间</span>
+                <div class="form-group">
+                    <!--<label class="sr-only" for="exampleInput">请输入</label>-->
+                    <input type="text" class="form-control" id="exampleInput" placeholder="不限">
+                </div>
+                <p class="uecFansManageMarLeRi">-</p>
+                <div class="form-group uecFansManageClerBotn">
+                    <!--<label class="sr-only" for="exampleInput">请输入</label>-->
+                    <input type="text" class="form-control" id="exampleInput" placeholder="不限">
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="uecFansManageRrTwoBtnBox">
+            <button class="btn btn-default btn-sm" type="submit">筛选</button>
+            <button class="btn btn-default btn-sm" type="submit">重置</button>
+        </div>
+    </form>
+</script>
+
+
+<script id="j_view_con" type="html" style="display:none" >
+{{console.log(it);}}
+{{
+    var res = it.hfive_core_tag_fans_filter_response,
+        page_total = res.total,
+        fan_list = res.tagfans.tagfan;
+}}
+<div class="uecFansManageSoGongserch">
+    <button class="btn btn-default btn-sm uecFansManageSoGongserchSonBtn" type="submit">群发消息</button>
+    <button class="btn btn-default btn-sm uecFansManageSoGongserchSonBtn" type="submit">批量打标签</button>
+    <form class="navbar-form" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-default">搜索</button>
+    </form>
+    <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">昵称 <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="javascript:;">全部</a></li>
+            <li><a href="javascript:;">全部</a></li>
+            <li><a href="javascript:;">全部</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="javascript:;">全部</a></li>
+        </ul>
+    </div>
+</div>
+
+<table border="0" cellspacing="0" cellpadding="0" class="tableWrap table-hover  table-striped table-responsive dataTable">
+    <tbody>
+        <tr>
+            <th width="240"><input type="checkbox" class="uecFansManageCheckbox uecFansManageCheckboxthOne">昵称</th>
+            <th width="40">性别</th>
+            <th width="140">地区</th>
+            <th>标签</th>
+            <th width="180">关注状态</th>
+            <th width="150">关注时间</th>
+            <th width="130">交互时间</th>
+            <th width="130">48活</th>
+            <th width="130">消息</th>
+        </tr>
+        {{ for (var i = 0; i < fan_list.length; i++) { }}
+            {{var item = fan_list[i];}}
+                <tr>
+                    <td>
+                        <input type="checkbox" class="uecFansManageCheckbox">
+                        <div class="uecFansManageHeadImg"></div>
+                        <div class="uecFansManagePsizeRight">
+                            <p class="zxx_text_overflow">{{=item.nickname}}</p>
+                            <p class="zxx_text_overflows">{{=item.name}}</p>
+                        </div>
+                    </td>
+                    <td>{{=item.sex===1?"男":"女"}}</td>
+                    <td>{{=item.province_name}} - {{=item.city_name}}</td>
+                    <td class="po">
+                        <div class="fl">
+                            <div class="labels" data-toggle="popover" data-original-title="" title="">
+                                {{for (var j = 0; j < item.tags.tag.length; j++) {}}
+                                    <span class="labelRed">{{=item.tags.tag[j].tag_name}}</span>
+                                {{};}}
+                            </div>
+                        </div>
+                        <span class=" fl"><img src="img/redact.png"/></span>
+                    </td>
+                    <td>{{=item.subscribe_yn=="Y"?"已关注":"未关注"}}</td>
+                    <td>{{=item.active_time}}</td>
+                    <td>{{=item.subscribe_time}}</td>
+                    <td>{{=item.activity_48h_yn=="Y"?"已激活":"未激活"}}</td>
+                    <td class="uecFansManageFenColor">{{=item.weixin_id}}</td>
+                </tr>
+        {{ };}}
+    </tbody>
+</table>
+</script>
+
+<script id="j_con_page" type="text/javascript">
+    
+</script>
+
+
+</div>
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>
+
+</body>
+</html>

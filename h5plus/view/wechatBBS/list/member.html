@@ -1,0 +1,33 @@
+<% include ../../_g/header.html %>
+<title>微社区--社区会员</title>
+
+<link rel="stylesheet" href="<%= data['v3'] %>/css/css/index.css" media="all" />
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/member.css<%= data['v'] %>">
+<link rel="stylesheet" href="<%= data['css'] %>/active/signBackend/signBackend.css" type="text/css" />
+<link rel="stylesheet" href="<%= data['css'] %>/g/g.css" type="text/css" />
+
+<script type="text/javascript">
+//    $$r.path = '/auth-portal/api/?method='
+    $$r.path = 'http://test.h5plus.net/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'setEditor':$$r.path + 'ruixue.hfive.community.member.seteditor',
+                'cancleEditor':$$r.path + 'ruixue.hfive.community.member.canceleditor',
+                'findEditor':$$r.path + 'ruixue.hfive.community.member.findeditor',
+                'findPaging':$$r.path + 'ruixue.hfive.community.member.findpaging',
+                'pubidlist':$$r.path+'ruixue.hfive.weixin.pubid.list',
+            },
+            "details": './detail'
+        }
+    };
+</script>
+</head>
+<body class="<%= data['cat2'] %>">
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>.js<%= data['v'] %>" id="j_js"></script>
+<script type="text/javascript" src="<%= data['v3'] %>/js/plugins/jquery.pnotify.min.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

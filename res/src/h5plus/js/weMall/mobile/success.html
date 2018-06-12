@@ -1,0 +1,42 @@
+<div id="j_p">
+
+
+	<!-- <header></header> -->
+	<div id="cont"></div>
+	<!-- <footer></footer> -->
+
+
+	<script id="j_header" type="text/html">
+		<div class="top-row">
+			<a href="javascript:window.history.go(-1);" title="返回"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic1.png"></a>
+			<div class="title">支付成功</div>
+			<a href="javascript:window.location.reload();"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic2.png"></a>
+		</div>
+	</script>
+
+	<script id="j_cont" type="text/html">
+		<p class="info">订单支付成功</p>
+
+		<section class="pay-info">
+			<p class="title">您的支付信息</p>
+			<p>支付金额：<span class="fee">{{=it.total||""}}</span></p>
+			<p>订单编号：<span class="num">{{=it.order_no||""}}</span></p>
+			<p>支付方式：<span class="type">微信支付</span></p>
+		</section>
+
+		<button data-op="orderDetail">查看订单详情</button>		
+	</script>
+
+
+	<script id="j_footer" type="text/html">
+		<ul>
+			<li data-op="home">首页</li>
+			<li data-op="group">组团购</li>
+			<li data-op="cart">购物车</li>
+			<li data-op="uc" class="cur">我的</li>
+		</ul>
+	</script>
+
+</div>
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>

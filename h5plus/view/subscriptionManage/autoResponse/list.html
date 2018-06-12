@@ -1,0 +1,36 @@
+<% include ../../_g/header.html %>
+<title>公众号管理</title>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat2'] %>.css<%= data['v'] %>">
+<script type="text/javascript">
+    $$r.path = '/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'imageslibrary': $$r.path + 'ruixue.hfive.core.tag.customMenu.imageslibrary',
+                'subscription': $$r.path + 'ruixue.hfive.core.tag.customMenu.subscription',
+                'release': $$r.path + 'ruixue.hfive.core.tag.customMenu.release',
+                'menuTree': $$r.path + 'ruixue.hfive.core.tag.autoResponse.menuTree',
+                'menu1Add': $$r.path + 'ruixue.hfive.core.tag.customMenu.menu1Add',
+                'menu1Edit': $$r.path + 'ruixue.hfive.core.tag.customMenu.menu1Edit',
+                'menuDel': $$r.path + 'ruixue.hfive.core.tag.customMenu.menuDel',
+                'menuContent': $$r.path + 'ruixue.hfive.core.tag.customMenu.menuContent',
+                'keyword': $$r.path + 'ruixue.hfive.core.tag.autoResponse.keyword',
+                'page': $$r.path + 'ruixue.hfive.core.tag.customMenu.page',
+                'sort': $$r.path + 'ruixue.hfive.core.tag.customMenu.sort',
+                'save': $$r.path + 'ruixue.hfive.core.tag.customMenu.save'
+            }
+        }
+    };
+</script>
+</head>
+<body class="<%= data['cat2'] %>">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/kindeditor/kindeditor-all.js"></script>
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/kindeditor/lang/zh-CN.js"></script>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <![endif]-->
+    <title>个人中心 - 微商城</title>
+    <meta name="description" content="个人中心,微商城,h5plus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" type="image/ico" href="http://3gimg.qq.com/web/webapp_webmarket/android/images/favicon.ico" />
+
+    <link rel="stylesheet" href="index.css">
+    <style type="text/css">
+    .user-center{
+		color: #515151;
+		background: white;
+		height: auto;
+        overflow-y:auto;
+        padding-top: 3.125rem;
+		padding-bottom: initial;
+    }
+    header{ height: auto; }
+    
+    .user-center section.list{ background: white; }
+    .user-center div.s3-group{ 
+    	position: relative;
+    	padding: 1em 0;
+    }
+    .user-center .com.s3-group:after{
+    	content: '';
+	    position: absolute;
+	    border-bottom: 1px solid #e2e2e2;
+	    bottom: 0;
+	    left: 4.2em;
+	    right: 0em;
+    }
+    /* .user-center .list .s3-group:last-child:after{
+    	content: '';
+    		border-bottom: none;
+    } */
+    .user-center .s3-group .icon {
+    width: 1.125rem;
+    height: 1.25rem;
+    margin: 0 1.2rem 0 0em;
+    display: inline-block;
+    border-radius: .25rem;
+    border: .125rem solid #f31e34;
+    position: relative;
+	}
+    .user-center .s3-group .icon:before {
+	content: '-';
+    position: absolute;
+    top: -0.3125rem;
+    left: .1875rem;
+    width: .5rem;
+    height: .3125rem;
+    border: .125rem dashed #f31e34;
+    background: white;
+    line-height: .062rem;
+    font-weight: bold;
+    color: #f31e34;
+    }
+    .user-center .s3-group .icon:after {
+    content: '－ ';
+    position: absolute;
+    bottom: .1875rem;
+    left: .25rem;
+    width: .625rem;
+    height: .437rem;
+    border: .125rem solid #f31e34;
+    border-left: none;
+    border-right: none;
+    background: white;
+    line-height: .625rem;
+    font-weight: bold;
+    font-size: 2.5rem;
+    font-family: -webkit-body;
+    text-align: left;
+    color: #f31e34;
+    overflow: hidden;
+    }
+    .user-center .s3-group:last-child .icon {
+    background: url(./sprite.png) -3.1875rem -26.475rem;
+    background-size: 12.5rem auto;
+    border: none;
+    width: 1.625rem;
+    height: 1.625rem;
+    }
+    .user-center .s3-group:last-child .icon:before {content: '';border: none;}
+    .user-center .s3-group:last-child .icon:after {content: '';border: none;background: none;}
+
+	.user-center .s3-group aside{
+		width: 75%;
+    	text-align: left;
+	}
+	.user-center .s3-group .title, 
+	.user-center .bill .title { position: relative;}
+	.user-center .s3-group .title em, .user-center .bill .title em{
+		color: #9f9f9f;
+		font-size:14px;
+	}
+	.user-center .s3-group .title .arrow{
+	    font-family: Arial;
+	    font-weight: bolder;
+	    font-size: 1.25em;
+	    color: #cbcfd3;
+	} 
+	.user-center .s3-group .title em:after, .user-center .bill .title em:after{ 
+		content:'个';
+	}
+	.user-center .s3-group .title i, .user-center .bill .title i{
+		position: absolute;
+		top:0;
+		right: 0;
+		font-size:1em;
+	}
+	.user-center .s3-group .mult{
+		text-align: right;
+		font-size: .8em;	
+	}
+    </style>
+</head>
+<body class="home user-center">
+
+	<header>
+        <div class="top-row">
+            <a href="javascript:window.history.go(-1);" title="返回"><img src="images/pic1.png"></a>
+            <div class="title">拼划算微商城</div>
+            <a href="javascript:;"><img src="images/pic2.png"></a>
+        </div>
+    </header>
+
+	<section class="list">
+		<div class="com s3-group" onclick="window.location.href='./order.html';">
+			<i class="icon"></i>
+			<aside>
+				<p class="title">
+					我的订单
+					<i class="arrow">></i>
+				</p>
+			</aside>
+		</div>
+		<div class="com s3-group">
+			<i class="icon"></i>
+			<aside>
+				<p class="title">
+					我的积分
+					<i class="arrow">></i>
+				</p>
+			</aside>
+		</div>
+	</section>
+
+	<footer class="">
+		<ul>
+			<li onclick="window.location.href='index.html';">首页</li>
+			<li onclick="window.location.href='javascript:;';">组团购</li>
+			<li onclick="window.location.href='cart.html';">购物车</li>
+			<li class="cur" onclick="window.location.href='usercenter.html';">我的</li>
+		</ul>
+	</footer>
+
+    <script type="text/javascript" src="iscroll.js"></script>
+    <script type="text/javascript">
+		var isWeChat = /MicroMessenger/g.test(window.navigator.userAgent)
+		if(isWeChat) {
+			// document.querySelector('#wrapper').style.top = '3.25rem'
+			// document.querySelector('.top-row').style.display = 'none'
+		}
+
+		(function (doc, win) { 
+          var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              docEl.style.fontSize = 14 * (clientWidth / 320) + 'px';
+            };
+
+          if (!doc.addEventListener) return;
+          win.addEventListener(resizeEvt, recalc, false);
+          doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+
+		function loaded () {
+			// document.querySelector('.text').textContent = window.navigator.userAgent;
+			var myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
+			var tabScroll = new IScroll('#tabList', { scrollX: true, scrollY: false, mouseWheel: true });
+			var sildeScroll = new IScroll('#slider', {
+				scrollX: true,
+				scrollY: false,
+				momentum: false,
+				snap: true,
+				snapSpeed: 400,
+				keyBindings: true,
+				indicators: {
+					el: document.getElementById('indicator'),
+					resize: false
+				}
+			});
+		}
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		// window.onload = loaded
+	</script>
+
+  </body>
+
+</html>

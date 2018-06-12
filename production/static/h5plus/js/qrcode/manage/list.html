@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<div id="j_p">
+
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+    <!-- bootstrap -->
+    <div id="j_plat_state"></div>
+    <div class="page hide"  id="j_plat">
+        <div class="m-main label_content"  id="j_con_main"></div>
+        <div class="ui-paging" id="j_con_page"></div>
+
+        <input type="hidden" name="page" id="setPage" value="1">
+    </div>
+
+    <script id="j_view_con" type="html" style="display:none" >
+    {{
+        var page_total = it.total,
+            fan_list = it.rows;
+    }}
+    <div class="uecFansManageSoGongserch">
+        <button class="btn btn-default btn-sm uecFansManageSoGongserchSonBtn" type="button" data-op="createL">新建</button>
+        <button class="btn btn-default btn-sm uecFansManageSoGongserchSonBtn" type="button" data-op="modifyL">修改</button>
+        <button class="btn btn-default btn-sm uecFansManageSoGongserchSonBtn" type="button" data-op="del">删除</button>
+        <form class="navbar-form" role="search">
+            <div class="form-group">
+                <input type="text" id="qrcode_name" class="form-control" placeholder="请输入二维码名称">
+            </div>
+            <button type="button" class="btn btn-default" data-op="srcList">搜索</button>
+        </form>
+    </div>
+
+    <table border="0" cellspacing="0" cellpadding="0" class="tableWrap table-hover">
+        <tbody>
+            <tr>
+                <th width="40"></th>
+                <th width="40"></th>
+                <th width="550"><input type="checkbox" class="uecFansManageCheckbox uecFansManageCheckboxthOne">二维码</th>
+                <th width="240">分类</th>
+                <th width="240">名称</th>
+                <th width="280">创建时间</th>
+                <th width="280">静态类型</th>
+                <th width="280">备注</th>
+                <th width="280">复制名称</th>
+            </tr>
+            {{ for (var i = 0; i < fan_list.length; i++) { }}
+                {{var item = fan_list[i];}}
+                    <tr>
+                        <td>{{=i + 1}}</td>
+                        <td><input type="checkbox" name="aihao" class="uecFansManageCheckbox" value={{=item.id}}></td>
+                        <td>
+                            <div>{{=item.pic}}</div>
+                        </td>
+                        <td>{{=item.category_name}}</td>
+                        <td>{{=item.qrcode_name}}</td>
+                        <td>{{=item.c_datetime}}</td>
+                        <td>{{=item.item_name}}</td>
+                        <td>{{=item.qrcode_comments}}</td>
+                        <td>
+                            <button class="btn btn-default btn-sm cp{{=i + 1}}" data-op="copyclip" data-clipboard-text="{{=item.qrcode_name}}" type="button">复制名称</button>
+                        </td>
+                    </tr>
+            {{ };}}
+        </tbody>
+    </table>
+    </script>
+
+    <script id="j_con_page" type="text/javascript">
+        
+    </script>
+
+</div>
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>
+
+</body>
+</html>

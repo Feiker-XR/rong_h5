@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>音频素材</title>
+<link href="css/photon.css" rel="stylesheet">
+<link href="css/photon-pt2.css" rel="stylesheet">
+<link href="css/upAudios.css" rel="stylesheet">
+<script src="js/jquery-1.8.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.zclip.min.js"></script>
+</head>
+
+<body>
+<div>
+    <div class="breadcrumb-container">
+        <ul class="xbreadcrumbs" data_id="navTop">
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="icon-photon home margint3"></i>
+                </a>
+            </li>
+            <li class="current">
+                <a href="javascript:void(0);">素材文件</a>
+            </li>
+            <li class="current">
+                <a href="javascript:void(0);">音频素材</a>
+            </li>
+        </ul>
+    </div>
+    <div class="imageTextListWrap">
+        <div class="imageTextListTit">
+            <div class="fl">
+              <a class="btn btn-info btnImageText" data-toggle="modal" data-target="#modal-add-quick-launch" type="button" href="javascript:void(0)">添加音频</a>
+            </div>
+            <div class="imageTextListSearch">
+                <input placeholder="请输入音频名称">
+                <div class="searchImg"></div>
+            </div>
+        </div>
+        <div class="picListWrap">
+            <div class="container-fluid">
+               <!--Basic Non-responsive Bordered Table begin-->
+               <div class="row-fluid">
+                   <div class="span12">
+                       <table class="table table-bordered table-striped">
+                           <thead class="">
+                               <tr>
+                                   <th>音频名称</th>
+                                   <th>创建时间</th>
+                                   <th>操作</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                   <td>音频名称</td>
+                                   <td>创建时间</td>
+                                   <td width="200px"><span class="caozuobox"><a href="javascript:void(0)" data-toggle="modal" data-target="#playSound">播放</a><a href="javascript:void(0)" id="copyPath" data='aaaaaaa1' style="position:relative; z-index:9999">复制链接</a><a href="javascript:void(0)">删除</a></span></td>
+                               </tr>
+                           </tbody>
+                       </table>
+                   </div>
+               </div>
+               <!--Basic Non-responsive Bordered Table end-->
+
+           </div>
+        </div>
+
+        <div class="dataTables_paginate paging_bootstrap pagination fl">
+            <ul class="margin020" data_id="pageShow">
+                <li class="prev"><a href="javascript:void(0);">«</a></li>
+                <li class="next"><a href="javascript:void(0);">»</a></li>
+            </ul>
+        </div>
+
+        <div id="modal-add-quick-launch" class="modal hide fade in" aria-hidden="false" style="display: none;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3>上传音频</h3>
+            </div>
+            <p class="uptipfile">上传提示：仅支持amr、mp3两种格式， 大小不超过5MB，长度不超过60秒。</p>
+            <div class="modal-body">
+                <div class="control-group row-fluid">
+                    <div class="span12">
+                        <div class="controls">
+                            <div class="upFilebox">
+                                <div class="floatAudiospan">本地音频：</div>
+                                <div class="fileuploadbox">
+                                    <input class="fileName" type="text" value="" name="" disabled>
+                                     <div class="btn btn-info chooseFile"><input type="file">选择文件</div>
+                                    <!-- <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
+                                        <div class="input-append">
+                                            <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file"></span><a href="javascript:;" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn" data-dismiss="modal">取消</a>
+                <a href="javascript:;" class="btn btn-primary" data-dismiss="modal">上传</a>
+            </div>
+        </div>
+
+        <div id="playSound" class="modal hide fade in" aria-hidden="false" style="display: none;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3>音频播放</h3>
+            </div>
+            <div class="modal-body">
+                <div class="control-group row-fluid">
+                    <div class="span12">
+                        <div class="controls">
+                            <div class="upFilebox">
+                                  <audio controls>
+                                    <source src="horse.mp3" type="audio/mpeg">
+                                    您的浏览器不支持 audio 元素。
+                                  </audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn" data-dismiss="modal">取消</a>
+                <a href="javascript:;" class="btn btn-primary" data-dismiss="modal">上传</a>
+            </div>
+        </div>
+        <div id="playSound" class="modal hide fade in" aria-hidden="false" style="display: none;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3>音频播放</h3>
+            </div>
+            <div class="modal-body">
+                <div class="control-group row-fluid">
+                    <div class="span12">
+                        <div class="controls">
+                            <div class="upFilebox">
+                                  <audio controls>
+                                    <source src="horse.mp3" type="audio/mpeg">
+                                    您的浏览器不支持 audio 元素。
+                                  </audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="playSound" class="modal hide fade in" aria-hidden="false" style="display: none;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3>音频播放</h3>
+            </div>
+            <div class="modal-body">
+                <div class="control-group row-fluid">
+                    <div class="span12">
+                        <div class="controls">
+                            <div class="upFilebox">
+                                  <audio controls>
+                                    <source src="horse.mp3" type="audio/mpeg">
+                                    您的浏览器不支持 audio 元素。
+                                  </audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+  $(function(){
+    console.log($('#copyPath').attr('data'))
+    $("#copyPath").zclip({
+      path: 'js/ZeroClipboard.swf',
+      copy: $('#copyPath').attr('data'),
+      afterCopy: function(){
+        alert('chenggong')
+      }
+    });
+  })
+</script>

@@ -1,0 +1,33 @@
+header{
+	width: 100%;height: 2.4rem;background-color: #393a3f;text-align: center;line-height: 2.4rem;color: #fff;font-size: 0.8rem;overflow: hidden;
+}
+header .header_left{
+	position: absolute;left:0.5rem;top: 0.3rem;width: 1.3rem;
+}
+header .header_right{
+	position: absolute;right: 0.5rem;top: -0.16rem;width: 1.1rem;
+}
+header .header_left img,header .header_right img{
+	width: 100%;
+}
+.goods_site{
+	width: 94%;height:2.8rem;margin: 0 auto;position: relative;overflow:hidden;border-bottom: 1px solid #d3d3d3;
+}
+.goods_site input{
+	width: 100%;height: 2.5rem;border:none;text-indent: 2.6rem;font-size: 0.7rem;font-family: "微软雅黑";color: #212121;
+}
+.text_indent_one input{
+	text-indent: 3.6rem;
+}
+.text_indent_two input{
+	text-indent: 2.1rem;
+}
+.goods_site h1{
+	position: absolute;left: 0px;top: 1rem;font-size: 0.7rem;color: #d3d3d3;
+}
+.save{
+	width: 90%;height: 2rem;text-align: center;background-color: #ff2741;color: #fff;font-size: 0.8rem;border:none;margin: 0 auto;line-height: 2rem;border-radius: 1rem;margin-top: 4rem;
+}
+.alert_error{
+	position: absolute;left: 50%;top: 50%;margin-left:-2.5rem;margin-top:-1rem;background-color: #212121;color: #fff;width: 5rem;height: 2rem;font-size: 0.7rem;border-radius:5px;text-align: center;line-height: 2rem;display:none;
+}

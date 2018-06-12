@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<div id="j_p">
+
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+
+	<!--html start-->
+	<div id="j_plat_state"></div>
+	<div class="page"  id="j_plat">
+	    <div class="m-title" id="j_con_title"></div>
+	    <div class="m-form1" id="j_con_tab" style="margin-top:-10px;min-height:800px;"></div>
+	</div>
+	<!--html end-->
+
+
+	<script id="j_view_title" style="display:none" type="text/html">
+        <div class="label_title clearfix">
+        	<div class="pull-left">
+        		<ul class="nav nav-tabs"> 
+    		      <li>一般页面</li> 
+    		      <li>特殊页面</a></li> 
+    		      <li class="active">模板设置</li> 
+    		    </ul> 
+        	</div>
+            <div class="pull-right">
+            	<a href="./selectTemp.html" class="fs-14 marig10">切换模板</a>
+            	<button type="button" class="btn btn-primary btn-sm active" id="j_refresh"><i class="fa fa-refresh fa-lg"></i>&nbsp;&nbsp;刷&nbsp;新</button>
+            </div>
+        </div>
+	</script>
+
+
+	<script id="j_view_tab" style="display:none" type="text/html">
+	    <h5 style="padding: 30px 10px 0px 50px;"><i class="fa fa-cog"></i>&nbsp;&nbsp;基本设置</h5>
+	    <form id="j_con_form" class="form-horizontal" action="" style="">
+	        <div class="form-group col-xs-12 col-sm-12">
+	            <label for="templateName" class="col-xs-12 col-sm-1 control-label gray">页面名称：</label>
+	            <div class="col-xs-12 col-sm-3">
+	              <input type="text" name="templateName" class="form-control col-xs-12 col-sm-2" id="templateName" value="{{=it.name}}" placeholder="不超过4个字...">
+	            </div>
+	        </div>
+	    </form>
+	    <div class="col-xs-12 col-sm-12 opreatbar navbar-fixed-bottom">
+		    <button class="btn btn btn-infos btn-sm" type="button" data-op="save_configTemp">保存</button>
+		    <button type="button" class="btn btn-default btn-sm" data-op="cancel_configTemp">取消</button>
+		</div>
+	</script>
+</div>
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>
+
+</body>
+</html>

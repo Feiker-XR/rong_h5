@@ -1,0 +1,82 @@
+<div id="j_p">
+
+
+	<!-- <header></header> -->
+	<div id="cont"></div>
+	<!-- <footer></footer> -->
+
+
+
+	<script id="j_header" type="text/html">
+		<div class="top-row">
+			<a href="javascript:window.history.go(-1);" title="返回"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic1.png"></a>
+			<div class="title">下单支付</div>
+			<a href="javascript:location.reload();"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic2.png"></a>
+		</div>
+	</script>
+
+	<script id="j_cont" type="text/html">
+		<section class="address">
+			<div class="loc" data-op="address">
+				<i></i>
+				<span class="red">[{{=it.address_id?"修改":""}}地址]</span>
+			</div>
+			<div class="info" {{?it.address_id}}style="text-align:left;margin-left:2.5rem;"{{?}}>
+				<p>{{=it.address_id?it.address:"<span class=red>没有收货地址</span>"}}</p>
+				<p data-op="address">{{=it.address_id?it.address_user+" "+it.address_tel:"点击添加地址信息"}}</p>
+			</div>
+		</section>
+
+		<section class="list">
+			{{~it.product_list:item:index}}
+				<div class="com s3-group">
+					<img src="{{=item.image||$$r.rootUrl+"/h5plus/img/weMall/mobile/mimi.jpg"}}">
+					<aside>
+						<p class="title">
+							<span>{{=item.name||""}}</span> <!-- <em>{{=item.pro_num}}</em> -->
+							<i class="price">{{=item.pro_price||"0.00"}}</i>
+						</p>
+						<p class="mult">x{{=item.pro_num||"0"}}</p>
+					</aside>
+				</div>
+			{{~}}
+		</section>
+
+		<section class="bill">
+			{{var _count_total = (parseFloat(it.sub_total)+parseFloat(it.postage)).toFixed(2);}}
+			<aside>
+				<p class="title">商品总价
+					<i class="price">{{=it.sub_total||"0.00"}}</i>
+				</p>
+			</aside>
+			<aside>
+				<p class="title">运费：
+					<i class="price">{{=it.postage||"0.00"}}</i>
+				</p>
+			</aside>
+			<aside class="total">
+				<p class="title">合计：
+					<i class="price">{{=_count_total||"0.00"}}</i>
+				</p>
+			</aside>
+		</section>
+
+		<section class="bottom-bar">
+			<div class="sum">{{=_count_total||"0.00"}}</div>
+			<div class="pay" data-op="pay">去支付</div>
+		</section>
+	</script>
+
+
+	<script id="j_footer" type="text/html">
+		<ul>
+			<li data-op="home">首页</li>
+			<li data-op="group">组团购</li>
+			<li data-op="cart" class="cur">购物车</li>
+			<li data-op="uc">我的</li>
+		</ul>
+	</script>
+
+</div>
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>

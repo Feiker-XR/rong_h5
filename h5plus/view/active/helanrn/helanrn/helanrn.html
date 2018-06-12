@@ -1,0 +1,29 @@
+<% include ../../../_g/header.html %>
+<title>编辑活动页面</title>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>/<%= data['cat3'] %>.css<%= data['v'] %>">
+<script type="text/javascript">
+    $$r.path = 'http://test.h5plus.net/auth-portal/api/?method='
+    $$r.pathImg = 'http://test.h5plus.net/auth-portal/api/upload?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'imageTextMenu': $$r.path + 'ruixue.hfive.weidian.staffsale.activity.get',
+                'imageTextSave': $$r.path + 'ruixue.hfive.weidian.staffsale.activity.set',
+                'goodsList': $$r.path + 'ruixue.hfive.weidian.goods.list',
+                'imgUpload': $$r.pathImg + 'ruixue.hfive.core.filemanager.activity.picture.upload'
+            }
+        }
+    };
+</script>
+</head>
+<body class="<%= data['cat3'] %>">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/ueditor1_4_3_2-src/ueditor.config.js"></script>
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/ueditor1_4_3_2-src/ueditor.all.js"></script>
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/ueditor1_4_3_2-src/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>/<%= data['cat3'] %>.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

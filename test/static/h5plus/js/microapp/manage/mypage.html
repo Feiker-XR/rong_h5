@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<div id="j_p">
+
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+    <!--html start-->
+    <div id="j_plat_state"></div>
+    <div class="page hide"  id="j_plat">
+        <div class="m-title" id="j_con_title"></div>
+        <div class="m-form1" id="j_con_form"></div>
+        <div class="m-main label_content"  id="j_con_main">
+            <div id="mypage-control-title"  class="mypageTitle"></div>
+
+            <div id="mypage-control-tree" class="mypage_content">
+                <!--wx tree-->
+
+                <div id="wx_tree">
+
+                </div>
+
+                <!--wx tree-->
+
+                <div id="mainarea">
+                    <!--table-->
+                 <div id="contrtable">
+
+                  </div>
+
+                    <!--table-->
+
+                    <!--page-->
+
+                    <div id="page" style="display:none;">
+                        <!--
+                        <div class=" pagination" data-options="showRefresh:true">
+                            <ul>
+                                <li>
+                                    <div class="combobox">
+                                        <select class="pagination-page-list" style=" opacity: 1;">
+                                            <option value="10" selected="selected">10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="50">50</option>
+                                        </select>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <a class="l-btn l-btn-plain l-btn-disabled l-btn-plain-disabled"><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-prev">上一页</span></span></span></a>
+                                </li>
+
+                                <li>
+                                    <span class="font">1/10</span>
+                                </li>
+
+                                <li>
+                                    <a id="" group="" alert="下一页" title="下一页" class="l-btn l-btn-plain l-btn-disabled l-btn-plain-disabled" href="/H5PlusISV/index.php/PageMaterial/list/cid/0/page/2/page_size/10.html"><span class="l-btn-left"><span class="l-btn-text"><span class="l-btn-empty pagination-next">下一页</span></span></span></a>
+                                </li>
+                                <li>
+                                    <span class="font">第</span><input class="pagination-num" value="1" size="2" type="text"><span class="font">页</span>
+                                </li>
+
+                            </ul>
+                            <div class="pagination-info">显示 1 到 10,共 95 记录</div>
+                            <div style="clear:both;"></div>
+                        </div>-->
+                        <input type="hidden" name="page" id="setPage" value="1">
+                    </div>
+
+                    <!--page-->
+                </div>
+            </div>
+        </div>
+
+        <div class="ui-paging" id="j_con_page"></div>
+
+        <!--<input type="hidden" name="page" id="setPage" value="1"> -->
+
+        <!-- mask -->
+        <div id="ldg_lockmask" style="position: fixed; display: none; opacity: 0.5; left: 0px; top: 0px; width: 100%; height: 100%; background-color: black; overflow: hidden; z-index: 2000;"></div>
+        <!-- mask -->
+
+        <!-- edit main -->
+        <div class="main" id="editmain" style="display: none;">
+
+
+
+        </div>
+        <!-- edit main -->
+
+        <!-- 添加数据 -->
+
+        <div id="addplat" style="background-color:inherit;display: none;" class="main">
+
+        </div>
+
+        <!-- 添加数据 -->
+
+    </div>
+    <!--html end-->
+
+    <!-- title 控制按钮模板 -->
+    <script id="mypage-control-title-tml" type="text/x-dot-template">
+        <span data-op="upload">上传页面</span>
+        <span data-op="batchdel " class="tablebnt">批量删除</span>
+        <span data-op="move">移动到</span>
+        <span data-op="search" class="searchinput">
+                   <a id="button_search"  ><img class="searimg" src="http://172.16.13.202:1000/h5plus/css/microapp/icon_seach.gif"></a>
+                   <input type="text" value="" data-cid="0" placeholder="请输入关键词" maxlength="8" /> </span>
+    </script>
+    <!-- title 控制按钮模板 -->
+
+
+    <script id="mypage-tree-item-tml" type="text/x-dot-template">
+        <li  class="level0" tabindex="0" hidefocus="true" treenode="">
+            <a  class="level0" treenode_a="" onclick="" target="_blank" style="" title="{{= it.title }}">
+                <span style="display: inline-block;width:0px"></span>
+                <span    title="" class="button level0 switch noline_close" treenode_switch=""></span>
+                <span  title="" treenode_ico="" class="button ico_docu" style="width:0px;height:0px;"></span>
+                <span  class="treedata" data-id="{{= it.id }}">{{= it.title }}</span>
+                <span  style="display:none;">({{= it.title }})</span>
+                <span class='button add'   title='添加' onfocus='this.blur();'></span>
+                <span class='button edit'   title='编辑' onfocus='this.blur();'></span>
+                <span class='button remove' title='删除' onfocus='this.blur();'></span>
+            </a>
+            <ul class="level0 children-tree "  style="display: block;">
+
+            </ul>
+    </script>
+
+    <!-- 左边 树形控制模板 -->
+    <script id="mypage-tree-tml" type="text/x-dot-template">
+            <div class="ztree_bg" >
+                <ul id="ztree" class="ztree"> <!-- class -->
+                    {{ for(var prop in it.data) { }}
+                        <li  class="level0" tabindex="0" hidefocus="true" treenode="">
+                            <a  class="level0" treenode_a="" onclick="" target="_blank" style="" title="{{= it.data[prop].title }}">
+                            <span style="display: inline-block;width:0px"></span>
+                            <span    title="" class="button level0 switch noline_close" treenode_switch=""></span>
+                            <span  title="" treenode_ico="" class="button ico_docu" style="width:0px;height:0px;"></span>
+                            <span  class="treedata" data-id="{{= it.data[prop].id }}">{{= it.data[prop].title }}</span>
+                            <span  style="display:none;">({{= it.data[prop].number }})</span>
+                            <span class='button add'  data-id="{{= it.data[prop].id }}" title='添加' onfocus='this.blur();'></span>
+                            <span class='button edit' data-id="{{= it.data[prop].id }}"  title='编辑' onfocus='this.blur();'></span>
+                            <span class='button remove' data-id="{{= it.data[prop].id }}" title='删除' onfocus='this.blur();'></span>
+                            </a>
+                            <ul class="level0 children-tree "  style="display: block;">
+
+                            </ul>
+
+                        </li>
+                    {{ } }}
+
+                </ul>
+                <!-- <%= data['img'] %>/microapp/btn_add.png?v=<%= data['v'] %>    -->
+                <div id="addtopnode" class="ztree_add"><img class="ztree_add_img"  src="../../../css/microapp/btn_add.png"></div>
+            </div>
+
+    </script>
+    <!-- 树形控制模板 -->
+
+    <!-- 树形 子节点 -->
+    <script id="mypage-tree-children-tml" type="text/x-dot-template">
+        <li  class="level1" tabindex="0" hidefocus="true" treenode="">
+            <a  class="level1" treenode_a="" onclick=""   target="_blank" style="" title="{{=it.title}}">
+                <span style="display: inline-block;width:0px"></span>
+                <span  title="" class="button level1 switch noline_docu" treenode_switch=""></span>
+                <span  title="" treenode_ico="" class="button ico_docu" style="width:0px;height:0px;"></span>
+                <span class="child_txt" >{{=it.title}}</span><span  style="display:none;">(0)</span></a>
+                <span class='button edit' data-id="{{=it.id}}"   title='编辑' onfocus='this.blur();'></span>
+                <span class='button remove' data-id="{{=it.id}}" title='删除' onfocus='this.blur();'></span>
+        </li>
+    </script>
+    <!-- 树形 子节点 -->
+
+    <!-- table 模板 -->
+    <script id="mypage-table-tml" type="text/x-dot-template">
+        <!--table-->
+        <div class="tb_info" style="overflow: visible">
+            <table border="1" cellspacing="0" width="100%" cellpadding="1">
+                <colgroup><col style="width: 5%">
+                    <col style="">
+                    <col style="width: 15%">
+                    <col style="width: 15%">
+                    <col style="width: 10%">
+                    <!--<col style="width: 10%" />-->
+                    <col style="width: 15%">
+                    <col style="width: 15%">
+                </colgroup><thead>
+            <tr>
+                <td colspan="7" style="padding: 0;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:0">
+                        <tbody><tr>
+                            <th width="5%"><input type="checkbox"  class="checkAll" onclick=""></th>
+                            <th width="">页面标题</th>
+                            <th width="15%">前台预览</th>
+                            <th width="15%">后台预览</th>
+                            <th width="10%">前台二维码</th>
+                            <!--<th width="10%">后台二维码</th>-->
+                            <th width="15%">上传时间</th>
+                            <th width="15%">操作</th>
+                        </tr>
+                        </tbody></table>
+                </td></tr>
+            </thead>
+                <tbody>
+                {{ for(var prop in it.data) { }}
+                    <tr>
+                        <td width="5%"><input type="checkbox"  data-id="{{=it.data[prop].id}}" class="checkOne"> </td>
+                        <td width="" title="{{=it.data[prop].title}}">{{=it.data[prop].title}}</td>
+                        {{? it.data[prop].frontshow==""}}
+                            <td width="15%">---</td>
+                        {{??}}
+                        <td width="15%"><a href="{{=it.data[prop].frontshow}}" class="fontshow" target="_blank">前台预览</a></td>
+                        {{?}}
+
+                        {{? it.data[prop].backsshow==""}}
+                        <td width="15%">---</td>
+                        {{??}}
+                        <td width="15%"><a href="{{=it.data[prop].backsshow}}" class="backsshow" target="_blank">后台预览</a></td>
+                        {{?}}
+
+
+                        <td width="10%" style="overflow: visible"><a href="{{=it.data[prop].frontshow}}" target="_blank" class="qr_view" data-qrurl="909" style="position: relative;">查看<img style="width: 150px; height: 150px; position: absolute; top: 0px; left: 30px; display: none;" src="{{=it.data[prop].frontcodeimg}}"></a></td>
+                        <td width="15%">{{=it.data[prop].uptime}}</td>
+                        <td width="15%">
+                            <a data-edit_url="{{=it.data[prop].uptime}}"  data-id="{{=it.data[prop].id}}" class="update_btn">编辑</a>
+                            <a data-id="{{=it.data[prop].id}}" class="delete_btn">删除</a>
+                        </td>
+                    </tr>
+                {{ } }}
+                </tbody>
+            </table>
+        </div>
+        <!--table-->
+
+        <!--pange-->
+
+        <!--page -->
+
+    </script>
+    <!-- table 模板 -->
+
+    <!-- mypage 编辑 模板 -->
+    <script id="mypage-control-edit-tml" type="text/x-dot-template">
+        <div id="dialogBody">
+            <div id="contentView">
+                <div id="imgTextLeft">
+                    <div id="leftScroll" class="mCustomScrollbar _mCS_1 mCS_no_scrollbar"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+                        <div id="imgTextList">
+
+                            <div class="cover list selected"><div class="head"><div class="title">crgabc</div></div><div class="litpic"><div class="img"><img src="http://cos.myqcloud.com/11000457/H5Plus/2015/11/03/56384e77be69e.jpg"></div><div class="stitle"><span>crgabc</span></div><div class="func" style="display: none;"><span class="edit"></span></div></div><div class="describe">xxxx</div></div></div>
+                        <div id="addBtn"></div>
+                    </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 0px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+                </div>
+                <div id="imgTextRight">
+                    <div id="editContent" class="mCustomScrollbar _mCS_2"><div id="mCSB_2" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"><div id="mCSB_2_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px;" dir="ltr">
+                        <form action="" method="post" id="imgTextForm">
+                            <input type="hidden" id="image_file_path" name="image_file_path">
+                            <table id="editShowTable" width="100%" border="0" cellspacing="0" cellpadding="0" class="image_text_info">
+                                <tbody><tr>
+                                    <th style="width:40px;">标题:</th>
+                                    <td><input type="text" name="title" id="title" value="" maxlength="50" style="width:348px;"></td>
+                                </tr>
+                                <tr height="35px" id="authorTitle">
+                                    <th style="width:40px;">作者:</th>
+                                    <td><input type="text" name="author" id="authorTextInput" value="" maxlength="50" style="width:308px;">(选填)</td>
+                                </tr>
+                                <tr>
+                                    <th>封面:</th>
+                                    <td>
+                                        <table border="0">
+                                            <tbody><tr>
+                                                <td width="90px" align="left" style="padding-left:0;">
+                                                    <input type="file" class="buttons_up" name="image_file" id="image_file">
+                                                </td>
+                                                <td align="left">
+                                                    <input type="hidden" value="http://cos.myqcloud.com/11000457/H5Plus/2015/11/03/56384e77be69e.jpg" name="url">
+                                                    <input id="imgShowButton" type="button" class="buttons_up" value="图片库" style="margin-top:1px;">
+                                                </td>
+                                            </tr>
+                                            </tbody></table>
+                                    </td>
+                                </tr>
+                                <tr height="15px">
+                                    <th style=""></th>
+                                    <td valign="top" style="color:#8c8c8c; padding:0;">限1MB，JPG格式</td>
+                                </tr>
+                                <tr height="35px" id="weixinTitle">
+                                    <th style="width:40px;">微信号:</th>
+                                    <td>
+                                        <div id="pubHtml" style="margin-top: 3px;float: left;height: 24px;width: 200px;overflow: hidden;">
+                                            <div class="combobox" style="width:100px;float:left;"><span style="width: 77px;">大连瑞雪科技</span>
+                                                <select name="weixin_id" id="weixin_id" style="width:120px;height:25px; margin-right: 10px;">
+                                                    <option value="gh_e611846d32ee">大连瑞雪科技</option><option value="gh_ce89dcb24ea1">瑞雪云</option><option value="gh_4eb85ffdf143">哭惹熊熊熊</option><option value="gh_0d9fcca5f823">maxn</option>                                                    </select>
+                                            </div>
+                                        </div>                                    </td>
+                                </tr>
+                                <tr id="summaryTitle">
+                                    <th>摘要:</th>
+                                    <td></td>
+                                </tr>
+                                <tr id="summaryText">
+                                    <td colspan="2"><textarea id="summaryTextInput" name="summary" style="width:382px; margin-left:6px; height:68px;" maxlength="120"></textarea>
+                                    </td>
+                                </tr>
+                                <tr id="summaryMsg">
+                                    <td></td>
+                                    <td align="top" style="color:#8c8c8c;">限120个字</td>
+                                </tr>
+                                <tr height="35px">
+                                    <th>直链:</th>
+                                    <td>
+                                        <div class="combobox" style="width:100px;float:left;"><span style="width: 77px;">关闭</span>
+                                            <select name="redirect" id="redirect" style="width:120px;height:25px; margin-right: 10px;">
+                                                <option value="1">开启</option>
+                                                <option value="0">关闭</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr id="contentTitle">
+                                    <th>正文:</th>
+                                    <td></td>
+                                </tr>
+                                <tr id="contentText">
+                                    <td colspan="2"><div class="ke-container ke-container-default" style="width: 393px;"><div style="display:block;" class="ke-toolbar" unselectable="on"><span class="ke-outline" data-name="source" title="HTML代码" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-source" unselectable="on"></span></span><span class="ke-outline" data-name="emoticons" title="插入表情" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-emoticons" unselectable="on"></span></span><span class="ke-outline" data-name="fontname" title="字体" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fontname" unselectable="on"></span></span><span class="ke-outline" data-name="fontsize" title="文字大小" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fontsize" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="forecolor" title="文字颜色" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-forecolor" unselectable="on"></span></span><span class="ke-outline" data-name="hilitecolor" title="文字背景" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-hilitecolor" unselectable="on"></span></span><span class="ke-outline" data-name="bold" title="粗体(Ctrl+B)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-bold" unselectable="on"></span></span><span class="ke-outline" data-name="italic" title="斜体(Ctrl+I)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-italic" unselectable="on"></span></span><span class="ke-outline" data-name="underline" title="下划线(Ctrl+U)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-underline" unselectable="on"></span></span><span class="ke-outline" data-name="removeformat" title="删除格式" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-removeformat" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="justifyleft" title="左对齐" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyleft" unselectable="on"></span></span><span class="ke-outline" data-name="justifycenter" title="居中" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifycenter" unselectable="on"></span></span><span class="ke-outline" data-name="justifyright" title="右对齐" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-justifyright" unselectable="on"></span></span><span class="ke-outline" data-name="insertorderedlist" title="编号" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertorderedlist" unselectable="on"></span></span><span class="ke-outline" data-name="insertunorderedlist" title="项目符号" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertunorderedlist" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="image" title="图片" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-image" unselectable="on"></span></span><span class="ke-outline" data-name="link" title="超级链接" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-link" unselectable="on"></span></span></div><div style="display: block; height: 179px;" class="ke-edit"><iframe class="ke-edit-iframe" hidefocus="true" frameborder="0" tabindex="" style="width: 100%; height: 179px; pointer-events: auto;"></iframe><textarea class="ke-edit-textarea" hidefocus="true" tabindex="" style="width: 100%; height: 179px; display: none;"></textarea></div><div class="ke-statusbar"><span class="ke-inline-block ke-statusbar-center-icon" style="visibility: hidden;"></span><span class="ke-inline-block ke-statusbar-right-icon" style="visibility: hidden;"></span></div></div><textarea id="contentTextInput" name="content" maxlength="120" style="display: none;"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><b>阅读原文</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="padding-left:5px;">
+                                        <div class="checkradio"><label class="ui-form-label"><input class="hrefSelect" name="jump_type" type="checkbox" value="0">&nbsp;跳转页面:</label></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:5px;" colspan="2">
+                                        <div class="inputCon">
+                                            <input type="text" id="modle_jump_url" name="modle_jump_url" placeholder="http://" value="http://" style="width:290px;" readonly="" disabled="disabled"><input type="button" class="button pageBtnDis" id="pageBtn" style=" margin-left:10px;" value="选择" disabled="disabled">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="padding-left:5px;">
+                                        <div class="checkradio"><label class="ui-form-label"><input class="hrefSelect" name="jump_type" type="checkbox" value="1">&nbsp;原文链接:</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="padding-left:5px;">
+                                        <div class="inputCon">
+                                            <input type="text" id="link_jump_url" name="link_jump_url" placeholder="http://" value="http://" style="width:380px;">
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody></table>
+                        </form>
+                    </div><div id="mCSB_2_scrollbar_vertical" class="mCSB_scrollTools mCSB_2_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_2_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 157px; max-height: 335px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+                </div>
+            </div>
+            <div class="bottonFooter">
+                <button id="cancel_button" class="buttons_no">取消</button>
+                <button id="save_button" class="buttons">保存</button>
+            </div>
+        </div>
+        </div>
+    </script>
+
+    <!-- mypage 编辑 模板 -->
+
+    <!-- mypage 添加数据 模板 -->
+    <script id="add-data-tml" type="text/x-dot-template">
+        <ui-view class="main-view ng-scope">
+            <dl ng-controller="uploadPageController" style="width:700px;margin:0 auto;" class="ng-scope">
+                <dd class="modal-body panel-template" style="height: auto;background:#efeef3;border:1px solid #ccc;">
+                    <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength" role="form" id="uploadForm" name="uploadForm" novalidate="" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-md-2 col-sm-2 col-xs-2 control-label">页面名称：</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input ng-model="page.contents.pagename" type="text" class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-touched" id="pageName" value="" placeholder="请输入页面名称" required="" ng-maxlength="20">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 col-sm-2 col-xs-2 control-label">页面&nbsp;&nbsp;Zip：</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input type="text" style="background-color:#fff;" class="form-control" disabled="disabled" value="">
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <div class="btn btn-success btn-xs fileinput-button">
+                                    <span class="glyphicon glyphicon-file"></span>
+                                    <input nv-file-select="" uploader="zipUploader" type="file" id="compressedPackage" class="file-upload" required="">
+                                    取入文件
+                                </div>
+                                <button type="button" class="btn btn-danger btn-xs fileinput-button" ng-disabled="disabledCancelUpZip" ng-click="controller.doRemoveZip()">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                    删除文件
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="templateRemark" class="col-md-2 col-sm-2 col-xs-2 control-label">页面说明：</label>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <textarea ng-model="page.description" class="form-control ng-pristine ng-valid ng-binding ng-touched" id="pageRemark" placeholder="请输入页面说明" style="height: 180px"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </dd>
+                <dd class="modal-footer" style="margin-top:15px;">
+                    <button style="color: #fff; background: #00a0e6;border-color: #00a0e6;padding-bottom: 34px;width:100px; height:30px;line-height:30px;" class="btn" onclick="debugger; controller.doSave();">提交</button>
+                    <button class="btn" style="color: #fff; background: #00a0e6;border-color: #00a0e6;padding-bottom: 34px;width:100px; height:30px;line-height:30px;"  onclick="$('#addplat').hide();" ng-click="">取消</button>
+                </dd>
+            </dl></ui-view>
+    </script>
+    <!-- mypage 添加数据 模板 -->
+
+    <!--  添加数据模板  -->
+
+    <!--  添加数据模板  -->
+
+
+</div>
+
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>
+</body>
+</html>

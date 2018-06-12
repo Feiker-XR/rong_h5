@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <![endif]-->
+    <title>首页 - 微商城</title>
+    <meta name="description" content="首页,微商城,h5plus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" type="image/ico" href="http://3gimg.qq.com/web/webapp_webmarket/android/images/favicon.ico" />
+    <script type="text/javascript" src="script/accommodate.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="home">
+
+	<header>
+		<div class="top-row">
+			<a href="javascript:window.history.go(-1);" title="返回"><img src="images/pic1.png"></a>
+			<div class="title">拼划算微商城</div>
+			<a href="javascript:;"><img src="images/pic2.png"></a>
+		</div>
+
+		<div id="tabList">
+			<div id="tabScroll">
+				<ul class="tag-list">
+					<li class="cur">热卖</li>
+					<li>水果</li>
+					<li>食材</li>
+					<li>零食</li>
+					<li>蔬菜</li>
+					<li>数码</li>
+					<li>电器</li>
+					<li>工具</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+<div id="wrapper">
+	<div id="scroller">
+	
+	<section class="ad">
+		<div id="slider">
+			<div id="slideScroll">
+				<div class="slide">
+					<a href="./details_page.html">
+						<img src="./banners.jpg">
+					</a>
+				</div>
+				<div class="slide">
+					<a href="./details_page.html">
+						<img src="./banners.jpg">
+					</a>
+				</div>
+				<div class="slide">
+					<a href="./details_page.html">
+						<img src="./banners.jpg">
+					</a>
+				</div>
+				<div class="slide">
+					<a href="./details_page.html">
+						<img src="./banners.jpg">
+					</a>
+				</div>
+			</div>
+		</div>
+		<div id="indicator">
+			<div id="dotty"></div>
+		</div>
+	</section>
+
+	<a href="./details_page.html" class="text">
+		- 每天一款 限量秒杀 -
+	</a>
+
+	<section class="com s1-thumb" onclick="window.location.href='details_page.html';">
+		<img src="../../../img/weMall/mobile/mimi.jpg">
+		<aside>
+			<p class="title">烟台富士苹果</p>
+			<p class="intro">中国四分之三的苹果从这里买</p>
+			<p class="price">7.9</p>
+			<a href="./cart.html">立即购买</a>
+		</aside>
+	</section>
+
+	<section class="com s2-banner" onclick="window.location.href='details_page.html';">
+		<aside class="info">
+			<p>
+				<i>四川奇异金果</i>
+				<em>月销量：123</em>
+			</p>
+			<p>
+				<i class="price">7.9<em>19.9</em></i>
+				<a href="./cart.html">立即购买</a>
+			</p>
+		</aside>
+	</section>
+
+	<section class="com s3-group" onclick="window.location.href='details_page.html';">
+		<img src="../../../img/weMall/mobile/mimi.jpg">
+		<aside>
+			<p class="title">烟台富士苹果</p>
+			<p class="intro">中国四分之三的苹果从这里买</p>
+			<p class="price">7.9</p>
+			<a href="./cart.html">已有4人成团</a>
+		</aside>
+	</section>
+
+	</div>
+</div>
+
+	<footer>
+		<ul>
+			<li class="cur">首页</li>
+			<li onclick="window.location.href='javascript:;';">组团购</li>
+			<li onclick="window.location.href='cart.html';">购物车</li>
+			<li onclick="window.location.href='usercenter.html';">我的</li>
+		</ul>
+	</footer>
+
+	<script type="text/javascript" src="./script/dist/zepto.min.js"></script>
+	<script type="text/javascript" src="iscroll.js"></script>
+	<script type="text/javascript">
+		var isWeChat = /MicroMessenger/g.test(window.navigator.userAgent)
+		if(isWeChat) {
+			// document.querySelector('#wrapper').style.top = '3.25rem'
+			// document.querySelector('.top-row').style.display = 'none'
+		}
+
+		(function (doc, win) { 
+          var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              docEl.style.fontSize = 14 * (clientWidth / 320) + 'px';
+            };
+
+          if (!doc.addEventListener) return;
+          win.addEventListener(resizeEvt, recalc, false);
+          doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+
+		function loaded () {
+			// document.querySelector('.text').textContent = window.navigator.userAgent;
+			var myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
+			var tabScroll = new IScroll('#tabList', { 
+				scrollX: true, 
+				scrollY: false, 
+				// scrollbars: true,
+				click : true,
+				mouseWheel: true,
+				onScrollMove:function () {
+					alert(243234)
+					console.log('onScrollMove')
+				},
+				onScrollStart : function () {
+					console.log('onScrollStart')
+				},
+				onScrollEnd : function () {
+					console.log('onScrollEnd')
+				}
+			 });
+			var sildeScroll = new IScroll('#slider', {
+				scrollX: true,
+				scrollY: false,
+				momentum: false,
+				snap: true,
+				snapSpeed: 400,
+				keyBindings: true,
+				indicators: {
+					el: document.getElementById('indicator'),
+					resize: true
+				}
+			});
+
+			/* start auto-scrolling */
+			myInterval = setInterval(autoScroll, 3000);
+
+			function autoScroll() {
+			  var currPage = sildeScroll.currentPage.pageX + 1;
+			  if(currPage == sildeScroll.pages.length-1) {
+			    sildeScroll.goToPage(0, 0, 400);
+			  } else {
+			    sildeScroll.goToPage(currPage, 0, 400);
+			  }
+			}
+			sildeScroll.on('beforeScrollStart', function() {
+			  clearInterval(myInterval);
+			});
+
+
+			$('.tag-list li').on('click', function (e) {
+				var dom = $(this)
+            	dom.addClass('cur').siblings().removeClass('cur');
+			})
+
+		}
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		window.onload = loaded
+	</script>
+  </body>
+
+</html>

@@ -1,0 +1,26 @@
+<% include ../../_g/header.html %>
+<title>模板设置 - 微商城-货架管理</title>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat2'] %>.css<%= data['v'] %>">
+<script type="text/javascript">
+	//$$r.path = 'http://172.20.2.10:8060/index.php?s=portal&php_token=beijing_test&method='
+    $$r.path = '/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'loginUrl': $$r.path + 'ruixue.hfive.weidian.portal.login',
+                'saveUrl': $$r.path + 'ruixue.hfive.weidian.template.setsetting' ,
+                'tempgetsettingUrl': $$r.path + 'ruixue.hfive.weidian.template.getsetting'
+            }
+        }
+    };
+</script>
+</head>
+<body class="<%= data['cat2'] %>">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<% include ../../_g/head.html %>
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/get.css<%= data['v'] %>">
+<title>Get - 活动管理-签名</title>
+<script type="text/javascript">
+    // $$r.path = '/active/sign/?method='
+    $$r.path = 'http://test.h5plus.net/auth-template/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+               "getsite" : $$r.path + 'ruixue.hfive.activity.award.address.add',
+               'query': $$r.path + 'ruixue.hfive.activity.award.address.query',
+               'add' : $$r.path + 'ruixue.hfive.activity.award.address.add',
+               'receive' : $$r.path + 'ruixue.hfive.activity.award.entity.receive'
+            },
+        	"details": './detail',
+        }
+    };
+</script>
+</head>
+<body class="<%= data['cat2'] %>">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<% include ../../_g/script.html %>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/get.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

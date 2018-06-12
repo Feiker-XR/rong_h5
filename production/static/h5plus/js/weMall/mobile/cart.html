@@ -1,0 +1,55 @@
+<div id="j_p">
+
+
+	<!-- <header></header> -->
+	<div id="cont"></div>
+	<footer></footer>
+
+
+
+	<script id="j_header" type="text/html">
+		<div class="top-row">
+			<a href="javascript:window.history.go(-1);" title="返回"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic1.png"></a>
+			<div class="title">购物车</div>
+			<a href="javascript:;"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic2.png"></a>
+		</div>
+	</script>
+
+	<script id="j_cont" type="text/html">
+		{{console.log.apply(console, it);}}
+		<div id="wrapper">
+			<div id="scroller">
+			{{~it.list:item:index}}
+				<section id="{{=item.pro_id||0}}" data-cartid="{{=item.cart_id||0}}" data-skuid="{{=item.sku_id}}" class="com s1-thumb cart">
+					<i></i>
+					<img src="{{=item.pro_image}}">
+					<aside>
+						<p class="title">{{=item.pro_name||"N/A"}}</p>
+						<p class="price">{{=item.pro_price||"0.00"}}</p>
+						{{?item.pro_intro}}<p class="intro">{{=item.pro_intro}}</p>{{?}}
+						<div class="num"><i>-</i> <span>1</span> <i>+</i></div>
+					</aside>
+				</section>
+			{{~}}
+			</div>
+		</div>
+	
+	<section class="bottom-bar">
+		<div class="sum"><i></i></div>
+		<div class="pay" data-op="pay">0.0</div>
+	</section>
+	</script>
+
+
+	<script id="j_footer" type="text/html">
+		<ul>
+			<li data-op="home">首页</li>
+			<li data-op="group">组团购</li>
+			<li data-op="cart" class="cur">购物车</li>
+			<li data-op="uc">我的</li>
+		</ul>
+	</script>
+
+</div>
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>

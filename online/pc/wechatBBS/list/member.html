@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="shortcut icon" href="http://h5plus.net/static/comlibjs/v3/favicon.ico" />
+        <link rel="apple-touch-icon" href="http://h5plus.net/static/comlibjs/v3/favicon.png" />
+        <link rel="stylesheet" href="http://h5plus.net/static/comlibjs/v3/css/css/index.css" media="all" />
+        <script type="text/javascript">
+        var $$r = { rootUrl : 'http://h5plus.net/static' }
+        $$r.origin = window.location.origin
+        $$r.test = 'http://h5plus.net'
+        $$r.online = 'http://h5plus.net'
+        $$r.isServ = /http:\/\/(|test.)h5plus.net/.test($$r.origin)
+        $$r.localStamp = $$r.isServ?'&t='+(+new Date):''
+        $$r.hosts = $$r.isServ?$$r.origin+'/pc':$$r.origin
+        </script>
+        <script type="text/javascript" src="http://h5plus.net/static/comlibjs/lib/seajq.js?v=20151221"></script>
+        <script type="text/javascript" src="http://h5plus.net/static/h5plus/js/_g/base.js?v=20151221"></script>
+
+<title>微社区--社区会员</title>
+
+<link rel="stylesheet" href="http://h5plus.net/static/comlibjs/v3/css/css/index.css" media="all" />
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/wechatBBS/member.css?v=20151221">
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/active/signBackend/signBackend.css" type="text/css" />
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/g/g.css" type="text/css" />
+
+<script type="text/javascript">
+//    $$r.path = '/auth-portal/api/?method='
+    $$r.path = 'http://h5plus.net/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'setEditor':$$r.path + 'ruixue.hfive.community.member.seteditor',
+                'cancleEditor':$$r.path + 'ruixue.hfive.community.member.canceleditor',
+                'findEditor':$$r.path + 'ruixue.hfive.community.member.findeditor',
+                'findPaging':$$r.path + 'ruixue.hfive.community.member.findpaging',
+                'pubidlist':$$r.path+'ruixue.hfive.weixin.pubid.list',
+            },
+            "details": './detail'
+        }
+    };
+</script>
+</head>
+<body class="list">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="http://h5plus.net/static/h5plus/js/wechatBBS/list/member.js?v=20151221" id="j_js"></script>
+<script type="text/javascript" src="http://h5plus.net/static/comlibjs/v3/js/plugins/jquery.pnotify.min.js?v=20151221" id="j_js"></script>
+</body>
+</html>

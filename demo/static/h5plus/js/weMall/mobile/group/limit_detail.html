@@ -1,0 +1,113 @@
+<div id="j_p">
+
+	<!-- <header></header> -->
+	<div id="cont"></div>
+	<footer></footer>
+
+
+
+	<script id="j_header" type="text/html">
+		<div class="top-row">
+			<a href="javascript:window.history.go(-1);" title="返回"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic1.png"></a>
+			<div class="title">商品详情页</div>
+			<a href="javascript:;"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic2.png"></a>
+		</div>
+	</script>
+
+	<script id="j_cont" type="text/html">
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		    	{{~it.images:item:index}}
+		        	<div class="swiper-slide" style="background-image: url({{=item.image}});"></div>
+		        {{~}}
+		    </div>
+			<div class="pagination"></div>
+		</div>
+		<div class="particulars_box">
+			<h1>{{=it.name || ""}}</h1>
+			<strong>{{=it.intro || ""}}</strong>
+			<p>{{=it.price||""}}<span>元</span><s>￥{{=it.original_price||""}}</s></p>
+			<ul>
+				<li>{{=it.info || ""}}</li>
+			</ul>
+		</div>
+		<div class="standard">- 规格 -</div>
+		{{~it.properties_for_select:item:index}}
+			<ul data-pid="{{=item.pid}}" class="standard_ul">
+				<li>
+					<span>{{=item.name}}：</span> 
+					{{~item.values:val:i}} 
+						<span data-vid="{{=val.vid}}">{{=val.value}} </span>
+					{{~}}
+				</li>
+			</ul>
+		{{~}}
+				<!-- <li>重量：<span>400克起/份</span></li>
+				<li>数量：<span>{{=it.quantity}}</span></li>
+				<li>包装：<span>袋装</span></li>
+				<li>保质期：<span>到货可立即使用</span></li>
+				<li>贮存方法：<span>冷藏</span></li> -->
+		<!-- <div class="standard">- 详情 -</div> -->
+		<!-- <div class="chatu_one"></div> -->
+		<div class="standard">{{=it.intro||""}}</div>
+		<div class="size_box_one">
+			<p>{{=it.detail||""}}</p>
+		</div>
+		<!-- <div class="chatu_two"></div>
+		<div class="standard">{{=it.intro||""}}</div>
+		<div class="size_box_one">
+			<p>{{=it.detail||""}}</p>
+		</div> -->
+
+		<div class="shade_wrap">
+			<div class="select_sku">
+				<div class="alert_select">请选择规格</div>
+				<div class="commodityimg_wrap">
+					<div class="commodityimg_left">
+						<img src="{{=it.images[0].image||$$r.rootUrl+"/h5plus/img/weMall/mobile/banner.jpg"}}" class="commodityimg_one"/>
+						<div class="commodityimg_left_size">
+							<span>{{=it.name}}</span>
+							<p>￥{{=it.min_price}}-{{=it.max_price}}</p>
+						</div>
+					</div>
+					<img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic15.png" class="commodityimg_close"/>
+				</div>
+				{{~it.properties_for_select:prop:i}}
+					<div data-ppid="{{=prop.pid}}" class="standard_one_box guigeone">
+						<h1>{{=prop.name}}：</h1>
+						<ul>
+							{{~prop.values:val:j}}
+								<li data-pvid="{{=val.vid}}">{{=val.value}}<img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic16.png"/></li> 
+							{{~}}
+						</ul>
+					</div>
+				{{~}}
+				<div class="number_box">
+					<span>数量</span>
+					<ul class="clearfix">
+						<li class="removenum">-</li><li class="size_number"></li><li class="addnum">+</li>
+					</ul>
+				</div>
+				<div data-op="orderConfirm" class="confirm_btn">确定</div>
+			</div>
+		</div>
+		<ul class="footer_btn_wrap">
+			<li data-op="buy" class="purchase">立即购买</li>
+			<li data-op="addcart" class="join">加入购物车</li>
+			<li data-op="gotoCart" class="car_icon"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/car.jpg"><span>0</span></li>
+		</ul>		
+	</script>
+
+
+	<script id="j_footer" type="text/html">
+		<ul>
+			<li data-op="home">首页</li>
+			<li data-op="group">组团购</li>
+			<li data-op="cart" class="cur">购物车</li>
+			<li data-op="uc">我的</li>
+		</ul>
+	</script>
+
+</div>
+
+<script type="text/javascript" src="../../../_g/pmsg.js"></script>

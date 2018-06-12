@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn" >
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0;",name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>掌上社区</title>
+    <!--
+    <link rel="stylesheet" href="/comlibjs/third/jqm/jquery.mobile-1.4.5.min.css?v=0.1" type="text/css"  />
+    <link rel="stylesheet" href="/comlibjs/third/jqm/jqm-demos.css?v=0.1" type="text/css"  />
+    <link rel="stylesheet" href="/comlibjs/third/jqm/css.css?v=0.1" type="text/css"  />
+    <link rel="stylesheet" href="/comlibjs/third/swiper/swiper.min.css??v=0.1" type="text/css"  />
+    <link rel="stylesheet" href="/comlibjs/third/jcrop/main.css?v=0.1" type="text/css" />
+    <link rel="stylesheet" href="/h5plus/css/wechatBBS/mobilefront/mobilephone.css?v=0.2" type="text/css">
+    -->
+
+    <link rel="stylesheet" href="/static/comlibjs/third/jqm/jquery.mobile-1.4.5.min.css?v=0.1" type="text/css"  />
+    <link rel="stylesheet" href="/static/comlibjs/third/jqm/jqm-demos.css?v=0.1" type="text/css"  />
+    <link rel="stylesheet" href="/static/comlibjs/third/jqm/css.css?v=0.1" type="text/css"  />
+    <link rel="stylesheet" href="/static/comlibjs/third/swiper/swiper.min.css??v=0.1" type="text/css"  />
+    <link rel="stylesheet" href="/static/comlibjs/third/jcrop/main.css?v=0.1" type="text/css" />
+    <link rel="stylesheet" href="/static/h5plus/css/wechatBBS/mobilefront/mobilephone.css?v=0.2" type="text/css">
+
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <!-- <script src="http://resource.h5plus.net/h5plus-resource/js/h5sdk/1.01/test/h5sdk.js?v=0.6"></script>--> <!-- 测试环境 -->
+     <script src="http://resource.h5plus.net/h5plus-resource/js/h5sdk/1.01/h5sdk.min.js?v=0.6"></script> <!-- 正式环境 -->
+
+
+    <script type="text/javascript" src="/static/comlibjs/third/jqm/jquery.min.js?v=0.1" id="2"></script>
+    <script type="text/javascript" src="/static/comlibjs/third/jqm/jquery.mobile-1.4.5.min.js?v=0.1" id="3"></script>
+    <script type="text/javascript" src="/static/comlibjs/third/swiper/swiper.min.js?v=0.1" id="4"></script>
+    <script type="text/javascript" src="/static/h5plus/js/wechatBBS/mobilefront/request.js?v=0.3" id="9"></script>
+    <script type="text/javascript" src="/static/h5plus/js/wechatBBS/mobilefront/mobilephone.js?v=0.6" id="j_js"></script>
+</head>
+
+<body >
+
+<!-- page-find 发现  广场 话题 -->
+<div data-role="page" class="jqm-demos"  id="page-find" ident="page-find">
+
+    <!-- header -->
+    <div id="find-header" data-role="header" data-position="fixed" data-fullscreen="false" data-tap-toggle="false" style="background-color: #ffffff;" >
+        <div data-role="navbar" data-iconpos="bottom" class="page-finde-sty">
+            <ul>
+                <div data-iconpos="bottom" data-position="left" class="portrait" style="margin-top: 4px;"></div>
+                <div  data-iconpos="bottom" data-position="left" class="nickname" style="margin-top: 8px;"></div>
+                <div  style="float: right;margin-top: 2px;">
+                    <!--  data-role="button" class="bnt" -->
+                    <a href="#" id="already-follow-ed" class="already-follow" data-transition="slideup" data-id="123" topic-id="23" wehcat-id="2342" fun-follow="follow"  style="float: right;">已关注</a> <!-- page-input-method -->
+                    <a  href="#" id="topic-head-find" class=" already-follow topic-head" data-id="123" data-transition="slideup"  topic-id="23" wehcat-id="2342" fun-follow="follow"  style="float: right;"><span></span>关注</a> <!-- page-input-method -->
+                </div>
+
+            </ul>
+        </div>
+    </div>
+    <!-- header -->
+
+    <!-- content  -->
+    <div class="ui-content" role="main">
+
+        <!-- <img  id="imgid" src="../res/newyork.jpg" alt="New York" style="width:100%; max-width:2048px; margin:0 auto; display:block;"> -->
+
+        <div class="ui-grid-b ui-responsive">
+
+            <div class="ui-grid-solo">
+                <div class="ui-block-a data-square">
+
+                    <!-- 第一个话题-->
+                    <!--
+                    <div id="topic0"  class="topic" topic-id="sefe" wehcat-id="2342" head-ioc="http://imgsrc.baidu.com/forum/w%3D580/sign=2981d3cc55fbb2fb342b581a7f4b2043/a17807d12f2eb938eb3fa163d5628535e4dd6f75.jpg" author-name="hcm">
+                        <div class="topic_head">
+
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide "> <img src="/static/h5plus/img/wechatBBS/mobilefront/img/sydney.jpg" />
+                                            <div class="lable-class">
+                                                <div class="lablesty" style="margin-left: 42px;margin-top: 10px;" data-url="http://www.baidu.com">
+                                                    <div>我是标签</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide swiper-no-swiping"><img src="/static/h5plus/img/wechatBBS/mobilefront/img/capetown.jpg" /></div>
+                                        <div class="swiper-slide"><img src="/static/h5plus/img/wechatBBS/mobilefront/img/sydney.jpg" /></div>
+                                        <div class="swiper-slide"><img src="/static/h5plus/img/wechatBBS/mobilefront/img/capetown.jpg" /></div>
+                                    </div>
+
+                                    <div class="swiper-pagination"></div>
+                                </div>
+
+                        </div>
+                        <div class="topic_content">
+                            <div>
+                                <div >
+                                    <span>标题</span>
+                                </div>
+                                <div>
+                                    <a href="#" data-rel="popup" class="ui-btn" data-transition="slideup"><span><img src="/static/h5plus/img/wechatBBS/mobilefront/fenxiang.png" alt="placeholder+image"></span><span>分享</span></a>
+                                </div>
+                                <div>
+                                    <a href="#" data-role="button">收藏</a>
+                                </div>
+                            </div>
+                            <div><p>&nbsp;&nbsp;我是能死粉丝第三方司法所能送你份是是飒飒是飞洒发送双峰奥术法术暗示发生发生飞洒发沙发沙发色法萨芬暗示法发顺丰安防按时发生法发顺丰色法萨芬色放沙发啥啥啥啥啥啥啥啥啥啥啥啥</p></div>
+                        </div>
+                        <div class="topic_comment">
+                            <p><b>点评</b><span>(231)</span><span class="comment">写评论</span></p>
+                            <textarea></textarea>
+                            <div class="topic_Info">
+                               <div class="wx_info">
+                                    <P class="wx_headImg"><img height="38px" width="38px" src="/static/h5plus/img/wechatBBS/mobilefront/touxiang.jpg" alt="placeholder+image"></P>
+                                    <span class="wx_Name">微信昵称</span>
+                                    <div class="wx_none"></div>
+                                    <div class="wx_plContent">
+                                        <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                    </div>
+                               </div>
+
+
+                                 <div class="wx_info">
+                                    <P class="wx_headImg"><img height="38px" width="38px" src="/static/h5plus/img/wechatBBS/mobilefront/touxiang.jpg" alt="placeholder+image"></P>
+                                    <span class="wx_Name">微信昵称</span>
+                                    <div class="wx_none"></div>
+                                    <div class="wx_plContent">
+                                        <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                        <div class="borderStyle"></div>
+                        <div class="selectAll">
+                            <p>查看全部</p>
+                        </div>
+                        <img class="fenxiangjt" src="/static/h5plus/img/wechatBBS/mobilefront/gongxiang.png" alt="">
+                        <div class="divZZ">
+                        -->
+
+                        <!-- 遮罩 -->
+                    <!--
+                        </div>
+                        <div class="alertList">
+                            <div class="alert_content">
+                                <P class="alert_wxhead">
+                                    <img height="38px" width="38px" src="/static/h5plus/img/wechatBBS/mobilefront/touxiang.jpg" alt="placeholder+image">
+                                </P>
+                                <span>微信昵称</span>
+
+                                <div></div>
+                                <div>
+                                    <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                </div>
+                            </div>
+                             <div class="alert_content">
+                                <P class="alert_wxhead">
+                                    <img height="38px" width="38px" src="/static/h5plus/img/wechatBBS/mobilefront/touxiang.jpg" alt="placeholder+image">
+                                </P>
+                                <span>微信昵称</span>
+
+                                <div></div>
+                                <div>
+                                    <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                </div>
+                            </div>
+                            <div class="alert_content">
+                                <P class="alert_wxhead">
+                                    <img height="38px" width="38px" src="/static/h5plus/img/wechatBBS/mobilefront/touxiang.jpg" alt="placeholder+image">
+                                </P>
+                                <span>微信昵称</span>
+
+                                <div></div>
+                                <div>
+                                    <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                    <!-- 第一个话题-->
+
+
+                    <!-- 第二个话题-->
+                    <!--
+                    <div id="topic1"  class="topic">
+                        <div class="topic_head">
+                        -->
+                            <!-- Swiper -->
+                    <!--
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide swiper-no-swiping"> <img src="/static/h5plus/img/wechatBBS/mobilefront/img/sydney.jpg" /></div>
+                                    <div class="swiper-slide swiper-no-swiping"><img src="/static/h5plus/img/wechatBBS/mobilefront/img/capetown.jpg" /></div>
+                                    <div class="swiper-slide"><img src="/static/h5plus/img/wechatBBS/mobilefront/img/sydney.jpg" /></div>
+                                    <div class="swiper-slide"><img src="/static/h5plus/img/wechatBBS/mobilefront/img/capetown.jpg" /></div>
+                                </div>
+                                -->
+                                <!-- Add Pagination -->
+                    <!--
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        -->
+
+                    <!--
+                        </div>
+                        <div class="topic_content">
+                            <div>
+                                <div >
+                                    <span>标题</span>
+                                </div>
+                                <div>
+                                    <a href="#collection-popup" data-rel="popup" class="ui-btn" data-transition="slideup"><span><img src="/static/h5plus/img/wechatBBS/mobilefront/fenxiang.png" alt="placeholder+image"></span><span>分享</span></a>
+                                </div>
+                                <div>
+                                    <a href="#" data-role="button">已分享</a>
+                                </div>
+                            </div>
+                            <div><p>&nbsp;&nbsp;我是能死粉丝第三方司法所能送你份是是飒飒是飞洒发送双峰奥术法术暗示发生发生飞洒发沙发沙发色法萨芬暗示法发顺丰安防按时发生法发顺丰色法萨芬色放沙发啥啥啥啥啥啥啥啥啥啥啥啥</p></div>
+                        </div>
+                        <div class="topic_comment">
+                            <p><b>点评</b><span>(231)</span>:</p>
+                            <textarea></textarea>
+                            <div class="topic_Info">
+
+                                <div class="wx_info">
+                                    <P class="wx_headImg"><img height="38px" width="38px" src="/static/h5plus/img/wechatBBS/mobilefront/touxiang.jpg" alt="placeholder+image"></P>
+                                    <span class="wx_Name">微信昵称</span>
+                                    <div class="wx_none"></div>
+                                    <div class="wx_plContent">
+                                        <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="wx_info">
+                                    <P class="wx_headImg"><img height="38px" width="38px" src="/static/h5plus/img/wechatBBS/mobilefront/touxiang.jpg" alt="placeholder+image"></P>
+                                    <span class="wx_Name">微信昵称</span>
+                                    <div class="wx_none"></div>
+                                    <div class="wx_plContent">
+                                        <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="borderStyle"></div>
+                        <div class="selectAll">
+                            <p>查看全部</p>
+                        </div>
+                        <img class="fenxiangjt" src="/static/h5plus/img/wechatBBS/mobilefront/gongxiang.png" alt="">
+                        <div class="divZZ">
+                        -->
+                            <!-- 遮罩 -->
+                       <!--
+                        </div>
+                        <div class="alertList">
+                            <div class="alert_content">
+                                <P class="alert_wxhead">
+                                    <img height="38px" width="38px" src="/static/h5plus/img/wechatBBS/mobilefront/touxiang.jpg" alt="placeholder+image">
+                                </P>
+                                <span>微信昵称</span>
+
+                                <div></div>
+                                <div>
+                                    <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                </div>
+                            </div>
+                            <div class="alert_content">
+                                <P class="alert_wxhead">
+                                    <img height="38px" width="38px" src="/static/h5plus/img/wechatBBS/mobilefront/touxiang.jpg" alt="placeholder+image">
+                                </P>
+                                <span>微信昵称</span>
+
+                                <div></div>
+                                <div>
+                                    <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                </div>
+                            </div>
+                            <div class="alert_content">
+                                <P class="alert_wxhead">
+                                    <img height="38px" width="38px" src="/static/h5plus/img/wechatBBS/mobilefront/touxiang.jpg" alt="placeholder+image">
+                                </P>
+                                <span>微信昵称</span>
+
+                                <div></div>
+                                <div>
+                                    <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                    <!-- 第二个话题-->
+
+                </div>
+                <!--
+                <div class="orcodescan"   style="display: block;"></div>
+                <div    class="orcodeimg"  style="display: block;"> <img style="width: 300px;height:300px; " id="wxqrcodeimg" src="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEg8DoAAAAAAAAAASxodHRwOi8vd2VpeGluLnFxLmNvbS9xL0VFelBJUUhtcXQ3VENIaWxtV0RDAAIE+zAxUwMEAAAAAA=="> <p style="margin-top: -6px !important;margin: 0 auto;font-family: 微软雅黑;font-size: 16px;    background-color: azure;width: 300px;">扫描公众号二维码</p></div>
+                -->
+            </div>
+
+        </div>
+
+    </div>
+    <!-- content  -->
+
+    <!-- footer -->
+    <div id="find-footer" data-role="footer" data-theme="a" data-position="fixed" data-fullscreen="false" data-tap-toggle="false">
+        <div data-role="navbar" data-role="main" data-iconpos="bottom">
+            <ul>
+                <li style="padding-top: 0px;" id="upsquaredb"><a href="#page-find" data-transition="slide"  style="line-height: 0px;margin-bottom: -12px;margin-right:0px;color: #1b81eb;"><p style=" margin-top: 0px;background-size: 20px 20px;height: 20px;    background-position: center;background-repeat: no-repeat;background-image: url(/static/h5plus/img/wechatBBS/mobilefront/center1.png);"></p><p style="background-color:yellow;">广场</p></a></li>
+                <li  style="padding-top: 0px;"><a href="#page-square" data-transition="slidefade"  style="line-height: 0px;margin-bottom: -12px;margin-right:0px;"><p style="margin-top: 0px; background-position: center;background-size: 20px 20px;height: 20px;background-repeat: no-repeat;background-image: url(/static/h5plus/img/wechatBBS/mobilefront/find.png);"><p>发现</p></a></li>
+                <li  style="padding-top: 0px;"><a href="#page-personal-core" data-transition="slidefade"  style="line-height: 0px;margin-bottom: -12px;margin-right:0px;"><p style="margin-top: 0px; background-position: center;background-size: 20px 20px;height: 20px;background-repeat: no-repeat;background-image: url(/static/h5plus/img/wechatBBS/mobilefront/guangchang.png);"><p><p>个人中心</p></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /footer -->
+
+    <!--   收藏弹窗 弹窗  -->
+    <div data-role="popup" id="collection-popup" data-position-to="window"   class="ui-content">
+        <p>世界上最远的距离就是没有网！</p>
+    </div>
+
+    <div>
+    </div>
+    <!--   收藏弹窗 弹窗  -->
+
+
+</div><!-- /page -->
+<!-- page-find 发现   广场 话题-->
+
+<!-- page-square   广场   发现 专辑 -->
+<div data-role="page" id="page-square" ident="page-square">
+    <!-- header  page-brand -->
+    <div data-role="header" data-position="fixed" data-fullscreen="false" data-tap-toggle="false">
+        <div data-role="navbar" data-role="main" data-iconpos="top">
+            <ul>
+                <li style="width: 100%;"><a href="#" style="height: 40px;"><p style="margin-top: 15px;">专辑</p></a></li>
+                <li style="display: none;"><a href="#page-brand"  style="height: 40px;" data-transition="none"><p style="margin-top: 15px;">品牌</p></a></li>
+            </ul>
+        </div>
+
+
+    </div>
+    <!-- header -->
+
+    <div data-role="main" class="ui-content">
+        <!-- <img src="../res/buenosaires.jpg" alt="New York" style="width:100%; max-width:2048px; margin:0 auto; display:block;"> -->
+        <div class="ui-grid-a" id="abc">
+            <!-- <div class="ui-block-a">
+                <img src="http://img5.paipaiimg.com/a599e789/item-008F6956-555FF632000000000401000000C5911A.0.300x300.jpg" alt="">
+            </div>
+            <div class="ui-block-b">
+                <div class="ui-bar ui-bar-a">
+                    <div class="album_content">
+                        <div class="aggregate_name">专辑名称</div>
+                        <div class="producer"><span>制作人:</span><span>我是制作人</span></div>
+                         <a href="#1page-find" data-transition="slide" style="display: block;width: 85px;" class="square_href">
+                            <input type="button" value="+收藏">
+                         </a>
+                    </div>
+
+                </div>
+
+            </div> -->
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div data-role="footer" data-theme="a" data-position="fixed" data-fullscreen="false" data-tap-toggle="false">
+        <div data-role="navbar" data-role="main" data-iconpos="bottom">
+            <ul>
+               <li style="text-align: center;"><a href="#page-find" data-transition="slidefade" data-direction="reverse" style="line-height: 0px;margin-bottom: -12px;margin-right:0px;"><p style="margin-top: 0px;background-position: center;background-size: 20px 20px;height: 20px;background-repeat: no-repeat;background-image: url(/static/h5plus/img/wechatBBS/mobilefront/center.png);"></p><p>广场</p></a></li>
+                <li  style="text-align: center;"><a href="#page-square" data-transition="slide" style="line-height: 0px;margin-bottom: -12px;margin-right:0px;color: #1b81eb;"><p style="margin-top: 0px;background-position: center;background-size: 20px 20px;height: 20px;background-repeat: no-repeat;background-image: url(/static/h5plus/img/wechatBBS/mobilefront/find1.png);"><p><p>发现</p></a></li>
+                <li  style="text-align: center;"><a href="#page-personal-core" data-transition="slide"  style="line-height: 0px;margin-bottom: -12px;margin-right:0px;"><p style="margin-top: 0px;background-position: center;background-size: 20px 20px;height: 20px;background-repeat: no-repeat;background-image: url(/static/h5plus/img/wechatBBS/mobilefront/guangchang.png);"><p><p>个人中心</p></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /footer -->
+</div>
+<!-- page-square  广场  发现  专辑 -->
+
+
+
+<!-- page-square   广场  品牌 -->
+<div data-role="page" id="page-brand" ident="page-brand">
+
+    <!-- header -->
+    <div data-role="header" data-position="fixed" data-fullscreen="false" data-tap-toggle="false">
+        <div data-role="navbar" data-role="main" data-iconpos="top">
+            <ul>
+                <li><a href="#page-square"  data-transition="none" >专辑</a></li>
+                <li><a href="#" >品牌</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- header -->
+
+    <div data-role="main" class="ui-content">
+        <!-- <img src="../res/photo-landscape.jpg" alt="New York" style="width:100%; max-width:2048px; margin:0 auto; display:block;"> -->
+        <div class="ui-grid-b">
+            <div class="ui-block-a">
+                <div class="ui-bar ui-bar-a brand_img">
+                    <img src="/static/h5plus/img/wechatBBS/mobilefront/img/45.jpg">
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div class="ui-bar ui-bar-a brand_img">
+                    <img src="/static/h5plus/img/wechatBBS/mobilefront/img/12.jpg">
+                </div>
+
+            </div>
+
+            <div class="ui-block-c">
+
+                <div class="ui-bar ui-bar-a brand_img">
+                    <img src="/static/h5plus/img/wechatBBS/mobilefront/img/3.jpg">
+                </div>
+
+            </div>
+        </div>
+
+         <div class="ui-grid-b">
+            <div class="ui-block-a">
+                <div class="ui-bar ui-bar-a brand_img">
+                    <img src="/static/h5plus/img/wechatBBS/mobilefront/img/45.jpg">
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div class="ui-bar ui-bar-a brand_img">
+                    <img src="/static/h5plus/img/wechatBBS/mobilefront/img/12.jpg">
+                </div>
+
+            </div>
+
+            <div class="ui-block-c">
+
+                <div class="ui-bar ui-bar-a brand_img">
+                    <img src="/static/h5plus/img/wechatBBS/mobilefront/img/3.jpg">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div data-role="footer" data-theme="a" data-position="fixed" data-fullscreen="false" data-tap-toggle="false">
+        <div data-role="navbar" data-role="main" data-iconpos="bottom">
+            <ul>
+                 <li style="text-align: center;"><a href="#page-find" data-transition="slide" data-direction="reverse" style="line-height: 44px;margin-bottom: -12px;margin-right:0px;"><p>广场</p></a></li>
+                <li  style="text-align: center;"><a href="#page-square" data-transition="slide" data-direction="reverse" style="line-height: 44px;margin-bottom: -12px;margin-right:0px;color: #1b81eb;"><p>发现</p></a></li>
+                <li  style="text-align: center;"><a href="#page-personal-core" style="line-height: 44px;margin-bottom: -12px;margin-right:0px;"><p>人中心</p></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /footer -->
+</div>
+
+<!-- page-square   广场  品牌 -->
+
+
+<!-- page-personal-core 个人中心 -->
+<div data-role="page" id="page-personal-core" ident="page-personal-core">
+    <!-- header -->
+    <div data-role="header" data-position="fixed" data-fullscreen="true" style="display: block;height:0px;top: -3px;" data-tap-toggle="false">
+        <div data-role="navbar" data-iconpos="top" class="page-finde-sty">
+            <!--
+         <ul style="width: 50%;float: left;margin-bottom: 10px;" >
+                <div data-iconpos="bottom" data-position="left" class="portrait"></div>
+                <div  data-iconpos="bottom" data-position="left" class="nickname">个人中心</div>
+            </ul>
+            <ul style="width: 50%;float: right;text-align:center;font-size: 12.5px;" data-type="horizontal;">
+                <div style="margin-top: 10px;" >
+                    <div data-iconpos="bottom" style="float:none;"><span>粉丝:</span><span>23232</span></div>
+                    <div  data-iconpos="bottom" style="float:none;" ><span>话题:</span><span>23232</span></div>
+                </div>
+            </ul>
+            -->
+        </div>
+
+
+    </div>
+    <!-- header -->
+
+    <div data-role="main" class="ui-content">
+        <div class="personal_head_img">
+                <div class="personal_head_data">
+                    <div class="wx_Name" id="wx_name_per">
+                        <div></div>
+                        <div>微信昵称</div>
+                    </div>
+                    <!--
+                    <div class="wx_Num" style="display: none;">
+                        <div> 粉丝：12312个</div>
+                        <div></div>
+                        <div> 话题：312个</div>
+                    </div>
+                    -->
+                </div>
+            <!--<img src="../res/sydney.jpg" alt="New York" style="width:100%; max-width:2048px; margin:0 auto; display:block;">-->
+        </div>
+
+        <!-- 个人中心 收藏专辑 -->
+
+        <div class="personal_collect" >
+            <div></div>
+            <div class="collect_head" id="flowhead">
+                <span >收藏专辑<span class="collect_num"></span></span>
+                <span id="slideud" ><img id="flowimg"  src="/static/h5plus/img/wechatBBS/mobilefront/jiantou.png" alt=""></span>
+            </div>
+            <div></div>
+        </div>
+        <div class="ui-grid-solo">
+            <div class="ui-block-a" id="slideUpTest">
+                <!-- <div class="ui-bar ui-bar-a">
+                            <div>
+                                <img src="http://172.16.13.88:1000/h5plus/img/wechatBBS/mobilefront/img/houzi.jpg" alt="">
+                                <div class="collect_content">
+                                    <div style="">
+                                        <div> 专辑名称1</div>
+                                        <div style=""> <span>话题:12</span>&nbsp;&nbsp;<span>品牌:3</span> </div>
+                                    </div>
+                                    <div></div>
+                                </div>
+                            </div>
+                </div> -->
+            </div>
+            <div class="borderHr"></div>
+        </div>
+
+        <!-- 个人中心 收藏专辑 -->
+
+
+        <!-- 个人中心 品牌 -->
+
+        <div class="brand_head">
+            <div></div>
+            <div class="brand_Author" id="authorhead">
+                <span>关注的作者<span class="brand_num"></span></span>
+                <span id="slideUpDown"><img id="autoimg" src="/static/h5plus/img/wechatBBS/mobilefront/jiantou.png" alt="" style=""></span>
+            </div>
+            <div></div>
+        </div>
+        <div class="ui-grid-solo">
+            <div class="ui-block-a" id="slideUpAuthor">
+                <!-- <div class="ui-bar ui-bar-a">
+                            <div>
+                                <div class="collect_img"></div>
+                                <div class="collect_content">
+                                    <div style="">
+                                        <div> 昵称1</div>
+                                        <div style=""> <span>话题:12</span>&nbsp;&nbsp;<span>粉丝:3</span> </div>
+                                    </div>
+                                    <div></div>
+                                </div>
+                            </div>
+                </div>
+                <div class="ui-bar ui-bar-a">
+                            <div>
+                                <div class="collect_img"></div>
+                                <div class="collect_content">
+                                    <div style="">
+                                        <div> 昵称2</div>
+                                        <div style=""> <span>话题:12</span>&nbsp;&nbsp;<span>粉丝:3</span> </div>
+                                    </div>
+                                    <div></div>
+                                </div>
+                            </div>
+                </div> -->
+            </div>
+            <div class="borderHr"></div>
+        </div>
+
+        <!-- 个人中心 品牌 -->
+
+    </div>
+
+    <!-- footer -->
+    <div data-role="footer" data-theme="a" data-position="fixed" data-fullscreen="false" data-tap-toggle="false">
+        <div data-role="navbar" data-role="main" data-iconpos="bottom">
+            <ul >
+                 <li style="text-align: center;"><a href="#page-find" data-transition="slide" data-direction="reverse"  style="line-height:0px;margin-bottom: -12px;margin-right:0px;"><p style="margin-top: 0px;background-position: center;background-size: 20px 20px;height: 20px;background-repeat: no-repeat;background-image: url(/static/h5plus/img/wechatBBS/mobilefront/center.png);"></p><p>广场</p></a></li>
+                <li  style="text-align: center;"><a href="#page-square" data-transition="slide" data-direction="reverse" style="line-height: 0px;margin-bottom: -12px;margin-right:0px;"><p style="margin-top: 0px;background-position: center;background-size: 20px 20px;height: 20px;background-repeat: no-repeat;background-image: url(/static/h5plus/img/wechatBBS/mobilefront/find.png);"><p><p>发现</p></a></li>
+                <li  style="text-align: center;"><a href="#page-personal-core" style="line-height: 0px;margin-bottom: -12px;margin-right:0px;color: #1b81eb;"><p style="margin-top: 0px;background-position: center;background-size: 20px 20px;height: 20px;background-repeat: no-repeat;background-image: url(/static/h5plus/img/wechatBBS/mobilefront/guangchang1.png);"><p><p>个人中心</p></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /footer -->
+</div>
+<!-- page-personal-core  个人中心 -->
+
+
+
+<!-- page-input-method  -->
+
+<div data-role="page" id="page-input-method">
+    <div data-role="header">
+        <h1></h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>我是输入法页面</p>
+        <a href="#page-find" data-transition="slideup"  data-direction="reverse">返回第一个页面</a>
+    </div>
+
+    <div data-role="footer">
+        <h1></h1>
+    </div>
+</div>
+
+<!-- page-input-method  -->
+
+<div class="orcodescan"  ></div>
+<div class="orcodeimg"  ><img style="width: 300px;height:300px;z-index: 9999; " id="wxqrcodeimg" src=""><p style="margin-top: -6px !important;margin: 0 auto;font-family: 微软雅黑;font-size: 16px;    background-color: azure;width: 300px;">扫描公众号二维码</p></div>
+
+</body>
+
+<!--
+ https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEv8DoAAAAAAAAAASxodHRwOi8vd2VpeGluLnFxLmNvbS9xL3UweDVSWHpsSTZ0YUIydzBMV0lLAAIEZT5BVwMEiBMAAA==
+
+ /static/h5plus/img/wechatBBS/mobilefront/fenxianghead.jpg
+
+<script type="text/javascript" src="/comlibjs/third/jqm/jquery.min.js?v=0.1" id="2"></script>
+<script type="text/javascript" src="/comlibjs/third/jqm/jquery.mobile-1.4.5.min.js?v=0.1" id="3"></script>
+<script type="text/javascript" src="/comlibjs/third/swiper/swiper.min.js?v=0.1" id="4"></script>
+<script type="text/javascript" src="/h5plus/js/wechatBBS/mobilefront/request.js?v=0.2" id="9"></script>
+<script type="text/javascript" src="/h5plus/js/wechatBBS/mobilefront/mobilephone.js?v=0.5" id="j_js"></script>
+-->
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>address</title>
+</head>
+<body>
+
+<div id="j_p">
+	<!--
+	<style type="text/css">
+	body,html{overflow: hidden;}
+	</style>
+	-->
+
+
+	<!-- <header></header> -->
+	<div id="cont"></div>
+	<!-- <footer></footer> -->
+
+
+	<script id="j_header" type="text/html">
+		<div class="top-row">
+			<a href="javascript:window.history.go(-1);" title="返回"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic1.png"></a>
+			<div class="title">订单地址</div>
+			<a href="javascript:;"><img src="{{=$$r.rootUrl}}/h5plus/img/weMall/mobile/pic2.png"></a>
+		</div>
+	</script>
+
+	<script id="j_cont" type="text/html">
+		<form id="myForm" action="orderDetail">
+			<div class="goods_site clearfix">
+				<h1>收货人：</h1>
+				<input name="name" value="{{=it.name||""}}" type="text" />
+			</div>
+			<div class="goods_site text_indent_one clearfix">
+				<h1>手机号码：</h1>
+				<input name="tel" value="{{=it.tel||""}}" type="tel" />
+			</div>
+			<div class="goods_site text_indent_one clearfix">
+				<h1>所在地区：</h1>
+				<!--<input value="" type="text" />
+				{{=it.province||""}} {{=it.city||""}} {{=it.area||""}}
+				-->
+				<input name="district" type="text" id="txt_area" value="{{=it.provinceName||""}} {{=it.cityName||""}} {{=it.areaName||""}}"/>
+		        <input type="hidden" name="province"/>
+		        <input type="hidden" name="city"/>
+		        <input type="hidden" name="area"/>
+			</div>
+			<div class="goods_site text_indent_one clearfix">
+				<h1>所在地址：</h1>
+				<input name="address" value="{{=it.address||""}}" type="text" />
+			</div>
+			<div class="goods_site text_indent_two clearfix">
+				<h1>邮编：</h1>
+				<input name="zipcode" value="{{=it.zipcode||""}}" type="tel" />
+			</div>
+			<div data-op="submit" class="save">保存</div>
+			
+			<div class="alert_error">错误提示</div>
+		</form>
+	</script>
+
+
+	<script id="j_footer" type="text/html">
+		<ul>
+			<li data-op="home">首页</li>
+			<li data-op="group">组团购</li>
+			<li class="cur" data-op="cart">购物车</li>
+			<li data-op="uc">我的</li>
+		</ul>
+	</script>
+
+<!-- <script type="text/javascript" src="script/dist/dialog.js"></script>
+<script type="text/javascript" src="script/dist/mobile-select-area.js"></script> -->
+
+</div>
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>
+
+</body>
+</html>

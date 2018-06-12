@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<div id="j_p">
+
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+
+<!--html start-->
+<div id="j_plat_state"></div>
+<div class="page hide"  id="j_plat">
+    <div class="m-title" id="j_con_title"></div>
+    <div class="m-form2" id="j_con_form"></div>
+    <div class="m-main"  id="j_con_main"></div>
+    <div class="ui-paging" id="j_con_page"></div>
+    <input type="hidden" name="page" id="setPage" value="1">
+</div>
+
+<!--html end-->
+<script id="j_view_title" style="display:none" type="text/html">
+    <h2>{{=it.title}}</h2> 
+    <span><a href="{{=it.data.previous}}">返回上一级</a></span>
+</script>
+
+
+<script id="j_view_edit_form" style="display:none" type="text/html">
+    <form id="j_edit_form"  action="{{=it.action}}">
+        <div class="le_item">
+            <label class="le_tit"><samp>*</samp>类型名称:</label>
+            <div class="le_box">
+                <div class="le_box_t">
+                    <input type="text" data-v="require" class="ui-input"  value="{{= it.name || ""}}" name="name"  />
+                    <p class="ui-msg ui-msg-error le-hint hide"></p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="le_item">
+            <label class="le_tit"><samp>*</samp>类型ID:</label>
+            <div class="le_box">
+                <div class="le_box_t">
+                    <input type="number" pattern="[/\d/img]" data-v="require" class="ui-input"  value="{{= it.typeId || ""}}" name="typeId"  />
+                    <p class="ui-msg ui-msg-error le-hint hide"></p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+        <div class="le_item">
+            <label class="le_tit"><samp>*</samp>默认图标:</label>
+            <div class="le_box">
+                <div class="le_box_t">
+                    <div id="j_upload" class="j_upload"></div>
+                        <p class="upload_size">（图片尺寸：图片大小小于1m）</p>
+                    {{if(it.id > 0){ }}
+                        <div id="j_upload_show" class="j_upload_show">
+                            <div class="ui-up-item img-size img-size-8">
+                            <div class="ui-up-text">45X45</div>
+                            <div class="ui-up-img">
+                                <img src="{{=it.iconUrl}}">
+                            </div>
+                            <div class="ui-up-mask"></div>
+                            <div class="ui-up-progress" style="display: none;">
+                                <p>上传成功</p>
+                            </div>
+                            </div>
+                        </div>
+                    {{ } else{ }}
+                    <p class="ui-msg ui-msg-error le-hint hide" id="siteHide"></p>
+                        <div id="j_upload_show" class="j_upload_show"></div>
+                    {{}}}
+                    <input type="hidden" value="{{= it.iconUrl||''}}" data-err="请上传图片" data-v="require" class="hideInput" name="iconUrl" />
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="le_item">
+            <label class="le_tit"><samp>*</samp>焦点图标:</label>
+            <div class="le_box">
+                <div class="le_box_t">
+                    <div id="j_upload" class="j_upload"></div>
+                        <p class="upload_size">（图片尺寸：图片大小小于1m）</p>
+                    {{if(it.id > 0){ }}
+                        <div id="j_upload_show2" class="j_upload_show">
+                            <div class="ui-up-item img-size img-size-8">
+                            <div class="ui-up-text">45X45</div>
+                            <div class="ui-up-img">
+                                <img src="{{=it.focusIcon}}">
+                            </div>
+                            <div class="ui-up-mask"></div>
+                            <div class="ui-up-progress" style="display: none;">
+                                <p>上传成功</p>
+                            </div>
+                            </div>
+                        </div>
+                    {{ } else{ }}
+                    <p class="ui-msg ui-msg-error le-hint hide" id="siteHide"></p>
+                        <div id="j_upload_show2" class="j_upload_show"></div>
+                    {{}}}
+                    <input type="hidden" value="{{= it.focusIcon||''}}" data-err="请上传图片" data-v="require" class="hideInput" name="focusIcon" />
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>        
+        <div class="le_item">
+            <label class="le_tit"><samp>*</samp>未读图标:</label>
+            <div class="le_box">
+                <div class="le_box_t">
+                    <div id="j_upload3" class="j_upload"></div>
+                        <p class="upload_size">（图片尺寸：图片大小小于1m）</p>
+                    {{if(it.id > 0){ }}
+                        <div id="j_upload_show3" class="j_upload_show">
+                            <div class="ui-up-item img-size img-size-8">
+                            <div class="ui-up-text">45X45</div>
+                            <div class="ui-up-img">
+                                <img src="{{=it.unreadIcon}}">
+                            </div>
+                            <div class="ui-up-mask"></div>
+                            <div class="ui-up-progress" style="display: none;">
+                                <p>上传成功</p>
+                            </div>
+                            </div>
+                        </div>
+                    {{ } else{ }}
+                    <p class="ui-msg ui-msg-error le-hint hide" id="siteHide"></p>
+                        <div id="j_upload_show3" class="j_upload_show"></div>
+                    {{}}}
+                    <input type="hidden" value="{{= it.unreadIcon||''}}" data-err="请上传图片" data-v="require" class="hideInput" name="unreadIcon" />
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+        <div class="le_item">
+            <div class="le_fieldset">
+                <div class="le_box">
+                    <input type="submit" value="保存" id="j_save" class="ui-button">
+                    <a href="{{=it.previousUrl}}" id="j_cancel" class="ui-button" >取消</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </form>
+</script>
+
+
+</div>
+
+<script type="text/javascript" src="../../_g/pmsg.js"></script>
+
+</body>
+</html>

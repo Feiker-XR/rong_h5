@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>音频素材</title>
+</head>
+
+<body>
+<div id="j_p">
+    <div id="leftNav" class="nav-fixed-left"></div>
+    <!-- start -->
+      <div id="j_plat_state"></div>
+      <div class="page hide"  id="j_plat">
+          <div class="m-main label_content"  id="j_con_list"></div>
+      </div>
+    <!-- end -->
+    <script  id="j_view_list" style="display:none" type="text/html">
+      <div class="panel panelSelf">
+        <div class="panel-content filler">
+            <div class="panel-logo"></div>
+            <div class="panel-header">
+                <div class="activityTit">素材文件</div>
+            </div>
+            <div class="sidebarMenuHolder">
+                <div class="JStree">
+                    <div id="jstree" class="jstree jstree-0 jstree-focused jstree-default">
+                        <ul data_id="imageTextMenuLeft">
+                            <li class="jstree-leaf" url="/subscriptionManage/material/imageText/imageTextList">
+                                <ins class="jstree-icon">&nbsp;</ins>
+                                <a href="javascript:void(0)">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <span>图文素材</span>
+                                </a>
+                            </li>
+                            <li class="jstree-leaf" url="/subscriptionManage/material/upPic/upPic">
+                                <ins class="jstree-icon">&nbsp;</ins>
+                                <a href="javascript:void(0)">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <span>图片素材</span>
+                                </a>
+                            </li>
+                            <li class="jstree-leaf" url="/subscriptionManage/material/upAudios/upAudios">
+                                <ins class="jstree-icon">&nbsp;</ins>
+                                <a href="javascript:void(0)" class="jstree-clicked">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <span>音频素材</span>
+                                </a>
+                            </li>
+                            <li class="jstree-leaf" url="/subscriptionManage/material/video/video">
+                                <ins class="jstree-icon">&nbsp;</ins>
+                                <a href="javascript:void(0)">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <span>视频素材</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-slider">
+            <div class="panel-slider-center">
+                <div class="panel-slider-arrow"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="audioContainer">
+        <div class="breadcrumb-container">
+            <ul class="xbreadcrumbs" data_id="navTop">
+                <li>
+                    <a href="javascript:void(0);">
+                        <i class="icon-photon home margint3"></i>
+                    </a>
+                </li>
+                <li class="current">
+                    <a href="javascript:void(0);">素材文件</a>
+                </li>
+                <li class="current">
+                    <a href="javascript:void(0);">音频素材</a>
+                </li>
+            </ul>
+        </div>
+        <div class="upFileListWrap">
+            <div class="upFileListTit">
+                <div class="fl">
+                  <a class="btn btn-info btnupFile" data-toggle="modal" data-target="#modal-add-quick-launch" type="button" href="javascript:void(0)">添加音频</a>
+                </div>
+                <div class="upFileListSearch">
+                    <input placeholder="请输入音频名称" id="title">
+                    <div class="searchImg" id="searchBtn"></div>
+                </div>
+            </div>
+            <div class="picListWrap">
+                <div class="container-fluid">
+                   <div class="row-fluid">
+                       <div class="span12" data_id="upFileList">
+                       </div>
+                   </div>
+
+               </div>
+            </div>
+
+            <div class="dataTables_paginate paging_bootstrap pagination fr">
+                <ul class="margin020" data_id="pageShow">
+                    <li class="prev"><a href="javascript:void(0);">«</a></li>
+                    <li class="next"><a href="javascript:void(0);">»</a></li>
+                </ul>
+            </div>
+
+            <div id="modal-add-quick-launch" class="modal hide fade in" aria-hidden="false" style="display: none;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="canselbtn1">×</button>
+                    <h3>上传音频</h3>
+                </div>
+                <p class="uptipfile">上传提示：仅支持amr、mp3两种格式， 大小不超过5MB，长度不超过60秒。</p>
+                <div class="modal-body">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <div class="upFilebox">
+                                    <div class="floatAudiospan">本地音频：</div>
+                                    <div class="fileuploadbox">
+                                        <input class="fileName" type="text" value="" name="" disabled id="fileName">
+                                        <div class="btn btn-info chooseFile"><input type="file" id="files">选择文件</div>
+                                         /*<div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden">
+                                            <div class="input-append">
+                                                <div class="uneditable-input span3">
+                                                <i class="icon-file fileupload-exists"></i> 
+                                                <span class="fileupload-preview"></span>
+                                                </div>
+                                                <span class="btn btn-file">
+                                                <span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file"></span><a href="javascript:;" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                            </div>
+                                        </div>*/
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="javascript:;" class="btn" data-dismiss="modal" id="canselbtn">取消</a>
+                    <input type="button"  class="btn btn-primary" data-dismiss="" id="upVideobtn" disabled value="上传">
+                </div>
+            </div>
+            <div id="playSound" class="modal hide fade in" aria-hidden="false" style="display: none;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="canselSound">×</button>
+                    <h3>音频播放</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <div class="upFilebox" id="audioSound" >
+                                    <div class="audioTitle"></div>
+                                    <div id="audioSoundtab">
+
+                                    </div>
+                                      /*<audio controls="true">
+                                         <source src="" id="Soundsource">
+                                         你的浏览器不支持video标签。
+                                      </audio>*/
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </script>
+    <script id="j_view_upAudioList" style="display:none" type="text/html">
+    {{
+      var Data = it.hfive_wechat_sound_list_response.sounds.sound;
+      var response = it.hfive_wechat_sound_list_response;
+      var total=response.total||'';
+      var pageLength=it.pageLength;
+      var page_size=total/pageLength;
+      if(total%pageLength!=0){
+          page_size=parseInt(page_size)+1;
+      }
+    }}
+      <table class="table table-bordered table-striped" id="soundTablemain" page_size="{{=page_size}}">
+         <thead class="">
+             <tr>
+                 <th>音频名称</th>
+                 <th>创建时间</th>
+                 <th>操作</th>
+             </tr>
+         </thead>
+         <tbody>
+          {{
+          for(var i=0; i<Data.length; i++){
+            var soundData = Data[i];
+          }}
+              <tr id="{{=soundData.id}}">
+                 <td>{{=soundData.title}}</td>
+                 <td>{{=soundData.rx_inserttime}}</td>
+                 <td width="200px">
+                    <span class="caozuobox"  style="position:relative;z-index:999">
+                        <a class="playSound" href="javascript:void(0)" sound_url="{{=soundData.sound_url}}" title="{{=soundData.title}}" data-toggle="modal" data-target="#playSound">播放</a>
+                        <a class="copySoundpath" href="javascript:void(0)"  path="{{=soundData.path}}" >复制链接</a>
+                        <a class="deleteSound" href="javascript:void(0)">删除</a>
+                    </span>
+                  </td>
+              </tr>
+          {{
+           }; 
+          }}
+          
+           
+         </tbody>
+     </table>
+    
+    </script>
+    
+</div>
+<script type="text/javascript" src="../../../_g/pmsg.js"></script>
+</body>
+</html>

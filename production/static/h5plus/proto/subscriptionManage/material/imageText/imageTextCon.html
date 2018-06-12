@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>图文</title>
+<link href="css/photon.css" rel="stylesheet">
+<link href="css/photon-pt2.css" rel="stylesheet">
+<link href="css/imageTextCon.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="paddingB80 overflow">
+	<div class="breadcrumb-container">
+        <ul class="xbreadcrumbs" data_id="navTop">
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="icon-photon home margint3"></i>
+                </a>
+            </li>
+            <li class="current">
+                <a href="javascript:void(0);">素材文件</a>
+            </li>
+            <li class="current">
+                <a href="javascript:void(0);">图文素材</a>
+            </li>
+        </ul>
+    </div>
+    <div class="imageTextCon">
+        <div class="imageTextConTit">图文列表</div>
+        <div class="overflow positionRelative">
+        	<div class="left" id="wrapper">
+                <div id="scroller">
+                    <ul>
+                        <li class="liActive">
+                        	<a href="javascript:void(0);">
+                                <img src="images/imageTextMain.jpg" data_id="imageTextMain">
+                                <div class="imgeTextMainTit"><span>标题</span></div>
+                                <div class="imageTextSubMask"></div>
+                                <div class="imageTextSubMaskCon">
+                                    <span class="imageTextDown"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <!--<li>
+                        	<a href="javascript:void(0);">
+                                <div class="paddingLeftLi">
+                                    <div class="fr"><img src="images/imageTextSub.jpg"></div>
+                                    <div class="imageTextSubTit">标题</div>
+                                </div>
+                                <div class="imageTextSubMask"></div>
+                                <div class="imageTextSubMaskCon">
+                                    <span class="imageTextUp"></span>
+                                    <span class="imageTextDown"></span>
+                                    <span class="imageTextDel"></span>
+                                </div>
+                            </a>
+                        </li>-->
+                    </ul>
+                    <div class="imageTextAdd">
+                        <span>+</span>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <script id="editor" type="text/plain"></script>
+                <!--<div class="imageTextArticle">
+                	<span>
+                    	<input type="checkbox">
+                    </span>
+                    <label>添加正文</label>
+                </div>
+                <div class="articleTit"><input placeholder="在这里输入图文标题"></div>
+                <div class="articleAuthor"><input placeholder="请输入图文作者"></div>
+                <div class="imageTextLink">
+                	<span>
+                    	<input type="checkbox">
+                    </span>
+                    <label>原文链接</label>
+                </div> 
+                <div class="control-group row-fluid">
+                    <div class="controls">
+                        <input type="text" name="inputField" id="inputField">
+                    </div>
+                </div>-->
+                <div class="paddingLR60">
+                    <div class="marginB20">
+                        <div class="AddImgTit">封面   小图片建议尺寸：200像素 * 200像素</div>
+                        <div>
+                            <div class="ImageTextAddImg">
+                                <button class="btn btn-info btnImageText" type="button">本地上传</button>
+                                <input type="file" class="fileImageText" data_id="fileImageText" url="">
+                            </div>
+                            <button class="btn btn-info btnImageText" type="button">从素材库里选择</button>
+                        </div>
+                        <div class="imageExmple">
+                        	<img src="images/imageTextMain.jpg">
+                            <span data_id="imageDel">删除</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>摘要（可选）</div>
+                        <textarea data_id="summaryImageText"></textarea>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+    <div class="saveMask"></div>
+    <div class="saveBtns">
+    	<button class="btn btn-info btnImageText" type="button" data_id="save">保存</button>
+        <a class="btn btn-info btnImageText" type="button" href="imageTextList.html">返回列表</button>
+    </div>
+</div>
+</body>
+</html>
+<script src="js/iscroll.js"></script>
+<script src="ueditor1_4_3_2-src/ueditor.config.js"></script>
+<script src="ueditor1_4_3_2-src/_examples/editor_api.js"></script>
+<script src="ueditor1_4_3_2-src/lang/zh-cn/zh-cn.js"></script>
+<script src="ueditor1_4_3_2-src/third-party/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.pnotify.min.js"></script>
+<script src="js/imageTextCon.js"></script>

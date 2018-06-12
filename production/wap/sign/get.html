@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/g/g.css?v=20151221">
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/module/module.css?v=20151221">
+
+<script type="text/javascript">
+var $$r = {
+    rootUrl : 'http://h5plus.net/static'
+}
+</script>
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/active/sign/get.css?v=20151221">
+<title>Get - 活动管理-签名</title>
+<script type="text/javascript">
+    // $$r.path = '/active/sign/?method='
+    $$r.path = 'http://h5plus.net/auth-template/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+               "getsite" : $$r.path + 'ruixue.hfive.activity.award.address.add',
+               'query': $$r.path + 'ruixue.hfive.activity.award.address.query',
+               'add' : $$r.path + 'ruixue.hfive.activity.award.address.add',
+               'receive' : $$r.path + 'ruixue.hfive.activity.award.entity.receive'
+            },
+          "details": './detail'
+
+        }
+    };
+</script>
+</head>
+<body class="sign">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="http://h5plus.net/static/comlibjs/lib/seajq.js?v=20151221"></script>
+      <script type="text/javascript" src="http://h5plus.net/static/h5plus/js/_g/base.js?v=20151221"></script>
+<script type="text/javascript" src="http://h5plus.net/static/h5plus/js/active/sign/get.js?v=20151221" id="j_js"></script>
+</body>
+</html>

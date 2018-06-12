@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div id="j_p">
+    
+    <div id="leftNav" class="nav-fixed-left"></div>
+
+    <!--html start-->
+    <div id="j_plat_state"></div>
+    <div class="page hide"  id="j_plat">
+        <div class="m-main label_content"  id="j_con_list"></div>
+    </div>
+    <!--html end-->
+    <script id="j_view_list" style="display:none" type="text/html">
+        <div class="panel panelSelf">
+            <div class="panel-content filler">
+                <div class="panel-logo"></div>
+                <div class="panel-header">
+                    <div class="activityTit">素材文件</div>
+                </div>
+                <div class="sidebarMenuHolder">
+                    <div class="JStree">
+                        <div id="jstree" class="jstree jstree-0 jstree-focused jstree-default">
+                            <ul data_id="imageTextMenuLeft">
+                                <li class="jstree-leaf" url="/subscriptionManage/material/imageText/imageTextList">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)" class="jstree-clicked">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>图文素材</span>
+                                    </a>
+                                </li>
+                                <li class="jstree-leaf" url="/subscriptionManage/material/upPic/upPic">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>图片素材</span>
+                                    </a>
+                                </li>
+                                <li class="jstree-leaf" url="/subscriptionManage/material/upAudios/upAudios">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>音频素材</span>
+                                    </a>
+                                </li>
+                                <li class="jstree-leaf" url="/subscriptionManage/material/video/video">
+                                    <ins class="jstree-icon">&nbsp;</ins>
+                                    <a href="javascript:void(0)">
+                                        <ins class="jstree-icon">&nbsp;</ins>
+                                        <span>视频素材</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-slider">
+                <div class="panel-slider-center">
+                    <div class="panel-slider-arrow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="paddingB80 overflowX imageTextContent">
+            <div class="breadcrumb-container">
+                <ul class="xbreadcrumbs" data_id="navTop">
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="icon-photon home margint3"></i>
+                        </a>
+                    </li>
+                    <li class="current">
+                        <a href="javascript:void(0);">素材文件</a>
+                    </li>
+                    <li class="current">
+                        <a href="javascript:void(0);">图文素材</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="imageTextCon">
+                <div class="imageTextConTit">图文列表</div>
+                <div class="positionRelative">
+                    <div class="left" id="wrapper">
+                        <div id="scroller">
+                            <ul data_id="imageTextMenu"></ul>
+                            <div class="imageTextAdd">
+                                <span>+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right"> 
+                        <div class="paddingLR60">
+                            <div class="marginB20">
+                                <div class="AddImgTit">封面   小图片建议尺寸：200像素 * 200像素</div>
+                                <div class="overflow">
+                                    <div class="ImageTextAddImg">
+                                        <button class="btn btn-info btnImageText" type="button">本地上传</button>
+                                        <input type="file" class="fileImageText" data_id="fileImageText" url="">
+                                    </div>
+                                    <button class="btn btn-info btnImageText displayNone" type="button">从素材库里选择</button>
+                                </div>
+                                <div class="imageExmple">
+                                    <img src="">
+                                    <span data_id="imageDel">删除</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div>摘要（可选）</div>
+                                <textarea data_id="summaryImageText" maxlength="120"></textarea>
+                                <span class="summaryLength"><span data_id="summaryLength">0</span>/120</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="saveMask"></div>
+            <div class="saveBtns">
+                <button class="btn btn-info btnImageText" type="button" data_id="save">保存</button>
+                <a class="btn btn-info btnImageText" type="button" href="./imageTextList{{=RKC.mainSuffix}}">返回列表</a>
+            </div>
+        </div>
+        <!--删除提示-->
+        <div id="delTip" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>提示</h3>
+            </div>
+            <div class="modal-body">
+                <p>删除后不可恢复！</p>
+                <p>确定删除该图文？</p>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-primary">确定</a>
+                <a href="javascript:;" class="btn" data-dismiss="modal">取消</a>
+            </div>
+        </div>
+    </script>
+    <script id="j_view_ImageTextMenu" style="display:none" type="text/html">
+        {{
+        console.log(it);
+        var imageTextMenus=it.hfive_wechat_imagetext_query_response.imagetexts.imagetext;
+        if(imageTextMenus.length==0){
+        }}
+            <li class="liActive">
+                <a href="javascript:void(0);">
+                    <img src="{{=it.defaultImgMainUrl}}" data_id="imageTextMain">
+                    <div class="imgeTextMainTit"><span></span></div>
+                </a>
+            </li>
+        {{
+        }else if(imageTextMenus.length==1){
+        }}
+            <li class="liActive" id="{{=imageTextMenus[0].id||''}}">
+                <a href="javascript:void(0);">
+                    <img src="{{=imageTextMenus[0].image_url||it.defaultImgMainUrl}}" data_id="imageTextMain">
+                    <div class="imgeTextMainTit"><span>{{=imageTextMenus[0].title||''}}</span></div>
+                </a>
+            </li>
+        {{
+        }else{
+        }}
+            <li class="liActive" id="{{=imageTextMenus[0].id||''}}">
+                <a href="javascript:void(0);">
+                    <img src="{{=imageTextMenus[0].image_url||it.defaultImgMainUrl}}" data_id="imageTextMain">
+                    <div class="imgeTextMainTit"><span>{{=imageTextMenus[0].title||''}}</span></div>
+                    <div class="imageTextSubMask"></div>
+                    <div class="imageTextSubMaskCon">
+                        <span class="imageTextDown"></span>
+                    </div>
+                </a>
+            </li>
+        {{
+            for(var i=1;i<imageTextMenus.length-1;i++){
+                var imageTextMenu=imageTextMenus[i];
+        }}
+                <li id="{{=imageTextMenu.id||''}}">
+                    <a href="javascript:void(0);">
+                        <div class="paddingLeftLi">
+                            <div class="imgSub"><img src="{{=imageTextMenu.image_url||it.defaultImgSubUrl}}" data_id="imageTextSub"></div>
+                            <div class="imageTextSubTit">{{=imageTextMenu.title||''}}</div>
+                        </div>
+                        <div class="imageTextSubMask"></div>
+                        <div class="imageTextSubMaskCon">
+                            <span class="imageTextUp"></span>
+                            <span class="imageTextDown"></span>
+                            <span class="imageTextDel" data-target="#delTip" data-toggle="modal"></span>
+                        </div>
+                    </a>
+                </li>
+            {{};}}
+                <li id="{{=imageTextMenus[imageTextMenus.length-1].id||''}}">
+                    <a href="javascript:void(0);">
+                        <div class="paddingLeftLi">
+                            <div class="imgSub"><img src="{{=imageTextMenus[imageTextMenus.length-1].image_url||it.defaultImgSubUrl}}" data_id="imageTextSub"></div>
+                            <div class="imageTextSubTit">{{=imageTextMenus[imageTextMenus.length-1].title||''}}</div>
+                        </div>
+                        <div class="imageTextSubMask"></div>
+                        <div class="imageTextSubMaskCon">
+                            <span class="imageTextUp"></span>
+                            <span class="imageTextDel" data-target="#delTip" data-toggle="modal"></span>
+                        </div>
+                    </a>
+                </li>
+        {{};}}          
+    </script>
+</div>
+<script type="text/javascript" src="../../../_g/pmsg.js"></script>
+</body>
+</html>

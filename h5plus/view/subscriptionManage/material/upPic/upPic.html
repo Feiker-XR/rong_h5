@@ -1,0 +1,26 @@
+<% include ../../../_g/header.html %>
+<title>图片</title>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>/<%= data['cat3'] %>.css<%= data['v'] %>">
+<script type="text/javascript">
+    $$r.path = '/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'imageList': $$r.path + 'ruixue.hfive.wechat.image.list',
+                'imageDelete': $$r.path + 'ruixue.hfive.wechat.image.delete',
+                'imageUpdate': $$r.path + 'ruixue.hfive.wechat.image.update',
+                'imageAdd': $$r.path + 'ruixue.hfive.wechat.images.add'
+            }
+        }
+    };
+</script>
+</head>
+<body class="<%= data['cat3'] %>">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>/<%= data['cat3'] %>.js<%= data['v'] %>" id="j_js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<div id="j_p">
+
+    <!--html start-->
+    <div class="page hide"  id="j_plat">
+        <div class="m-title" id="j_con_title"></div>
+        <div class="m-form2" id="j_con_form"></div>
+        <div class="m-main"  id="j_con_main"></div>
+        <div class="ui-paging" id="j_con_page"></div>
+        <input type="hidden" name="page" id="setPage" value="1">
+    </div>
+    <!--html end-->
+
+    <script id="j_view_title" style="display:none" type="text/html">
+        <h2>{{=it.title}}</h2> 
+        <span><a href="{{=it.data.previous}}">返回上一级</a></span>
+    </script>
+
+
+    <script id="j_view_edit_form" style="display:none" type="text/html">
+        <form id="j_edit_form"  action="{{=it.action}}">
+            <div class="le_item">
+                <label class="le_tit"><samp>*</samp>类型名称:</label>
+                <div class="le_box">
+                    <div class="le_box_t">
+                        <input type="text" data-v="require" class="ui-input"  value="{{= it.name || ""}}" name="name"  />
+                        <p class="ui-msg ui-msg-error le-hint hide"></p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="le_item">
+                <label class="le_tit"><samp>*</samp>类型ID:</label>
+                <div class="le_box">
+                    <div class="le_box_t">
+                        <input type="number" pattern="[/\d/img]" data-v="require" class="ui-input"  value="{{= it.typeId || ""}}" name="typeId"  />
+                        <p class="ui-msg ui-msg-error le-hint hide"></p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </form>
+    </script>
+
+</div>
+
+<script type="text/javascript" src="../../../_g/pmsg.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,619 @@
+
+.page-finde-sty{
+    margin-top: 10px;
+    margin-bottom: -1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.already-follow{
+    padding-top: 10px;
+    width: 53px;
+    height: 18px;
+    border-radius: 5px;
+    background-color: #EDEDED !important;
+}
+
+#already-follow-ed{
+    margin-right: 100px;
+    display: none;
+}
+#topic-head-find{
+    margin-top: 0px;
+    width: 40px;
+    height: 14px;
+    color: #333;
+    font-weight: 100;
+    text-shadow: 0 0px 0 #059;
+    display:block;
+}
+#topic-head-find span{
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    background-image: url(/static/h5plus/img/wechatBBS/mobilefront/alreadyfollow.png);
+    /* position: relative; */
+    background-size: 100%;
+    margin-right: 2px;
+    /*http://172.16.13.172:1000/h5plus/img/wechatBBS/mobilefront/alreadyfollow.png  /h5plus/img/wechatBBS/mobilefront/alreadyfollow.png*/
+}
+
+
+.portrait{
+    background-image: url('');
+    width:30px!important;
+    height:30px;
+    border-radius: 38px;
+    margin-left: 4px;
+    background-size: 100%;
+}
+.album_name{
+    background-image: url('http://www.xiangguxiu.com/uploadfile/focus1.jpg');
+    width: 50px !important;
+    height: 50px;
+    margin-left: 4px;
+}
+
+
+.nickname{
+    font-size:12px;
+    margin-top:5px;
+    margin-left: 10px;
+}
+
+
+/* 专辑内容 */
+.album_content{
+    font-size: 16px;
+    font-weight: initial;
+    text-shadow: 0 0px 0 #059 !important;
+}
+
+.album_content .aggregate_name{
+
+}
+
+.album_content .producer{
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.album_content .ui-btn{
+    margin-top: 30px;
+    width: 50px;
+}
+
+/* 专辑内容 */
+
+/* 话题内容 */
+.topic{
+    /*margin: 5px;*/
+    background-color:#ffffff;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.topic .topic_head{
+    text-align: center;
+
+}
+
+.topic_head .lable-class {
+    position: absolute;
+    margin-left: -100%;
+    height: 100%;
+    /* width: 100%;*/
+}
+
+.topic_head .lable-class .lablesty{
+    background:url(/static/h5plus/img/wechatBBS/mobilefront/txtbg.png) no-repeat;
+    width:103px;
+    min-height:25px;
+    border-bottom-right-radius:10px;
+    border-top-left-radius:10px;
+    position:absolute;
+    background-size: 100% 100%;
+}
+.topic_head .lable-class .lablesty .lablepoint{
+    background:url(/static/h5plus/img/wechatBBS/mobilefront/bigpointbg) no-repeat;
+    width: 26px;
+    height: 26px;
+    position:absolute;
+    left: -24px;
+    background-size: 100% 100%;
+
+}
+
+/* http://172.16.13.172:1000/h5plus/img/wechatBBS/mobilefront/smallpointbg.png */
+.topic_head .lable-class .lablesty .lablepoint .lablepointspmall{
+    background:url(/static/h5plus/img/wechatBBS/mobilefront/smallpointbg.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    position:absolute;
+    left: 6px;
+    top: 3px;
+    background-size: 100% 100%;
+    -webkit-animation-name: pointsty;
+    -webkit-animation-duration: 200ms;
+    -webkit-animation-iteration-count: infinite; /*无限循环*/
+}
+
+@-webkit-keyframes pointsty {
+    0% { width: 18px;height: 18px;}
+    50%{ width: 14px;height: 14px;}
+    100% {width: 18px;height: 18px;}
+}
+
+
+.topic_head .lable-class .lablesty .woodssty{
+    color: #ffffff;
+    text-shadow: 0 1px 0 #000000;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 106px;
+}
+
+.topic .topic_head img{
+    height: 200px;
+    width: 100%;
+}
+.topic .topic_content{
+    background-color: white;
+}
+
+.topic .topic_content .collection-bnt{
+    display: none;
+}
+
+@font-face {
+    font-family: fzlt;
+    src: url('/static/h5plus/img/wechatBBS/mobilefront/font/fzlthjt.TTF');
+}
+
+.topic .topic_content div div {
+    font-size:15px;
+    line-height:1.3;
+    font-family:sans-serif;
+    display:inline;
+    font-family: fzlt;
+}
+/* 话题内容 */
+
+/* 品牌 内容 图片  */
+.brand_img{
+
+}
+/* 品牌 内容 图片  */
+
+
+.topic .topic_content div div span{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 151px;
+    margin-left: 0px;
+}
+
+.topic .topic_content div div .bnt-collection{
+    margin-right: 12px;
+}
+
+.topic .topic_content div div a .fun-share{
+    width: 24px;
+    /*  height: 20px; */
+}
+.topic .topic_content div div a .fun-collection{
+    width: 24px;
+    height: 20px;
+}
+
+
+
+.topic .topic_content div div a span img{
+    width: 20px;
+    height: 20px;
+    margin-left: -19px;
+}
+
+
+/* 个人中心头部 */
+.ui-content .personal_head_img{
+    background-image: url('/static/h5plus/img/wechatBBS/mobilefront/img/sydney.jpg');
+    background-size: 100% 100%;
+    width: 100%;
+    height: 200px;
+
+}
+
+
+.personal_head{
+   position: absolute;
+   background-color: skyblue;
+   display: table;
+   opacity: 0.5;
+
+}
+
+.ui-content div  .personal_head_data{
+    display: table-cell;
+    vertical-align: middle;
+    overflow: hidden;
+
+}
+/* 个人中心头部 */
+
+/*  收藏对话框  */
+#collection-popup-popup{
+    width: 100%;
+    left:0px !important;
+}
+
+/*  收藏对话框  */
+
+
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.ui-content{
+    .topic_content div:nth-child(1){
+        padding:10px;
+        padding-left: 5px;
+        padding-right: 0px;
+        div:nth-child(1) span{
+            display:inline-block;margin-top: 10px;
+        }
+        div:nth-child(2) {
+            float:right;
+            margin-left: 8px;
+
+            a{
+                display:inline-block;height: 16px;margin-top: -10px;width: 42px;font-size: 12px;font-weight:normal;border-radius: 5px;
+                span:nth-child(1){
+                    margin-left:20px;
+                }
+                span:last-child{
+                    display: block;
+                }
+            }
+        }
+        div:nth-child(3) {
+            float:right;
+            a{
+                height: 17px;margin-top: 0px;width: 37px;font-size: 12px;font-weight:normal;color:#999999;
+            } 
+        }
+    }
+    .topic_content div:nth-child(2){
+        padding:10px 10px;font-size: 12px;color:#666666;
+        padding-right: 0px;
+    }
+    .topic_comment{
+        padding:5px;
+        margin-top: 5px;
+        border-bottom: 5px solid #f5f5f5;
+        background-color: #ffffff;
+        p:nth-child(1) span{
+            color:#ff7200;font-family: fzlt;
+            margin-right: 0px;
+            text-align: center;
+            font-size: 16px;
+            height: 18px;
+            width: 53px;
+            label{
+                margin: 0 0 0em;
+            }
+        }
+        p{
+            b{
+                font-family: fzlt;
+                font-size:20px;
+                color:#666;
+             }
+        }
+
+        .comment{
+            display: block;
+            float: right;
+            border: 1px solid #1b81eb;
+            border-radius: 5px;
+            padding: 6px;
+            font-size: 14px;
+        }
+        textarea{
+            resize: none;
+        }
+        .topic_Info{     
+            margin-top: 21px;
+            .wx_info{ 
+                .wx_headImg{
+                    overflow:hidden;border-radius: 25px;height: 38px;width: 38px;
+                }
+                .wx_Name{
+                    display: block;margin-left: 50px;margin-top: -40px;
+                }
+                .wx_none{
+                    margin-left:72px;width:0; height:0; border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:18px solid #fff;
+                    display: none;
+                }
+                .wx_plContent{
+                    margin-left:50px;
+                    min-height:35px;
+                    border-radius:8px;
+                    background-color:#E6E6DF;
+                    margin-right: 15px;
+                    background-image: url("/static/h5plus/img/wechatBBS/mobilefront/inputfrom.png");
+                    p{
+                        margin: 8px 12px;display: inline-block;color:#999999;font-size: 12px
+                    }
+                }
+            }
+        }
+    }
+    .borderStyle{
+        margin: 15px 10px;
+        background-image: url(/static/h5plus/img/wechatBBS/mobilefront/line.png);
+        width: 100%;
+        height: 1px;
+        width: 1080px;
+        margin-left: -6px;
+    }
+    .selectAll{
+        text-align:center;
+        margin-bottom:20px;
+    }
+    .fenxiangjt{
+        width:145px;
+        height:112px;
+        right: 13px;
+        z-index:100;
+        position:fixed;
+        top: 2px;
+        display:none
+    }
+
+
+    .divZZ{
+        opacity:0.5;width:100%;height: 100%;background-color: black;position: fixed;top:0px;z-index: 98;display: none;right: -1px;
+    }
+
+    .orcodescan{
+        opacity:.5;
+        width:100%;
+        height:100%;
+        background-color:#000;
+        position:fixed;
+        top:0;
+        z-index:98;
+        display:none;
+        right:-1px;
+    }
+
+    .orcodeimg{
+        position: absolute;
+        top: 0;
+        z-index: 99;
+        display: none;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        top: 50%;
+        margin-top: -150px;
+    }
+
+    .alertList{
+        background-color:#ededed;position: fixed;bottom:0px;width: 100%; z-index: 99;overflow-y: auto;height: 256px; display: none;right:-1px;
+        .alert_content{
+            padding-bottom: 20px;
+            padding-top: 5px;
+            span{
+                display: block;margin-left: 50px;margin-top: -50px;
+            }
+            .alert_wxhead{
+                overflow:hidden;border-radius: 25px;height: 38px;width: 38px;
+            }
+            div:nth-child(3){
+                margin-left:72px;width:0; height:0; border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:18px solid #fff;
+                display: none;
+            }
+            div:nth-child(4){
+                margin-left:50px;min-height: 35px;border-radius: 8px;
+                background-image: url("/static/h5plus/img/wechatBBS/mobilefront/inputfrom.png");
+                p{
+                    margin: 8px 12px;display: inline-block;color:#999999;font-size: 12px;
+                }
+            }
+        }
+    }
+
+}
+#page-square{
+    .ui-content{
+        background-color: #ededed;height: 100%;font-family: fzlt;
+        .ui-grid-a{
+            margin:8px 10px;
+            .ui-block-a{
+                margin-bottom: 10px;background-color: white;height:135px;text-align: center;
+                img{
+                    margin-left:2px;margin-top:5px;height: 124px;width: 170px; 
+                }
+            }
+            .ui-block-b{
+                .ui-bar-a{
+                    height:124px;background-color: white;border:none;font-weight: normal;
+                    .aggregate_name{
+                        padding-top: 10px;
+                    }
+                    .producer{
+                        margin-bottom: -17px;
+                    }
+                }
+            }
+        }
+    }
+}
+#page-brand{
+    .ui-content{
+        background-color: #ededed;
+        .ui-grid-b{
+            margin-top: 8px;margin-left: 3%;
+            .ui-block-a,.ui-block-b,.ui-block-c{
+                background-color: white;margin-right: 10px;width: 30%;
+                .brand_img{
+                    padding: 0px;height:120px;border:none;
+                    img{
+                        height:120px;width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+#page-personal-core{
+    .ui-content{
+        .personal_head_data{
+            /* background-image: url('/static/h5plus/img/wechatBBS/mobilefront/beijingtu.png'); */color:white;font-family: fzlt;
+            position: absolute;
+            margin-top: 48px;
+            width: 100%;
+            .wx_Name{
+                text-align: center;
+                div:nth-child(1){
+                    background-image: url(/static/h5plus/img/wechatBBS/mobilefront/img/21.jpg);
+                    width: 80px;
+                    height: 80px;
+                    background-size: 100% 100%;
+                    border-radius: 60px;
+                    margin: 0 auto;
+                }
+                div:nth-child(2){
+
+                }
+            }
+            .wx_Num{
+                float:right;margin-right:50px; 
+                div:nth-child(2){
+                    margin-top: 5px;
+                }
+            }
+        }
+        .personal_collect{
+            background-color:#DCDCDC; 
+            div:nth-child(1){
+                height:5px;background-color: #ededed;width:100%;
+            }
+            .collect_head{
+                background-color:white;
+                span:nth-child(1){
+                    display: inline-block;margin-left: 10px;margin-top: 4px;    margin-bottom: 9px;font-weight: bold;
+                    span{
+                        color:#ff7200;
+                    }
+                }
+                span:nth-child(2){
+                    display: inline-block;float: right;margin-right: 10px;margin-top: 7px;
+                    img{
+                        width: 16px;
+                    }
+                }
+            }
+            div:nth-child(3){
+                background-color: #ededed;width:100%;
+            }
+        }
+        .ui-grid-solo{
+            margin-top:-10px;
+            color: black;
+            .ui-bar-a{
+                background-color: white;padding-left: 0px;padding-right: 0px;
+                img{
+                    margin: 5px 10px;float: left;width:70px;height:70px;background-size: 100% 100%;
+                }
+                .collect_content{
+                    margin: 5px;float: left;height:70px;color: black;
+                    div:nth-child(1){
+                        margin-top: 5px;
+                        margin-left: 4px;
+                        div:nth-child(2){
+                            font-size:15px;color:   #808080;font-weight: normal;margin-top: 11px;margin-left: 2px;
+                        }
+                    }
+                }
+            }
+            .borderHr{
+                height:5px;background-color: #ededed;width:100%;
+            }
+        }
+        .brand_head{
+            margin-bottom: 10px;background-color:#DCDCDC; 
+            .brand_Author{
+                background-color:white;
+                span:nth-child(1){
+                    display: inline-block;margin-left: 10px;margin-top: 2px;margin-bottom: 4px;font-weight: bold;
+                    span{
+                        color:#ff7200;
+                    }
+                }
+                span:nth-child(2){
+                    display: inline-block;float: right;margin-right: 10px;margin-top: 3px;
+                    img{
+                        width: 16px;
+                    }
+                }
+            }
+            div:nth-child(1){
+                height:5px;background-color: #ededed;width:100%;
+            }
+            div:nth-child(3){
+                height:1px;background-color: #ededed;width:100%;
+            }
+        }
+        .brand_content{
+            background-color: white;
+            .ui-grid-b{
+                margin-top: 2px;margin-left: 3%;background-color: white;
+                .ui-block-a,.ui-block-b,.ui-block-c{
+                    background-color: white;margin-right: 5px;width: 31%;
+                    div:nth-child(1){
+                        padding:0px;height:120px;background-color: white;
+                        img{
+                           height:120px;width: 100%; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 错误提示框 */
+#collection-popup{
+    background-image: url('../../../img/wechatBBS/mobilefront/errbg.png');
+    color: #ffffff;
+    opacity:0.5;
+    text-align: center;
+}
+
+/* 错误提示框 */

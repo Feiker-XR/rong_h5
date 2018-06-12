@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>销售排名</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="<%= data['comlibjs'] %>/lib/jquery.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script src="http://resource.h5plus.net/h5plus-resource/js/h5sdk/1.01/test/h5sdk.js"></script>
+	<script>
+		var wx_id='gh_e611846d32ee';
+		var pid='55cbf3a3986a9b483376f279';
+		h5sdk.wxOpenidInit(pid,wx_id);
+	</script>
+	<style>
+		*{
+			list-style: none; margin: 0; padding: 0;
+		}
+		html,body{
+			width: 100%; height: 100%；
+		}
+		.wrap{
+			width: 100%; height: 95%; padding-top: 5%;
+		}
+		.wrap .top{
+			height: 120px; width: 100%; padding-top: 20px;
+		}
+		.wrap .top .topL{
+			width: 40%; height: 100%; position: relative; float: left;
+		}
+		.wrap .top .topL .topLt{
+			width: 80px; height: 80px; border-radius: 40px; overflow: hidden; position: absolute; left: 50%; margin-left: -40px;
+		}
+		.wrap .top .topL .topLt img{
+			width: 100%; height: 100%;
+		}
+		.wrap .top .topL .name{
+			width: 60%; text-align: center; font-size: 14px; padding-top: 90px; overflow: hidden; margin: 0 auto; height: 15px;
+		}
+		.wrap .top .topR{
+			width: 40%; height: 100%; float: left;
+		}
+		.wrap .top .topR .topRt{
+			font-size: 12px; 
+		}
+		.wrap .top .topR .topRt span{
+			font-size: 18px; color: #fe4e00; font-weight: bold;
+		}
+		.wrap .top .topR .topRb{
+			width: 172px; height: 52px; border-left: 1px #ccc solid; border-top: 1px #ccc solid; margin-top: 15px;
+		}
+		.wrap .top .topR .topRb .topRb1{
+			width: 172px; height: 25px; border-bottom: 1px #ccc solid;
+		}
+		.wrap .top .topR .topRb .topRb1 p{
+			width: 85px; height: 25px; border-right: 1px #ccc solid; float: left; font-size: 10px; text-align: center; line-height: 25px;
+		}
+		.wrap .top .topR .topRb .topRb1 .money{
+			width: 85px; color: #fe4e00; text-align: center;
+		}
+		.wrap .bottom{
+			width: 100%;
+		}
+		.wrap .bottom h1{
+			width: 95%; height: 40px; line-height: 40px; padding-left: 5%; font-size: 14px; background: #ededed;
+		}
+		.wrap .bottom .content{
+			width: 95%; margin: 0 auto;
+		}
+		.wrap .bottom .content>div{
+			width: 100%; margin: 0 auto; border-bottom: 1px #ccc solid; height: 70px; display: -webkit-box;
+		}
+		.wrap .bottom .content>div .rank{
+			width: 30px; text-align: center; line-height: 70px; font-size: 16px; font-weight: bold;
+		}
+		.wrap .bottom .content>div .img{
+			 width: 107px;
+		}
+		.wrap .bottom .content>div .img img{
+			width: 50px; height: 50px; border-radius: 25px; float: left; margin-top: 10px;
+		}
+		.wrap .bottom .content>div .img p{
+			height: 70px; line-height: 70px; width: 47px; overflow: hidden; margin-left: 10px; font-size: 12px; float: left;
+		}
+		.wrap .bottom .content>div .money{
+			-webkit-box-flex:1; border-left: 1px #ccc solid; padding-top: 5px;min-width: 82.5px;
+		}
+		.wrap .bottom .content>div .money p{
+			width: 100%; text-align: center; margin-top: 10px; font-size: 12px;
+		}
+		.wrap .bottom .content>div .money .moneyM{
+			font-size: 14px; color: #fe4e00; font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="top">
+			<div class="topL">
+				<div class="topLt">
+					<img id="portraitG" src="" alt="">
+				</div>
+				<div class="name" id="name"></div>
+			</div>
+			<div class="topR">
+				<div class="topRt">销售排名：<span id="ranking"></span></div>
+				<div class="topRb">
+					<div class="topRb1">
+						<p>销售额</p>
+						<p>获得奖金</p>
+					</div>
+					<div class="topRb1">
+						<p class="money">￥<span id="total"></span></p>
+						<p class="money">￥<span id="commission"></span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<h1>销售排名(TOP 10)</h1>
+			<div class="content" id="content">
+
+			</div>
+		</div>
+	</div>
+	<script>
+	h5sdk.wxOpenidReady(function(openid){
+		$.ajax({                      //获取员工id
+	        type : 'post',
+	        url : 'http://test.h5plus.net/auth-template/api/?method=ruixue.hfive.weidian.staffsale.staff.getbyopenid&pid='+pid,
+	        dataType : 'json',
+	        xhrFields: {withCredentials: true},
+	        success : function( res ){
+	        	var data=res.hfive_weidian_staffsale_staff_getbyopenid_response;
+	        	if(data){
+	        		init(data.staff.staff_id);
+	        	}
+	        }
+		})
+	})
+	function init(staff_id){
+		var activity_id=location.href.split('=')[1]||'4ff47baa-1e37-11e6-9979-001e67c7eaf9';
+		$.ajax({                      //获取个人业绩
+	        type : 'post',
+	        url : 'http://test.h5plus.net/auth-template/api/?method=ruixue.hfive.weidian.staffsale.staff.achievement&pid='+pid,
+	        dataType : 'json',
+	        xhrFields: {withCredentials: true},
+	        data:{'staff_id':staff_id,'activity_id':activity_id},
+	        success : function( res ){
+	        	var data=res.hfive_weidian_staffsale_staff_achievement_response;
+	        	if(data){
+	        		$('#ranking').text(data.achievement.ranking);
+	        		$('#total').text(data.achievement.total);
+	        		$('#commission').text(data.achievement.commission);
+	        		$('#portraitG').attr('src',data.achievement.head_img_url);
+	        		$('#name').text(data.achievement.staff_name);
+	        	}
+	        }
+	    })
+	    $.ajax({                      //获取业绩销售排名前十
+	        type : 'post',
+	        url : 'http://test.h5plus.net/auth-template/api/?method=ruixue.hfive.weidian.staffsale.staff.achievementtopten&pid='+pid,
+	        dataType : 'json',
+	        xhrFields: {withCredentials: true},
+	        data:{'activity_id':activity_id},
+	        success : function( res ){
+	        	var data=res.hfive_weidian_staffsale_staff_achievementtopten_response,
+	        		html='';
+	        	$.each(data.achievements.achievement,function(i,v){
+	        		html+='<div>'
+						+		'<div class="rank">'+(i+1)+'</div>'
+						+		'<div class="img">'
+						+			'<img src="'+v.head_img_url+'" alt="">'
+						+			'<p>'+v.staff_name+'</p>'
+						+		'</div>'
+						+		'<div class="money">'
+						+			'<p>销售额</p>'
+						+			'<p class="moneyM">￥'+v.total+'</p>'
+						+		'</div>'
+						+		'<div class="money">'
+						+			'<p>获得奖金</p>'
+						+			'<p class="moneyM">￥'+v.commission+'</p>'
+						+		'</div>'
+						+	'</div>';
+	        	})
+	        	$('#content').append(html);
+	        }
+	    })
+	}		
+	</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="./style/photon.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./js/src/jquery-1.8.3.js"></script>
+    <script src="./js/src/jquery.mousewheel.js"></script>
+    <script src="./js/src/TweenMax.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+<body style="overflow-y:hidden;">
+   <!-- 固定的导航部分 start-->
+		<div class="navigation" style="display:none">
+			<img src="http://test.h5plus.net/static/comlibjs/v3/images/photon/logo.png" alt="" class="logo">
+			<!-- <botton class="login btn btn-large btn-success btn-login">登录</botton> -->
+			<button type="button" class="btn btn-success register" data-op="login">注册</button>
+      <button type="button" class="btn login" data-op="login">登录</button>
+		</div>
+    <!-- 固定的导航部分 end-->
+    <!-- 主体部分 start-->
+    <!-- loading -->
+    <div id="loading">
+  	    <div id="loadingMain">
+  	        <div class="img1"></div>
+  	        <div class="img2"></div>
+  	        <div class="img4">0%</div>
+  	        <div class="shadow"></div>
+  	    </div>
+  	</div>    
+    <div class="wrapper" style="display:none">
+        <!-- 主体 第一块内容 start -->
+        <div class="scene active scene1">
+           <div class="main-all main-all-1 active"></div>
+           <ul class="nav">
+               <li class="group1">
+                  <p class="title">完善的企业移动<br/>营销解决方案</p>
+                  <div class="icon">
+                      <img src="./images/scene1/icon01.png" alt="">
+                  </div>
+                  <div class="dotted">
+                      <img src="./images/scene1/icon02.png" alt="">
+                  </div>
+                  <div class="arc">
+                      <img src="./images/scene1/icon03.png" alt="">
+                  </div>
+                  <div class="arcIcon01">
+                      <img src="./images/scene1/icon04.png" alt="">
+                  </div>
+                  <div class="arcIcon02">
+                      <img src="./images/scene1/icon05.png" alt="">
+                  </div>
+                  <div class="arcIcon03 trigger">
+                      <img src="./images/scene1/icon06.png" alt="">
+                  </div>
+               </li>
+               <li class="group2">
+                  <p class="title">数据化移动营销<br/>领导者</p>
+                  <div class="icon">
+                      <img src="./images/scene1/icon07.png" alt="">
+                  </div>
+                  <div class="dotted">
+                      <img src="./images/scene1/icon02.png" alt="">
+                  </div>
+                  <div class="slash">
+                      <img src="./images/scene1/icon08.png" alt="">
+                  </div>
+                  <div class="slashIcon01">
+                      <img src="./images/scene1/icon09.png" alt="">
+                  </div>
+                  <div class="slashIcon02 trigger">
+                      <img src="./images/scene1/icon10.png" alt="">
+                  </div>
+               </li>
+               <li>
+                  <p class="title">开放式微营销云<br/>服务</p>
+                  <div class="icon">
+                      <img src="./images/scene1/icon13.png" alt="">
+                  </div>
+                  <div class="dotted">
+                      <img src="./images/scene1/icon02.png" alt="">
+                  </div>
+                  <div class="line">
+                      <img src="./images/scene1/icon11.png" alt="">
+                  </div>
+                  <div class="lineIcon01 triggerLast">
+                      <img src="./images/scene1/icon12.png" alt="">
+                  </div>
+               </li>
+           </ul>           
+        </div>
+        <!-- 主体 第二块内容 start -->
+          <div class="scene scene2">
+              <div class="cloudLeft1"></div>
+              <div class="cloudLeft2"></div>
+              <div class="cloudLeft3"></div>
+              <div class="cloudRight"></div>
+              <div class="cityBottom"></div>
+              <div class="brief">
+                  <div class="title"></div>
+                  <p class="content">立体、真实、有效的用户画像，是H5plus一直努力的目标，也是企业移动营销中最核心数据引擎。<br/>粉丝生活多姿多彩，订单转化源源不断。</p>
+              </div>
+              <ul class="icon">
+                <li><img src="./images/scene2/icon05.png" alt=""></li>
+                <li><img src="./images/scene2/icon06.png" alt=""></li>
+                <li><img src="./images/scene2/icon07.png" alt=""></li>
+                <li><img src="./images/scene2/icon08.png" alt=""></li>
+              </ul>
+          </div>
+        <!-- 主体部分 end-->
+        <!-- 主体 第三块内容 start -->
+        <div class="scene scene3">
+          <div style="height:100%;" class="scale">
+              <div class="wxgb360"></div>
+              <div class="round01"></div>
+              <div class="round02"></div>
+              <div class="round03"></div>
+          </div>    
+        </div>
+        <!-- 主体 第四块内容 start -->
+        <div class="scene scene4">
+          <div style="height:100%;" class="scale">
+            <div class="line">
+              <div class="icon03 actives"></div>
+              <div class="icon04 actives"></div>
+              <div class="icon05 actives"></div>
+              <div class="icon06 actives"></div>
+              <div class="icon07 actives"></div>
+              <div class="icon08 actives"></div>
+              <div class="icon09 actives"></div>
+              <div class="icon10 actives"></div>
+              <div class="icon11 actives"></div>
+              <div class="icon12 actives"></div>
+              <div class="icon13 actives"></div>
+              <div class="icon14 actives"></div>
+              <div class="icon15 actives"></div>
+            </div>
+            <div class="earth"></div>
+          </div>
+        </div> 
+        <!-- 主体 第五块内容 start -->
+        <div class="scene scene5">
+        	<div class="top">
+        		<div class="title"></div>
+        		<div class="topBottom"></div>
+        		<div class="icon03" index="icon03"></div>
+        		<div class="icon04" index="icon04"></div>
+        		<div class="icon05" index="icon05"></div>
+        		<div class="icon06" index="icon06"></div>
+        		<div class="icon07" index="icon07"></div>
+        		<div class="icon08" index="icon08"></div>
+        		<div class="icon09" index="icon09"></div>
+        		<div class="icon10" index="icon10"></div>
+        		<div class="icon11" index="icon11"></div>
+        		<div class="icon12" index="icon12"></div>
+        		<div class="icon13" index="icon13"></div>
+        	</div>
+        	<div class="bottom"></div>
+        </div>      
+    </div>
+    <!-- 主体部分 end-->
+    <!-- 登录注册 -->
+    <div class="mask"></div>
+    <div class="loginAlert">
+        <button class="closeAlert">关闭</botton>
+    </div>
+</body>
+</html>

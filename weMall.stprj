@@ -1,0 +1,19 @@
+h5plus/json(
+            weMall/goods/getlist.js
+            weMall/goods/saveadd.js
+            weMall/goods/delete.js
+            weMall/goods/getedit.js
+            weMall/goods/saveedit.js
+        )
+        h5plus/view(
+            weMall/goods/list.html
+            weMall/goods/detail.html
+        )
+        res/src/h5plus/css/weMall/goods/weMall/goods.less
+        res/src/h5plus/proto/weMall/goods/
+        res/src/h5plus/js(
+            weMall/goods/list.html
+            weMall/goods/list.js
+            weMall/goods/detail.html
+            weMall/goods/detail.js
+        )

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>自定义菜单</title>
+<link rel="stylesheet" type="text/css" href="css/customMenu.css">
+</head>
+
+<body>
+<div class="customMenuWrap">
+	<div class="chooseSubscription">
+		<label for="subscription">选择公众号：</label>
+		<select id="subscription" class="select subscription">
+			<option>瑞雪科技1</option>
+			<option>瑞雪科技2</option>
+			<option>瑞雪科技3</option>
+		</select>
+		<input type="button" value="发布" class="button release">
+	</div>
+	<div class="customMenuTip">可创建最多 3 个一级菜单，每个一级菜单下可创建最多 5 个二级菜单。编辑中的菜单不会马上被用户看到，请放心调试。 </div>
+	<div class="customMenu">
+		<div class="customMenuList">
+			<div class="customMenuListTit">
+				<span id="addCustomMenu1"></span>
+				<span class="customMenu1Down"></span>
+				<span class="customMenu1Up"></span>
+			</div>
+			<ul class="customMenuListCon">
+				<li>
+					<a href="javascript:void(0);">
+						<div class="customMenu1Opr">
+							<span class="customMenu2Add"></span>
+							<span class="customMenu1Edit"></span>
+							<span class="customMenu1Delete"></span>
+						</div>
+						<div class="customMenu1">菜单1</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" class="customMenu1Active">
+						<div class="customMenu1Opr">
+							<span class="customMenu2Add"></span>
+							<span class="customMenu1Edit"></span>
+							<span class="customMenu1Delete"></span>
+						</div>
+						<div class="customMenu1">菜单1</div>
+					</a>
+					<ul class="customMenuListSubCon">
+						<li>
+							<a href="javascript:void(0);">
+								<div class="customMenu1Opr customMenu2Opr">
+									<span class="customMenu2Edit"></span>
+									<span class="customMenu1Delete"></span>
+								</div>
+								<div class="customMenu1 customMenu2">菜单3-1</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" class="customMenu1Active">
+								<div class="customMenu1Opr customMenu2Opr">
+									<span class="customMenu2Edit"></span>
+									<span class="customMenu1Delete"></span>
+								</div>
+								<div class="customMenu1 customMenu2">菜单3-1</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<div class="customMenu1Opr customMenu2Opr">
+									<span class="customMenu2Edit"></span>
+									<span class="customMenu1Delete"></span>
+								</div>
+								<div class="customMenu1 customMenu2">菜单3-1</div>
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="customMenuCon">
+			<div class="customMenuConTit">
+				<label for="customMenuConChoose">内容编辑：</label>
+				<select id="customMenuConChoose" class="select customMenuConChoose">
+					<option value="text">文本</option>
+					<option value="image">图文消息</option>
+					<option value="link">链接</option>
+				</select>
+				<input type="button" value="保存" class="button save">
+			</div>
+			<div id="textEidt">
+				<textarea id="editor_id" name="content"></textarea>
+			</div>
+			<div class="link" id="linkEidt">
+				<div class="linkTit">
+					<span>
+						<input type="radio" name="link" id="linkInner" checked>
+						<label>内部链接</label>
+					</span>
+					<span>
+						<input type="radio" name="link" id="linkOuter">
+						<label>外部链接</label>
+					</span>
+				</div>
+				<div class="linkOuterCon">
+					<label>URL:</label>
+					<input class="text">
+				</div>
+				<div class="linkInnerCon">
+					<select class="select">
+						<option>分类</option>
+						<option>分类1</option>
+						<option>分类2</option>
+					</select>
+					<select class="select">
+						<option>页面</option>
+						<option>页面1</option>
+						<option>页面2</option>
+					</select>
+				</div>
+			</div>
+			<div class="imageText">
+				<div class="imageTextAdd">
+					<div class="imageTextBg">
+						<span class="imageTextIcon"></span>
+					</div>
+				</div>
+				<div class="imageTextChoose">
+					<div class="imageTextChooseTit">
+						<span>选择图文</span>
+						<span class="imageTextShut">X</span>
+					</div>
+					<div class="imageTextChooseCon">
+						<div class="imageTextChooseImgs">
+							<div class="imageTextChooseImg">
+								<div class="imageTextChooseImgTit">
+									<span class="imageTextChooseImgTitIcon"></span>
+									<span>图文标题1</span>
+								</div>
+								<div class="imageTextChooseImgDetail">
+									<img src="images/imageTextChooseImg.jpg">
+								</div>
+								<div class="imageTextChooseImgIntro">摘要：</div>
+							</div>
+							<div class="imageTextChooseImg">
+								<div class="imageTextChooseImgTit">
+									<span class="imageTextChooseImgTitIcon"></span>
+									<span>图文标题2</span>
+								</div>
+								<div class="imageTextChooseImgDetail">
+									<img src="images/imageTextChooseImg.jpg">
+								</div>
+								<div class="imageTextChooseImgIntro">摘要：</div>
+							</div>
+							<div class="imageTextChooseImg">
+								<div class="imageTextChooseImgTit">
+									<span class="imageTextChooseImgTitIcon"></span>
+									<span>图文标题3</span>
+								</div>
+								<div class="imageTextChooseImgDetail">
+									<img src="images/imageTextChooseImg.jpg">
+								</div>
+								<div class="imageTextChooseImgIntro">摘要：</div>
+							</div>
+							<div class="imageTextChooseImg">
+								<div class="imageTextChooseImgTit">
+									<span class="imageTextChooseImgTitIcon"></span>
+									<span>图文标题4</span>
+								</div>
+								<div class="imageTextChooseImgDetail">
+									<img src="images/imageTextChooseImg.jpg">
+								</div>
+								<div class="imageTextChooseImgIntro">摘要：</div>
+							</div>
+							<div class="imageTextChooseImg">
+								<div class="imageTextChooseImgTit">
+									<span class="imageTextChooseImgTitIcon"></span>
+									<span>图文标题5</span>
+								</div>
+								<div class="imageTextChooseImgDetail">
+									<img src="images/imageTextChooseImg.jpg">
+								</div>
+								<div class="imageTextChooseImgIntro">摘要：</div>
+							</div>
+							<div class="imageTextChooseImg">
+								<div class="imageTextChooseImgTit">
+									<span class="imageTextChooseImgTitIcon"></span>
+									<span>图文标题6</span>
+								</div>
+								<div class="imageTextChooseImgDetail">
+									<img src="images/imageTextChooseImg.jpg">
+								</div>
+								<div class="imageTextChooseImgIntro">摘要：</div>
+							</div>
+							<div class="imageTextChooseImg">
+								<div class="imageTextChooseImgTit">
+									<span class="imageTextChooseImgTitIcon"></span>
+									<span>图文标题7</span>
+								</div>
+								<div class="imageTextChooseImgDetail">
+									<img src="images/imageTextChooseImg.jpg">
+								</div>
+								<div class="imageTextChooseImgIntro">摘要：</div>
+							</div>
+							<div class="imageTextChooseImg">
+								<div class="imageTextChooseImgTit">
+									<span class="imageTextChooseImgTitIcon"></span>
+									<span>图文标题8</span>
+								</div>
+								<div class="imageTextChooseImgDetail">
+									<img src="images/imageTextChooseImg.jpg">
+								</div>
+								<div class="imageTextChooseImgIntro">摘要：</div>
+							</div>
+							<div class="imageTextChooseImg">
+								<div class="imageTextChooseImgTit">
+									<span class="imageTextChooseImgTitIcon"></span>
+									<span>图文标题9</span>
+								</div>
+								<div class="imageTextChooseImgDetail">
+									<img src="images/imageTextChooseImg.jpg">
+								</div>
+								<div class="imageTextChooseImgIntro">摘要：</div>
+							</div>
+						</div>
+						<div class="imageTextChooseBtns">
+							<input type="button" value="确定" class="button imageTextChooseCertain">
+							<input type="button" value="取消" class="button imageTextChooseCancel">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="mask"></div>
+<div class="popBoxCon addCustomMenu1Con" title="添加一级菜单">
+	<div>请设置一级菜单名称：</div>
+	<div class="menuTxtWrap"><input class="text customMenu1Txt"></div>
+	<div class="numberTip">最多4个汉字</div>
+</div>
+<div class="popBoxCon addCustomMenu2Con" title="添加二级菜单">
+	<div>请设置二级菜单名称：</div>
+	<div class="menuTxtWrap"><input class="text customMenu2Txt"></div>
+	<div class="numberTip">最多7个汉字</div>
+</div>
+<div class="popBoxCon addCustomMenu2ConTip" title="添加二级菜单">
+	<span class="addCustomMenu2ConTipIcon"></span>
+	使用二级菜单之后，原有编辑内容将被取消，确定使用二级菜单么？
+</div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugs/kindeditor/kindeditor-all-min.js"></script>
+<script type="text/javascript" src="plugs/kindeditor/lang/zh-CN.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/customMenu.js"></script>

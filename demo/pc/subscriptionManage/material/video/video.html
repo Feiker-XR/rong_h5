@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="shortcut icon" href="http://h5plus.net/static/comlibjs/v3/favicon.ico" />
+        <link rel="apple-touch-icon" href="http://h5plus.net/static/comlibjs/v3/favicon.png" />
+        <link rel="stylesheet" href="http://h5plus.net/static/comlibjs/v3/css/css/index.css" media="all" />
+        <script type="text/javascript">
+        var $$r = { rootUrl : 'http://h5plus.net/static' }
+        $$r.origin = window.location.origin
+        $$r.test = 'http://h5plus.net'
+        $$r.online = 'http://h5plus.net'
+        $$r.isServ = /http:\/\/(|test.)h5plus.net/.test($$r.origin)
+        $$r.localStamp = $$r.isServ?'&t='+(+new Date):''
+        $$r.hosts = $$r.isServ?$$r.origin+'/pc':$$r.origin
+        </script>
+        <script type="text/javascript" src="http://h5plus.net/static/comlibjs/lib/seajq.js?v=20151221"></script>
+        <script type="text/javascript" src="http://h5plus.net/static/h5plus/js/_g/base.js?v=20151221"></script>
+
+<title>视频素材</title>
+<link rel="stylesheet" href="http://h5plus.net/static/h5plus/css/subscriptionManage/material/video/video.css?v=20151221">
+<script type="text/javascript">
+    $$r.path = '/auth-portal/api/?method='
+    $$r.routers = {
+        "data": {
+            "link": {
+                'videoList': $$r.path + 'ruixue.hfive.wechat.video.list',
+                'videoDelete': $$r.path + 'ruixue.hfive.wechat.video.delete',
+                'videoAdd': $$r.path +'ruixue.hfive.wechat.video.add'
+            }
+        }
+    };
+</script>
+</head>
+<body class="video">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="http://h5plus.net/static/h5plus/js/subscriptionManage/material/video/video.js?v=20151221" id="j_js"></script>
+</body>
+</html>

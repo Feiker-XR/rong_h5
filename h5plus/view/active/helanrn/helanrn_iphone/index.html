@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>活动页面</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="<%= data['comlibjs'] %>/lib/jquery.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script src="http://resource.h5plus.net/h5plus-resource/js/h5sdk/1.01/test/h5sdk.js"></script>
+	<script>
+		var wx_id='gh_e611846d32ee';
+		var pid='55cbf3a3986a9b483376f279';
+		h5sdk.wxOpenidInit(pid,wx_id);
+	</script>
+	<style>
+		*{
+			list-style: none; margin: 0; padding: 0;
+		}
+		html,body{
+			width: 100%; height: 100%; background: #f9f9f9;
+		}
+		.wrap{
+			width: 90%; height: 100%; margin: 0 auto;
+		}
+		.wrap img{
+			width: 100%; height: 200px;
+		}
+		p{
+			line-height: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+	</div>
+	<script>
+	h5sdk.wxOpenidReady(function(openid){
+		$.ajax({                      //获取员工id
+	        type : 'post',
+	        url : 'http://test.h5plus.net/auth-template/api/?method=ruixue.hfive.weidian.staffsale.staff.getbyopenid&pid='+pid,
+	        dataType : 'json',
+	        xhrFields: {withCredentials: true},
+	        success : function( res ){
+	        	var data=res.hfive_weidian_staffsale_staff_getbyopenid_response;
+	        	if(data){
+	        		init(data.staff.staff_id);
+	        	}
+	        	
+	        }
+		
+		})
+	})
+	function init(staff_id){
+		var activity_id=location.href.split('=')[1]||'4ff47baa-1e37-11e6-9979-001e67c7eaf9';
+
+		$.ajax({                      //获取富文本内容
+	        type : 'post',
+	        url : 'http://test.h5plus.net/auth-template/api/?method=ruixue.hfive.weidian.staffsale.activity.get',
+	        dataType : 'json',
+	        async:false,
+	        contentType: "application/json;charset=utf-8",
+	        xhrFields: {withCredentials: true},
+	        data:JSON.stringify({"activity_id":activity_id}),
+	        success : function( res ){
+	        	var data=res.hfive_weidian_staffsale_activity_get_response;
+	        	if(data){
+	        		$('.wrap').append(data.info);
+	        	}
+	        }
+	    }) 
+	    for(var i=0;i<$('.wrap p').size();i++){
+		   	if($('.wrap p').eq(i).find('a')){
+		   		var url=$('.wrap p').eq(i).find('a').attr('href');
+		   		$('.wrap p').eq(i).find('a').attr('href',url+'&activity_id='+activity_id+'&staff_id='+staff_id);
+		   	}
+	    }
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+	"jsonrpc":"2.0",
+	"result":{
+		"error_code":0,
+		"url":"http://resource.h5plus.net/2016/02/25/56cea44ca4403.jpg",
+		"pigcms_id":936
+	},
+	"id":"WU_FILE_0"
+}

@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dashboard - Photon Admin Panel Theme</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="apple-touch-icon" href="iosicon.png" />
+<!--    DEVELOPMENT LESS -->
+<!--          <link rel="stylesheet/less" href="css/photon.less" media="all" />
+        <link rel="stylesheet/less" href="css/photon-responsive.less" media="all" /> -->
+<!--    PRODUCTION CSS -->
+        <link rel="stylesheet" href="css/css/photon.css" media="all" />
+        <link rel="stylesheet" href="css/css/photon-pt2.css" media="all" />
+        <link rel="stylesheet" href="css/css/photon-responsive.css" media="all" />
+
+<!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="css/css_compiled/ie-only-min.css" />
+<![endif]-->
+
+<!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="css/css_compiled/ie8-only-min.css" />
+        <script type="text/javascript" src="js/plugins/excanvas.js"></script>
+        <script type="text/javascript" src="js/plugins/html5shiv.js"></script>
+        <script type="text/javascript" src="js/plugins/respond.min.js"></script>
+        <script type="text/javascript" src="js/plugins/fixFontIcons.js"></script>
+<![endif]-->
+
+        
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/plugins/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.pnotify.min.js"></script>
+<script type="text/javascript" src="js/plugins/less-1.3.1.min.js"></script>        
+<script type="text/javascript" src="js/plugins/xbreadcrumbs.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.maskedinput-1.3.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.autotab-1.1b.js"></script>
+<script type="text/javascript" src="js/plugins/charCount.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.textareaCounter.js"></script>
+<script type="text/javascript" src="js/plugins/elrte.min.js"></script>
+<script type="text/javascript" src="js/plugins/elrte.en.js"></script>
+<script type="text/javascript" src="js/plugins/select2.js"></script>
+<script type="text/javascript" src="js/plugins/jquery-picklist.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugins/additional-methods.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.form.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.metadata.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.mockjax.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.rating.pack.js"></script>
+<script type="text/javascript" src="js/plugins/farbtastic.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.timeentry.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.jstree.js"></script>
+<script type="text/javascript" src="js/plugins/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.flot.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.flot.stack.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.flot.pie.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.flot.resize.js"></script>
+<script type="text/javascript" src="js/plugins/raphael.2.1.0.min.js"></script>
+<script type="text/javascript" src="js/plugins/justgage.1.0.1.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.qrcode.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.clock.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.countdown.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.jqtweet.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap-fileupload.min.js"></script>
+<script type="text/javascript" src="js/plugins/prettify/prettify.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrapSwitch.js"></script>
+<script type="text/javascript" src="js/plugins/mfupload.js"></script>
+
+<script type="text/javascript" src="js/common.js"></script>
+
+        <script>
+            $().ready(function() {
+
+                var isDragActive = false;
+                // Quicklaunch Widget
+                $( "#sortable" ).sortable({
+                    cancel: '#sortable li:last-child',
+                    start: function(event, ui) {
+                        isDragActive = true;
+                        $('.dashboard-quick-launch li img').tooltip('hide');
+                    },
+                    stop: function(event, ui) {
+                        isDragActive = false;
+                    },
+                    containment: 'parent',
+                    tolerance: 'pointer'
+                });
+
+                // Make widgets sortable
+                $( "#photon_widgets" ).sortable({
+                    cancel: '.blank-widget, .flip-it',
+                    placeholder: 'dashboard-widget-placeholder',
+                    start: function(event, ui) {
+                        isDragActive = true;
+                        $('.widget-holder').addClass('noPerspective');
+                        $('.dashboard-quick-launch li img').tooltip('hide');
+                    },
+                    stop: function(event, ui) {
+                        isDragActive = false;
+                        $('.widget-holder').removeClass('noPerspective');
+                    },
+                    tolerance: 'pointer'
+                });
+
+
+                $('.dashboard-quick-launch li img').not('.dashboard-quick-launch li:last-child').tooltip({
+                    placement: 'top',
+                    html: true,
+                    trigger: 'manual',
+                    title: '<a href="javascript:;"><span class="left">Edit</span></a><a href="javascript:;"><span class="right">Delete</span></a>'
+                });
+
+
+                var hoverTimeout;
+                $('.dashboard-quick-launch li').hover(function () {
+                    if (!$(this).find('.tooltip').length){
+                        $activeQL = $(this);
+                        clearTimeout(hoverTimeout);
+                        hoverTimeout = setTimeout(function() {
+                            if (isDragActive) return;
+                            $activeQL.find('img').tooltip('show');
+                        }, 1000);
+                    }
+                }, function () {
+                    clearTimeout(hoverTimeout);
+                    $('.dashboard-quick-launch li').find('img').tooltip('hide');
+                });
+                setTimeout(function(){
+                    $.pnotify({
+                        title: 'Drag & Drop',
+                        type: 'info',
+                        text: 'Reorder Widgets or Quicklaunch bar items by dragging & dropping them.'
+                    });
+                }, 2000);
+                setTimeout(function(){
+                    $.pnotify({
+                        title: 'Widget Settings',
+                        type: 'info',
+                        text: 'Hover over widget, than click on a gear icon to set widget options.'
+                    });
+                }, 7000);
+                var firstHover = true;
+                $('.dashboard-quick-launch li').hover(function(){
+                    if (firstHover) {
+                        firstHover = false;
+                        setTimeout(function(){
+                            $.pnotify({
+                                title: 'Edit Quicklaunch Icons',
+                                type: 'info',
+                                text: 'Hover over icon for more than one second to display editing options.'
+                            });
+                        }, 400);
+                    }
+                });
+            });
+        </script>
+    </head>
+    
+    <body class="body-dashboard">
+
+            
+    <div class="btn-toolbar btn-mobile-menus">
+        <button class="btn btn-main-menu"></button>
+        <button class="btn btn-user-menu"><i class="icon-logo"></i></button>
+    </div>
+
+    <div class="nav-fixed-left" style="visibility: hidden">
+        <ul class="nav nav-side-menu">
+            <li class="shadow-layer"></li>
+            <li>
+                <a href="dashboard.html" >
+                    <i class="icon-photon home"></i>
+                    <span class="nav-selection">Dashboard</span>
+                                    </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="sub-nav-container">
+                    <i class="icon-photon list_nested"></i>
+                    <span class="nav-selection">Form Elements</span>
+                    <i class="icon-menu-arrow"></i>                </a>
+                <div class="sub-nav">
+                    <ul class="nav">
+                        <li>
+                            <a href="form-elements-input-fields.html">Input Fields</a>
+                        </li>
+                        <li>
+                            <a href="form-elements-masked-input-fields.html">Masked Input Fields</a>
+                        </li>
+                        <li>
+                            <a href="form-elements-autotabs.html">Autotabs</a>
+                        </li>
+                        <li>
+                            <a href="form-elements-text-areas.html">Text Areas</a>
+                        </li>
+                        <li>
+                            <a href="form-elements-select-menus.html">Select Menus</a>
+                        </li>
+                        <li>
+                            <a href="form-elements-other-form-elements.html">Other Form Elements</a>
+                        </li>
+                        <li>
+                            <a href="form-elements-form-validation.html">Form Validation</a>
+                        </li>
+                        <li>
+                            <a href="form-elements-ui-elements.html">UI Elements</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="javascript:;" class="sub-nav-container">
+                    <i class="icon-photon chart_alt"></i>
+                    <span class="nav-selection">Graphs and Statistics</span>
+                    <i class="icon-menu-arrow"></i>                </a>
+                <div class="sub-nav">
+                    <ul class="nav">
+                        <li>
+                            <a href="graphs-and-statistics-graphs.html">Graphs</a>
+                        </li>
+                        <li>
+                            <a href="graphs-and-statistics-statistical-elements.html">Statistical Elements</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="typography.html" >
+                    <i class="icon-photon book_alt2"></i>
+                    <span class="nav-selection">Typography</span>
+                                    </a>
+            </li>
+            <li>
+                <a href="grid.html" >
+                    <i class="icon-photon hash"></i>
+                    <span class="nav-selection">Grid</span>
+                                    </a>
+            </li>
+            <li>
+                <a href="tables.html" >
+                    <i class="icon-photon new_window"></i>
+                    <span class="nav-selection">Tables</span>
+                                    </a>
+            </li>
+            <li>
+                <a href="maps.html" >
+                    <i class="icon-photon map_pin_stroke"></i>
+                    <span class="nav-selection">Maps</span>
+                                    </a>
+            </li>
+            <li>
+                <a href="sidebar-widgets.html" >
+                    <i class="icon-photon book_alt"></i>
+                    <span class="nav-selection">Sidebar Widgets</span>
+                                    </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="sub-nav-container">
+                    <i class="icon-photon bolt"></i>
+                    <span class="nav-selection">Error Pages</span>
+                    <i class="icon-menu-arrow"></i>                </a>
+                <div class="sub-nav">
+                    <ul class="nav">
+                        <li>
+                            <a href="error-pages-400-bad-request.html">400 Bad Request</a>
+                        </li>
+                        <li>
+                            <a href="error-pages-401-unauthorized.html">401 Unauthorized</a>
+                        </li>
+                        <li>
+                            <a href="error-pages-403-forbidden.html">403 Forbidden</a>
+                        </li>
+                        <li>
+                            <a href="error-pages-404-page-not-found.html">404 Page Not Found</a>
+                        </li>
+                        <li>
+                            <a href="error-pages-500-internal-server-error.html">500 Internal Server Error</a>
+                        </li>
+                        <li>
+                            <a href="error-pages-503-service-unavailable.html">503 Service Unavailable</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="help.html" >
+                    <i class="icon-photon info"></i>
+                    <span class="nav-selection">Help</span>
+                                    </a>
+            </li>
+            <li class="nav-logout">
+                <a href="index.html">
+                    <i class="icon-photon key_stroke"></i><span class="nav-selection">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>        <div class="nav-fixed-topright" style="visibility: hidden">
+    <ul class="nav nav-user-menu">
+        <li class="user-sub-menu-container">
+            <a href="javascript:;">
+                <i class="user-icon"></i><span class="nav-user-selection">Theme Options</span><i class="icon-menu-arrow"></i>
+            </a>
+            <ul class="nav user-sub-menu">
+                <li class="light">
+                    <a href="javascript:;">
+                        <i class='icon-photon stop'></i>Light Version
+                    </a>
+                </li>
+                <li class="dark">
+                    <a href="javascript:;">
+                        <i class='icon-photon stop'></i>Dark Version
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="icon-photon mail"></i>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <i class="icon-photon comment_alt2_stroke"></i>
+                <div class="notification-count">12</div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script>
+    $(function(){
+        setTimeout(function(){
+            $('.nav-fixed-topright').removeAttr('style');
+        }, 300);
+        
+        $(window).scroll(function(){
+            if($('.breadcrumb-container').length){
+                var scrollState = $(window).scrollTop();
+                if (scrollState > 0) $('.nav-fixed-topright').addClass('nav-released');
+                else $('.nav-fixed-topright').removeClass('nav-released')
+            }
+        });
+        $('.user-sub-menu-container').on('click', function(){
+            $(this).toggleClass('active-user-menu');
+        });
+        $('.user-sub-menu .light').on('click', function(){
+            if ($('body').is('.light-version')) return;
+            $('body').addClass('light-version');
+            setTimeout(function() {
+                $.cookie('themeColor', 'light', {
+                    expires: 7,
+                    path: '/'
+                });
+            }, 500);
+        });
+        $('.user-sub-menu .dark').on('click', function(){
+            if ($('body').is('.light-version')) {
+                $('body').removeClass('light-version');
+                $.cookie('themeColor', 'dark', {
+                    expires: 7,
+                    path: '/'
+                });
+            }
+        });
+    });
+</script>
+
+        <div class="container-fluid dashboard dashboard-title">
+            <div class="row-fluid">
+                <div class="span12">
+                    <h1>
+                        Dashboard
+                    </h1>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-gear dropdown-toggle" data-toggle="dropdown"></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="javascript:;">First Menu Item</a></li>
+                          <li><a href="javascript:;">Second Menu Item</a></li>
+                          <li><a href="javascript:;">Third Menu Item</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid dashboard dashboard-quick-launch">
+             <div class="row-fluid">
+                <div class="span12">
+                    <ul id="sortable">
+                        <li>
+                            <img src="images/photon/icons/ql1@2x.png" alt="Quick Launch Icon"/>
+                            <p>Shipments</p>
+                        </li>
+                        <li>
+                            <img src="images/photon/icons/ql2@2x.png" alt="Quick Launch Icon"/>
+                            <p>Statistics</p>
+                        </li>
+                        <li>
+                            <img src="images/photon/icons/ql3@2x.png" alt="Quick Launch Icon"/>
+                            <p>Users</p>
+                        </li>
+                        <li>
+                            <img src="images/photon/icons/ql4@2x.png" alt="Quick Launch Icon"/>
+                            <p>Squirel</p>
+                        </li>
+                        <li>
+                            <img src="images/photon/icons/ql5@2x.png" alt="Quick Launch Icon"/>
+                            <p>PSD Files</p>
+                        </li>
+                        <li class="add-ql">
+                            <a href="#modal-add-quick-launch" data-toggle="modal">
+                                <div class="add-quick-launch" data-toggle="modal" id="addql"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid dashboard dashboard-widget-group">
+             <div class="row-fluid">
+                <div id="photon_widgets" class="span12 ui-sortable">
+                    <!-- General Stats Widget begin -->
+<script>
+    $().ready(function() {
+        $(".widget-general-stats select").select2();
+    });
+</script>
+<div class="widget-holder">
+    <div class="widget-flipper">
+        <div class="widget-area widget-general-stats widget-front">
+            <div class="widget-head">
+                General Stats
+                <div>
+                    <a href="javascript:;" onclick="flipit(this)"><i class='icon-photon cog'></i></a>
+                    <img src="images/photon/w_arrows@2x.png" alt="Arrows"/>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <span>1,432</span>&nbsp;Registered Users
+                    <div>
+                        <span>+0.6%</span>
+                        <img src="images/photon/w_arrow_green@2x.png" alt="Arrow up"/>
+                    </div>
+                </li>
+                <li>
+                    <span>$1,132</span>&nbsp;Revenue
+                    <div>
+                        <span>+1.4%</span>
+                        <img src="images/photon/w_arrow_green@2x.png" alt="Arrow up"/>
+                    </div>
+                </li>
+                <li>
+                    <span>253</span>&nbsp;Viking Users
+                    <div>
+                        <span>-0.9%</span>
+                        <img src="images/photon/w_arrow_red@2x.png" alt="Arrow up"/>
+                    </div>
+                </li>
+                <li>
+                    <span>586</span>&nbsp;Lorem ipsum
+                    <div>
+                        <span>+2.8%</span>
+                        <img src="images/photon/w_arrow_green@2x.png" alt="Arrow up"/>
+                    </div>
+                </li>
+                <li>
+                    <span>1,245</span> 
+                    &nbsp;Dolorem Sit
+                    <div>
+                        <span>-0.6%</span>
+                        <img src="images/photon/w_arrow_red@2x.png" alt="Arrow up"/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="widget-area widget-general-stats widget-back">
+            <div class="widget-savehead">
+                <a href="javascript:;" class="btn btn-mini btn-inverse" onclick="flipit(this)"><i class='icon-photon cog'></i>Done</a>
+            </div>
+            <form>
+                <div class="container-fluid widget-settings">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Location:</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Any">Any</option>
+                                    <option value="Europe">Europe</option>
+                                    <option value="Asia">Asia</option>
+                                    <option value="North America">America</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Period</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Last Year">Last Year</option>
+                                    <option value="Last Quarter">Last Quarter</option>
+                                    <option value="Last Month">Last Month</option>
+                                    <option value="Last Week">Last Week</option>
+                                    <option value="Yesterday">Yesterday</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Show Hidden</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Only if Viking">Only if Viking</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- General Stats Widget end -->
+                    <!-- Latest Users Widget begins -->
+<script>
+    $().ready(function() {
+        if (widgetsLoaded['widget-latest-users']) return;
+        widgetsLoaded['widget-latest-users'] = true;
+        
+        $('.widget-latest-users li').each(function () {
+            var thisUserName = $('span', this).text();
+            var thisImgSrc = $('img', this).attr('src');
+            var tooltipTemp = $('.widget-tip-template').clone(true, true);
+            
+            $('.user-name', tooltipTemp).text(thisUserName);
+            $('.avatar-big', tooltipTemp).attr('src', thisImgSrc);
+
+            $('img', this).tooltip({
+                placement: 'top',
+                html: true,
+                trigger: 'manual',
+                title: tooltipTemp.html()
+            });
+        });
+
+        var hoverUsersTimeout;
+        $('.widget-latest-users li').hover(function () {
+            if (!$(this).find('.tooltip').length){
+                $activeQL = $(this);
+                clearTimeout(hoverUsersTimeout);
+                hoverUsersTimeout = setTimeout(function() {
+                    $activeQL.find('img').tooltip('show');
+                }, 500);
+            }
+        }, function () {
+            $('.widget-latest-users li').find('img').tooltip('hide');
+            clearTimeout(hoverUsersTimeout);
+        });
+
+        $(".widget-latest-users select").select2();
+    });
+</script>
+<div class="widget-holder">
+    <div class="widget-flipper">
+        <div class="widget-area widget-latest-users widget-front">
+            <!-- USER TIP TEMPLATE -->
+            <div class='widget-tip-template'>
+                <div class='avatar-section'>
+                    <img class='avatar-big' src='images/photon/user2.jpg' alt='profile' />
+                </div>
+                <div class='text-section'>
+                    <span class='user-name'>Prasent Neque</span>
+                    <span class='user-location'>Paris, France</span>
+                    <span class='user-info'>nunc.cenenetis@gmail.com<br/>Registred: 9/26/2012 (8:56PM)</span>
+                </div>
+            </div>
+
+            <div class="widget-head">
+                Latest Users
+                <div>
+                    <a href="javascript:;" onclick="flipit(this)"><i class='icon-photon cog'></i></a>
+                    <img src="images/photon/w_latest@2x.png" alt="latest users"/>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <div class="avatar-image">
+                        <img src="images/photon/user1.jpg" alt="profile"/>
+                    </div>
+                    <span>Vestibulum Odio</span> 
+                    <div>5 mins</div>
+                </li>
+                <li>
+                    <div class="avatar-image">
+                        <img src="images/photon/user2.jpg" alt="profile"/>
+                    </div>
+                    <span>Prasent Neque</span> 
+                    <div>17 mins</div>
+                </li>
+                <li>
+                    <div class="avatar-image">
+                        <img src="images/photon/user3.jpg" alt="profile"/>
+                    </div>
+                    <span>Nunc Cenenatis</span> 
+                    <div>25 mins</div>
+                </li>
+                <li>
+                    <div class="avatar-image">
+                        <img src="images/photon/user4.jpg" alt="profile"/>
+                    </div>
+                    <span>Etiam Libero</span> 
+                    <div>2 hrs</div>
+                </li>
+                <li>
+                    <div class="avatar-image">
+                        <img src="images/photon/user5.jpg" alt="profile"/>
+                    </div>
+                    <span>Morbi Consequat</span> 
+                    <div>4 hrs</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="widget-area widget-latest-users widget-back">
+            <div class="widget-savehead">
+                <a href="javascript:;" class="btn btn-mini btn-inverse" onclick="flipit(this)"><i class='icon-photon cog'></i>Done</a>
+            </div>
+            <form>
+                <div class="container-fluid widget-settings">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Location:</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Any">Any</option>
+                                    <option value="Europe">Europe</option>
+                                    <option value="Asia">Asia</option>
+                                    <option value="North America">America</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Show Hidden</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Only if Viking">Only if Viking</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Latest Users Widget ends -->
+                    <!-- Task Completion Widget begins -->
+<script>
+    $().ready(function() {
+        if (widgetsLoaded['task-completion']) return;
+        widgetsLoaded['task-completion'] = true;
+        setTimeout(function() {
+            var target = parseInt($('.processed-pct .bar').attr('data-target'));
+            $('.processed-pct .bar').attr('style', 'width: ' + target + '%');
+        }, 1000);
+
+        $(".task-completion select").select2();
+    });
+</script>
+<div class="widget-holder">
+    <div class="widget-flipper">
+        <div class="widget-area task-completion widget-front">
+            <div class="widget-head">
+                Task Completion
+                <div>
+                    <a href="javascript:;" onclick="flipit(this)"><i class='icon-photon cog'></i></a>
+                    <img src="images/photon/w_task@2x.png" alt="arrows"/>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    Processed orders
+                    <span>56</span>
+                </li>
+                <li>Pending orders
+                    <span>14</span>
+                </li>
+                <li>Unproc. orders
+                    <span>12</span>
+                </li>
+                <li class="processed-pct">
+                    Processed orders:&nbsp;&nbsp;<span>63</span>
+                    <div class="progress progress-info">
+                        <div class="bar" data-target="63" style="width: 0;"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="widget-area task-completion widget-back">
+            <div class="widget-savehead">
+                <a href="javascript:;" class="btn btn-mini btn-inverse" onclick="flipit(this)"><i class='icon-photon cog'></i>Done</a>
+            </div>
+            <form>
+                <div class="container-fluid widget-settings">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Task:</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Any">Any</option>
+                                    <option value="Strategic">Strategic</option>
+                                    <option value="Operational">Operational</option>
+                                    <option value="Tactical">Tactical</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Period</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Last Year">Last Year</option>
+                                    <option value="Last Quarter">Last Quarter</option>
+                                    <option value="Last Month">Last Month</option>
+                                    <option value="Last Week">Last Week</option>
+                                    <option value="Yesterday">Yesterday</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Show Hidden</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Only if Viking">Only if Viking</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Task Completion Widget ends -->
+                    <!-- Overall Earnings Graph Widget begins -->
+<script>
+    $(window).load(function () {
+        if (widgetsLoaded['overall-earnings-graph']) return;
+        widgetsLoaded['overall-earnings-graph'] = true;
+        var data = [];
+        for( var i = 0; i < 3; i++) {
+            data[i] = { label: "&nbsp;Series&nbsp;"+(i+1), data: Math.floor(Math.random()*100)+1 }
+        }
+        $.plot($("#donut"), data, {
+            colors: ["#aad5f5", "#008fde", '#c6d695'],
+            legend: { backgroundOpacity: 0 }, 
+            series: {
+                pie: { 
+                    innerRadius: 0.5,
+                    show: true
+                }
+            }
+        });
+        $(".overall-earnings-graph select").select2();
+    });
+</script>
+<div class="widget-holder widget-white">
+    <div class="widget-flipper">
+        <div class="widget-area overall-earnings-graph skin-white widget-front">
+            <div class="widget-head">
+                Overall Earnings Graph
+                <div>
+                    <a href="javascript:;" onclick="flipit(this)"><i class='icon-photon cog'></i></a>
+                </div>
+            </div>
+            <p class="widget-description">Morbi consequat felis vitae <a href="javascript:;">enim</a></p>
+            <div id="donut" style="width:260px;height:129px;"></div>    
+            <img class="widget-white-shadow" src="images/photon/w_shadow.png" alt="shadow"/>
+        </div>
+        <div class="widget-area overall-earnings-graph widget-back">
+            <div class="widget-savehead">
+                <a href="javascript:;" class="btn btn-mini btn-inverse" onclick="flipit(this)"><i class='icon-photon cog'></i>Done</a>
+            </div>
+            <form>
+                <div class="container-fluid widget-settings">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Location:</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Any">Any</option>
+                                    <option value="Europe">Europe</option>
+                                    <option value="Asia">Asia</option>
+                                    <option value="North America">America</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Period</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Last Year">Last Year</option>
+                                    <option value="Last Quarter">Last Quarter</option>
+                                    <option value="Last Month">Last Month</option>
+                                    <option value="Last Week">Last Week</option>
+                                    <option value="Yesterday">Yesterday</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Show Hidden</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Only if Viking">Only if Viking</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Overall Earnings Graph Widget ends -->
+                    <!-- Overall Views Graph Widget begins -->
+<script>
+    $(window).load(function () {
+        if (widgetsLoaded['overall-views-graph']) return;
+        widgetsLoaded['overall-views-graph'] = true;
+        var d1 = [];
+        for (var i = 0; i <= 30; i += 1)
+            d1.push([i, parseInt(Math.random() * 30)]);
+        var d2 = [];
+        for (var i = 0; i <= 30; i += 1)
+            d2.push([i, parseInt(Math.random() * 30)]);
+        $.plot($("#placeholder"), [ d1, d2 ], {
+            grid: { show: true, borderWidth: 0.2 },
+            xaxis: { show: true, ticks: 0 },
+            yaxis: { show: true, ticks: 8, color: '#bbb'},
+            colors: ["#aad5f5", "#008fde"],
+            series: {
+                stack: 0,
+                fill: 1,
+                bars: { show: true, barWidth: 0.9, lineWidth: 0, fill: 1 }
+            }
+        });
+
+        $(".overall-views-graph select").select2();
+    });
+</script>
+<div class="widget-holder widget-white">
+    <div class="widget-flipper">
+        <div class="widget-area overall-views-graph skin-white widget-front">
+            <div class="widget-head">
+                Overall Views Graph
+                <div>
+                    <a href="javascript:;" onclick="flipit(this)"><i class='icon-photon cog'></i></a>
+                </div>
+            </div>
+            <p class="widget-description">Morbi consequat felis vitae <a href="javascript:;">enim</a></p>
+            <div id="placeholder" style="width:260px;height:133px;"></div>
+            <img class="widget-white-shadow" src="images/photon/w_shadow.png" alt="shadow"/>
+        </div>
+        <div class="widget-area overall-views-graph widget-back">
+            <div class="widget-savehead">
+                <a href="javascript:;" class="btn btn-mini btn-inverse" onclick="flipit(this)"><i class='icon-photon cog'></i>Done</a>
+            </div>
+            <form>
+                <div class="container-fluid widget-settings">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Location:</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Any">Any</option>
+                                    <option value="Europe">Europe</option>
+                                    <option value="Asia">Asia</option>
+                                    <option value="North America">America</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Period</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Last Year">Last Year</option>
+                                    <option value="Last Quarter">Last Quarter</option>
+                                    <option value="Last Month">Last Month</option>
+                                    <option value="Last Week">Last Week</option>
+                                    <option value="Yesterday">Yesterday</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Show Hidden</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Only if Viking">Only if Viking</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Overall Views Graph Widget ends -->
+                    <!-- Realtime Data Graph Widget begins -->
+<script>
+    $(window).load(function () {
+        if (widgetsLoaded['realtime-data-graph']) return;
+        widgetsLoaded['realtime-data-graph'] = true;
+
+        var data = [], totalPoints = 15;
+        function getRandomData() {
+            if (data.length > 0)
+                data = data.slice(1);
+            while (data.length < totalPoints) {
+                var prev = data.length > 0 ? data[data.length - 1] : 50;
+                var y = prev + Math.random() * 20 - 10;
+                if (y < 0)
+                    y = 0;
+                if (y > 100)
+                    y = 100;
+                data.push(y);
+            }
+            var res = [];
+            for (var i = 0; i < data.length; ++i)
+                res.push([i, data[i]])
+            return res;
+        }
+        var updateInterval = 600;
+        var options = {
+            series: {   shadowSize: 0, 
+                lines: { show: true, fill:true, fillColor: { colors: [{opacity: 0.25}, {opacity: 0}] } }, 
+                points: { show: true, radius: 2, color: '#008fde' }
+            },
+            grid: { show: true, borderWidth: 0.2 },
+            xaxis: { show: true, ticks: 0 },
+            yaxis: { show: true, min: 0, max: 100, ticks:8, color: '#bbb'},
+            colors: ["#aad5f5"]
+        };
+        var plot = $.plot($("#realtime"), [ getRandomData() ], options);
+        function update() {
+            plot.setData([ getRandomData() ]);
+            plot.draw();
+            setTimeout(update, updateInterval);
+        }
+        update();
+
+        $(".realtime-data-graph select").select2();
+    });
+</script>
+<div class="widget-holder widget-white">
+    <div class="widget-flipper">
+        <div class="widget-area realtime-data-graph skin-white widget-front">
+            <div class="widget-head">
+                Realtime Data Graph
+                <div>
+                    <a href="javascript:;" onclick="flipit(this)"><i class='icon-photon cog'></i></a>
+                </div>
+            </div>
+            <p class="widget-description">Morbi consequat felis vitae <a href="javascript:;">enim</a></p>    
+            <div id="realtime" style="width:260px;height:133px;"></div>
+            <img class="widget-white-shadow" src="images/photon/w_shadow.png" alt="shadow"/>
+        </div>
+        <div class="widget-area realtime-data-graph widget-back">
+            <div class="widget-savehead">
+                <a href="javascript:;" class="btn btn-mini btn-inverse" onclick="flipit(this)"><i class='icon-photon cog'></i>Done</a>
+            </div>
+            <form>
+                <div class="container-fluid widget-settings">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Location:</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Any">Any</option>
+                                    <option value="Europe">Europe</option>
+                                    <option value="Asia">Asia</option>
+                                    <option value="North America">America</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Period</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Last Year">Last Year</option>
+                                    <option value="Last Quarter">Last Quarter</option>
+                                    <option value="Last Month">Last Month</option>
+                                    <option value="Last Week">Last Week</option>
+                                    <option value="Yesterday">Yesterday</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Show Hidden</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                    <option value="Only if Viking">Only if Viking</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Realtime Data Graph Widget ends -->
+                                        <!-- Twitter Widget begins -->
+<script>
+    $().ready(function() {
+        if (widgetsLoaded['tweet-widget']) return;
+        widgetsLoaded['tweet-widget'] = true;
+
+        jqtweet.loadTweets({
+            user: 'envato',
+            numTweets: 1
+        });
+
+        $(".tweet-widget select").select2();
+    });
+</script>
+<div class="widget-holder">
+    <div class="widget-flipper">
+        <div class="widget-area tweet-widget widget-front">
+            <div class="widget-head">
+                Twitter
+                <div>
+                    <a href="javascript:;" onclick="flipit(this)"><i class='icon-photon cog'></i></a>
+                    <img src="images/photon/w_twitter@2x.png" alt="twitter"/>
+                </div>
+            </div>
+            <p class="widget-description"><a href="https://twitter.com/envato" target="_blank">@envato</a>'s latest tweet:</p>    
+            <div id="jqtwitter"></div>
+        </div>
+
+        <div class="widget-area tweet-widget widget-back">
+            <div class="widget-savehead">
+                <a href="javascript:;" class="btn btn-mini btn-inverse" onclick="flipit(this)"><i class='icon-photon cog'></i>Done</a>
+            </div>
+            <form>
+                <div class="container-fluid widget-settings">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Show Users:</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="All">All</option>
+                                    <option value="Only Following">Only Following</option>
+                                    <option value="Only Followers">Only Followers</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Twitter Widget ends -->
+                    <!-- QR Code Generation Widget begins -->
+<script>
+    $().ready(function() {
+        if (widgetsLoaded['qr-code-generation']) return;
+        widgetsLoaded['qr-code-generation'] = true;
+
+        $('#qrcode').qrcode({
+            text: "http://themeforest.net",
+            render  : "table",
+            width		: 128,
+            height		: 128
+        });
+
+        $(".qr-code-generation select").select2();
+    });
+</script>
+<div class="widget-holder widget-white">
+    <div class="widget-flipper">
+        <div class="widget-area qr-code-generation skin-white widget-front">
+            <div class="widget-head">
+                QR Code Generation
+                <div>
+                    <a href="javascript:;" onclick="flipit(this)"><i class='icon-photon cog'></i></a>
+                </div>
+            </div>
+            <p class="widget-description">Links to <a href="http://themeforest.net/">http://themeforest.net/</a></p>
+            <div id="qrcode"></div>
+            <img class="widget-white-shadow" src="images/photon/w_shadow.png" alt="shadow"/>
+        </div>
+        <div class="widget-area qr-code-generation widget-back">
+            <div class="widget-savehead">
+                <a href="javascript:;" class="btn btn-mini btn-inverse" onclick="flipit(this)"><i class='icon-photon cog'></i>Done</a>
+            </div>
+            <form>
+                <div class="container-fluid widget-settings">
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <label class="control-label">Filter by Product:</label>
+                        </div>
+                    </div>
+                    <div class="control-group row-fluid">
+                        <div class="span12">
+                            <div class="controls">
+                                <select>
+                                    <option selected="" value="Any">Any</option>
+                                    <option value="Standard">Standard</option>
+                                    <option value="Extended">Extended</option>
+                                    <option value="Premium">Premium</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- QR Code Generation Widget ends -->                                    </div>
+            </div>
+        </div>
+
+        <div class="dashboard-watermark"></div>
+
+        <!--Modal Dialogs' HTML begin-->
+        <div id="modal-add-quick-launch" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Add Quick Launch Item</h3>
+            </div>
+            <div class="modal-body">
+                <p>Select from system shortcuts below or <a href="#modal-add-quick-launch-custom" data-dismiss="modal" data-toggle="modal">create your custom shortcut »</a></p>
+                <div class="control-group row-fluid">
+                    <div class="span12">
+                        <div class="controls">
+                            <select multiple name="multiFilter" id="multiFilter">
+                                <option value="Beige">Beige</option>
+                                <option value="Black">Black</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Bronze">Bronze</option>
+                                <option value="Brown">Brown</option>
+                                <option value="Gold">Gold</option>
+                                <option value="Gray">Gray</option>
+                                <option value="Green">Green</option>
+                                <option value="Orange">Orange</option>
+                                <option value="Pink">Pink</option>
+                                <option value="Purple">Purple</option>
+                                <option value="Red">Red</option>
+                                <option value="Silver">Silver</option>
+                                <option selected="" value="Turquoise">Turquoise</option>
+                                <option value="White">White</option>
+                                <option value="Yellow">Yellow</option>
+                            </select>
+                        </div>
+                    </div>
+                    <script>
+                        $().ready(function(){
+                            $("#multiFilter").select2();
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-primary" data-dismiss="modal">Add Selected</a>
+                <a href="javascript:;" class="btn" data-dismiss="modal">Cancel</a>
+            </div>
+        </div>
+        <div id="modal-add-quick-launch-custom" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Create Quick Launch Item</h3>
+            </div>
+            <div class="modal-body">
+                <div class="control-group row-fluid">
+                    <div class="span3">
+                        <label class="control-label" for="Shortcut_Label">Shortcut Label</label>
+                    </div>
+                    <div class="span9">
+                        <div class="controls">
+                            <input id="Shortcut_Label" type="text" placeholder="Enter the name of your shortcut" name="inputFieldPlaceholder" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group row-fluid">
+                    <div class="span3">
+                        <label class="control-label" for="Shortcut_URL">Shortcut URL</label>
+                    </div>
+                    <div class="span9">
+                        <div class="controls">
+                            <input id="Shortcut_URL" type="text" placeholder="Enter the address of your shortcut" name="inputFieldPlaceholder" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group row-fluid">
+                    <div class="span3">
+                        <label class="control-label">Upload Icon</label>
+                    </div>
+                    <div class="span9">
+                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                            <div class="input-append">
+                                <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview">Upload Image</span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" /></span><a href="javascript:;" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="alternative">Or select one of the predefined icons</p>
+            </div>
+            <div class="modal-body predefined-icons">
+                <ul>
+                    <li><img src="images/photon/icons/ql1@2x.png" alt="Predefined"></li>
+                    <li><img src="images/photon/icons/ql2@2x.png" alt="Predefined"></li>
+                    <li><img src="images/photon/icons/ql3@2x.png" alt="Predefined"></li>
+                    <li><img src="images/photon/icons/ql4@2x.png" alt="Predefined"></li>
+                    <li><img src="images/photon/icons/ql6@2x.png" alt="Predefined"></li>
+                    <li><img src="images/photon/icons/ql7@2x.png" alt="Predefined"></li>
+                    <li><img src="images/photon/icons/ql8@2x.png" alt="Predefined"></li>
+                    <li><img src="images/photon/icons/ql9@2x.png" alt="Predefined"></li>
+                    <li><img src="images/photon/icons/ql10@2x.png" alt="Predefined"></li>
+                </ul>
+            </div>
+
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-primary" data-dismiss="modal">Create Item</a>
+                <a href="javascript:;" class="btn" data-dismiss="modal">Cancel</a>
+            </div>
+        </div>
+        <!--Modal Dialogs' HTML end-->
+        </body>
+</html>

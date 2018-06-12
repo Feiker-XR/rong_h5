@@ -1,0 +1,52 @@
+@charset"utf-8";
+// l_表示布局
+// m_表示模块
+@import "style.less";
+
+body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
+    margin: 0;
+    padding: 0
+}
+body, button, input, select, table, textarea {
+    font-size: 12px;
+    /*line-height:1.25em*/
+}
+fieldset, img {
+    border: 0
+}
+ol, ul {
+    list-style: none
+}
+address, em {
+    font-style: normal
+}
+table {
+    border-collapse: collapse
+}
+html {
+    height: 100%;
+    font-size: 12px;
+    overflow: hidden;
+}
+body{
+    height: 100%;
+    overflow: hidden;
+}
+
+.clear{
+    height: 0;
+    clear: both;
+    overflow: hidden;
+}
+.clearfix{
+    &:after{
+        content: '.';
+        clear:both;
+        height: 0;
+        display:block;
+        visibility: hidden;
+    }
+}
+
+
+@import "l.less";

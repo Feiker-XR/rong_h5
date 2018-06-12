@@ -1,0 +1,29 @@
+
+{
+    "edit-mood":{
+        "error":true,
+        "errnum":10000,
+        "message":"产品数据编辑完毕"
+    },
+    "get-mood":{
+        "error":true,
+        "errnum":10000,
+        "message":"返回产品数据列表",
+        "id":123,
+        "mood":[
+        {"name":"我是东华上仙","brand":"我是联想牌的","id":4,"lable":{"top":234,"left":345}},
+        {"name":"我是污垢上仙","brand":"我是移动牌的","id":5,"lable":{"top":234,"left":345}},
+        {"name":"我乾隆皇帝","brand":"我是微软牌的","id":6,"lable":{"top":234,"left":345}},
+        {"name":"我是成吉思汗","brand":"我是孙悟空牌的","id":8,"lable":{"top":234,"left":345}},
+        {"name":"我是黄帝","brand":"我是上古牌的","id":9,"lable":{"top":234,"left":345}}
+    ],
+        "brand":[{"id":12,"name":"老大XX牌"},{"id":13,"name":"XXOO牌"},{"id":2,"name":"远古上帝女娲牌"},{"id":3,"name":"远古上帝女娲牌"},{"id":4,"name":"奥马吧和凤姐有一腿"}]
+    },
+    "del-mood":
+    {
+        "error":true,
+        "errnum":10000,
+        "message":"商品删除成功"
+    }
+
+}

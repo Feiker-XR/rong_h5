@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <![endif]-->
+    <title>支付成功 - 微商城</title>
+    <meta name="description" content="支付成功,微商城,h5plus" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" type="image/ico" href="http://3gimg.qq.com/web/webapp_webmarket/android/images/favicon.ico" />
+
+    <link rel="stylesheet" href="index.css">
+    <style type="text/css">
+    .success{
+		color: #515151;
+		height: auto;
+        overflow-y:auto;
+        padding-top: 3.125rem;
+        padding-bottom: initial;
+    }
+    header{ height: auto; }
+    .success .info:before{
+    content: '';
+    padding: .05em .35em;
+    margin: 0 .5em .2em .2em;
+    font-size: .7em;
+    font-weight: bolder;
+    background: url(./sprite.png) -9.3rem -4.625rem;
+    background-size: 11.6rem auto;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    left: 5rem;
+    top: -.4rem;
+    }
+    .success .info{
+        margin: 1.5em 0;
+    	font-size: 1.2em;
+    	position: relative;
+    }
+    .success .pay-info{
+    background: white;
+    padding: 1em;
+    font-size: 1.1em;
+    text-align: left;
+    line-height: 2.4em;
+    }
+    .success .pay-info .title{
+	border-bottom: 1px solid #dedede;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+	}
+	/* .success .pay-info p:nth-child(2):span:before{}
+	.success .pay-info p:nth-child(3){}
+	.success .pay-info p:nth-child(4){} */
+	.success .pay-info p span.fee:before{
+		content:'￥';
+	}
+	.success .pay-info p span.fee{ color: #f31e34; }
+    .success section.list{ background: white; }
+    .success button{
+    width: 94%;
+    background: #f31e34;
+    color: white;
+    font-size: 1.2em;
+    font-family: 'microsoft yahei';
+    border: none;
+    border-radius: 2em;
+    padding: .6em;
+    margin-top: 5em;
+    position: relative;
+    }
+    .success button:after{
+    content: '支付完成后，如需退换货请及时联系卖家';
+    position: absolute;
+    top: 4em;
+    color: #6b6b6b;
+    font-size: .7em;
+    left: 50%;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    }
+    </style>
+</head>
+
+<body class="home success">
+
+	<header>
+        <div class="top-row">
+            <a href="javascript:window.history.go(-1);" title="返回"><img src="images/pic1.png"></a>
+            <div class="title">拼划算微商城</div>
+            <a href="javascript:;"><img src="images/pic2.png"></a>
+        </div>
+    </header>
+
+	<p class="info">订单支付成功</p>
+
+	<section class="pay-info">
+		<p class="title">您的支付信息</p>
+		<p>支付金额：<span class="fee">23.00</span></p>
+		<p>订单编号：<span class="num">201523423458548654</span></p>
+		<p>支付方式：<span class="type">微信支付</span></p>
+	</section>
+
+	<button onclick="window.location.href='./orderDetail.html';">查看订单详情</button>
+
+    <script type="text/javascript" src="iscroll.js"></script>
+    <script type="text/javascript">
+        var isWeChat = /MicroMessenger/g.test(window.navigator.userAgent)
+        if(isWeChat) {
+            // document.querySelector('#wrapper').style.top = '3.25rem'
+            // document.querySelector('.top-row').style.display = 'none'
+        }
+
+        (function (doc, win) { 
+          var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              docEl.style.fontSize = 14 * (clientWidth / 320) + 'px';
+            };
+
+          if (!doc.addEventListener) return;
+          win.addEventListener(resizeEvt, recalc, false);
+          doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+
+        function loaded () {
+            // document.querySelector('.text').textContent = window.navigator.userAgent;
+            var myScroll = new IScroll('#wrapper', { mouseWheel: true, click: true });
+            var tabScroll = new IScroll('#tabList', { scrollX: true, scrollY: false, mouseWheel: true });
+            var sildeScroll = new IScroll('#slider', {
+                scrollX: true,
+                scrollY: false,
+                momentum: false,
+                snap: true,
+                snapSpeed: 400,
+                keyBindings: true,
+                indicators: {
+                    el: document.getElementById('indicator'),
+                    resize: false
+                }
+            });
+        }
+        // document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        // window.onload = loaded
+    </script>
+
+  </body>
+
+</html>

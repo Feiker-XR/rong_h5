@@ -1,0 +1,44 @@
+<% include ../../_g/header.html %>
+<title>物流模板 -H5PLUS</title>
+<link rel="stylesheet" href="<%= data['css'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>.css<%= data['v'] %>">
+<script type="text/javascript">
+     $$r.path = '/auth-portal/api/?method='
+     $$r.path = 'http://test.h5plus.net/auth-portal/api/?method='
+     //$$r.pathImg = '/auth-portal/api/upload?method='
+     $$r.routers = {
+        "data": {
+            "link": {
+                'loginUrl': $$r.path + 'ruixue.hfive.weidian.portal.login',
+                'uploadImgUrl': $$r.path + 'ruixue.hfive.core.filemanager.activity.picture.upload',
+
+                'brandListUrl': $$r.path + 'ruixue.hfive.weidian.brand.list',
+                'brandAddUrl': $$r.path + 'ruixue.hfive.weidian.brand.add',
+                'getBrandInfoUrl': $$r.path + 'ruixue.hfive.weidian.brand.get',
+                'editBrandUrl': $$r.path + 'ruixue.hfive.weidian.brand.update',
+                'deleteBrandUrl': $$r.path + 'ruixue.hfive.weidian.brand.delete',
+                'goodsListUrl': $$r.path + 'ruixue.hfive.weidian.goods.list',
+                'deleteGoodsUrl': $$r.path + 'ruixue.hfive.weidian.goods.delete',
+                'goodsClassUrl': $$r.path + 'ruixue.hfive.weidian.category.list',
+                'getGoodsDetaiSetlUrl': $$r.path + 'ruixue.hfive.weidian.goods.getdetailsetting',
+                'attrListUrl': $$r.path + 'ruixue.hfive.weidian.property.list',
+                'svaeSigleValVidUrl': $$r.path + 'ruixue.hfive.weidian.goods.addpropertyvalue',
+                'svaeSigleValImageUrl': $$r.path + 'ruixue.hfive.weidian.goods.addpropertyimage',
+                'goodsAddUrl': $$r.path + 'ruixue.hfive.weidian.goods.add',
+                'goodsEditUrl': $$r.path + 'ruixue.hfive.weidian.goods.edit'
+            }
+        }
+    };
+</script>
+</head>
+<body class="<%= data['cat2'] %>">
+
+<div class="cont-all" id="j_p">
+    <p class="loading"></p>
+</div>
+
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/ueditor1_4_3_2-src/ueditor.config.js"></script>
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/ueditor1_4_3_2-src/ueditor.all.js"></script>
+<script type="text/javascript" src="<%= data['comlibjs'] %>/third/ueditor1_4_3_2-src/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="<%= data['js'] %>/<%= data['cat1'] %>/<%= data['cat2'] %>/<%= data['cat3'] %>.js<%= data['v'] %>" id="j_js"></script>
+    </body>
+</html>

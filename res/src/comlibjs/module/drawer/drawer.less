@@ -1,0 +1,42 @@
+html{
+	height: 100%;
+}
+.drawer{
+	border: 1px solid #ddd;
+	background: #fff;
+	padding: 0 20px 20px 20px;
+	overflow: auto;
+}
+.drawerPosition{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.drawer-mask{
+	background: #000;
+	opacity: 0.4;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.drawer-title{
+	position: relative;
+	.title{
+		line-height: 24px;
+		font-size: 14px;
+	}
+}
+.drawer-close-btn{
+	position: absolute;
+	right: -14px;
+	width: 9px;
+	top: 5px;
+	font-size: 18px;
+	cursor: pointer;
+	text-indent: -9999px;
+	background: url("img/close.gif") no-repeat;
+	height: 9px;
+}

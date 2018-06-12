@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../internal.js"></script>
+    <style type="text/css">
+        *{margin:0;padding:0;color: #838383;}
+        table{font-size: 12px;margin: 10px;line-height: 30px}
+        input{width:200px;height:21px;line-height:21px;border:1px solid #d7d7d7;}
+        .zujian{
+            padding-left:20px;
+        }
+        select{
+            margin-top: 10px;
+        }
+        label{
+            display: block; width: 80px;
+        }
+        .link_c1{
+             margin-top:20px;
+        }
+        .commodity{
+            width:80px; height:30px; border:1px solid #ccc; border-radius: 5px; text-align: center; line-height: 30px; margin-top: 20px;
+
+        }
+        .link_c2 span{
+            font-size: 12px;margin: 10px;line-height: 30px
+        }
+        .commodity_1{
+                margin-top:5px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <table>
+        <tr>
+            <td><label for="text"> <var id="lang_input_text"></var></label></td>
+            <td><input class="txt" id="text" type="text" disabled="true"/></td>
+        </tr>
+        <tr>
+            <td><label for="href"> <var id="lang_input_url"></var></label></td>
+            <td><input class="txt" id="href" type="text" /></td>
+        </tr>
+        <tr>
+            <td><label for="title"> <var id="lang_input_title"></var></label></td>
+            <td><input class="txt" id="title" type="text"/></td>
+        </tr>
+        <tr>
+             <td colspan="2">
+                 <label for="target"><var id="lang_input_target"></var></label>
+                 <input id="target" type="checkbox"/>
+             </td>
+        </tr>
+        <tr>
+            <td colspan="2" id="msg"></td>
+        </tr>
+    </table> -->
+    <div class="zujian">
+       <select name="" id="link">
+           <option value="0">普通链接</option>
+           <option value="1">商品链接</option>
+       </select>
+       <div class="link" id="link_c">
+           <div class="link_c1">
+               <table>
+                   <tbody>
+                       <tr>
+                           <td><label for="href"> 链接地址：</label></td>
+                           <td><input class="txt" id="href" type="text"></td>
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
+           <div class="link_c2 hide" id="link_c2">
+               <div class="commodity" id="commodity" style="cursor:pointer;">选择商品</div>
+               <div class="commodity_1">
+                   <span>促销价格：</span>
+                   <input type="text" id="price">
+               </div>
+               <div class="commodity_1">
+                   <span>员工提成：</span>
+                   <input type="text" id="commission">
+           </div>
+       </div>
+    </div>
+
+
+<script type="text/javascript">
+    var $name;
+    window.parent.getParent();
+    var $body=window.parent.document;
+    var $edui28_body=$body.getElementById('edui28_body');
+    $edui28_body.onclick=function(){
+        var $link_c2=document.getElementById('link_c2');
+        var $href=document.getElementById('href');
+        if(!($link_c2.className=='link_c2 hide')){
+            var $price=document.getElementById('price');
+            var $commission=document.getElementById('commission');
+            var $commodity=document.getElementById('commodity');
+            if($price.value==''){
+                alert('请填写促销价格')
+                return false
+            }
+            if($commission.value==''){
+                alert('请填写员工提成')
+                return false
+            }
+            if(!$name){
+                alert('请选择商品')
+                return false
+            }
+            window.parent.setArr({
+                    "product_id": $name*1,   
+                    "price": ($price.value)*1,    
+                    "commission": ($commission.value)*1  
+                });
+            $href.value='http://test.weidian.h5plus.net/wap/good.php?id='+$name;
+            window.parent.getEDITORUI();
+        }else{
+            window.parent.getEDITORUI();
+        }
+    }
+    function getName(name){
+        $name=name
+    }
+    var range = editor.selection.getRange(),
+        link = range.collapsed ? editor.queryCommandValue( "link" ) : editor.selection.getStart(),
+        url,
+        text = $G('text'),
+        rangeLink = domUtils.findParentByTagName(range.getCommonAncestor(),'a',true),
+        orgText;
+    link = domUtils.findParentByTagName( link, "a", true );
+    if(link){
+        url = utils.html(link.getAttribute( '_href' ) || link.getAttribute( 'href', 2 ));
+
+        if(rangeLink === link && !link.getElementsByTagName('img').length){
+            text.removeAttribute('disabled');
+            orgText = text.value = link[browser.ie ? 'innerText':'textContent'];
+        }else{
+            text.setAttribute('disabled','true');
+            text.value = lang.validLink;
+        }
+
+    }else{
+        if(range.collapsed){
+            text.removeAttribute('disabled');
+            text.value = '';
+        }else{
+            text.setAttribute('disabled','true');
+            text.value = lang.validLink;
+        }
+
+    }
+    $G("title").value = url ? link.title : "";
+    $G("href").value = url ? url: '';
+    $G("target").checked = url && link.target == "_blank" ? true :  false;
+    $focus($G("href"));
+
+    function handleDialogOk(){
+        var href =$G('href').value.replace(/^\s+|\s+$/g, '');
+        if(href){
+            if(!hrefStartWith(href,["http","/","ftp://",'#'])) {
+                href  = "http://" + href;
+            }
+            var obj = {
+                'href' : href,
+                'target' : $G("target").checked ? "_blank" : '_self',
+                'title' : $G("title").value.replace(/^\s+|\s+$/g, ''),
+                '_href':href
+            };
+            //修改链接内容的情况太特殊了，所以先做到这里了
+            //todo:情况多的时候，做到command里
+            if(orgText && text.value != orgText){
+                link[browser.ie ? 'innerText' : 'textContent'] =  obj.textValue = text.value;
+                range.selectNode(link).select()
+            }
+            if(range.collapsed){
+                obj.textValue = text.value;
+            }
+            editor.execCommand('link',utils.clearEmptyAttrs(obj) );
+            dialog.close();
+        }
+    }
+    dialog.onok = handleDialogOk;
+    $G('href').onkeydown = $G('title').onkeydown = function(evt){
+        evt = evt || window.event;
+        if (evt.keyCode == 13) {
+            handleDialogOk();
+            return false;
+        }
+    };
+    $G('href').onblur = function(){
+        if(!hrefStartWith(this.value,["http","/","ftp://",'#'])){
+            $G("msg").innerHTML = "<span style='color: red'>"+lang.httpPrompt+"</span>";
+        }else{
+            $G("msg").innerHTML = "";
+        }
+    };
+
+    function hrefStartWith(href,arr){
+        href = href.replace(/^\s+|\s+$/g, '');
+        for(var i=0,ai;ai=arr[i++];){
+            if(href.indexOf(ai)==0){
+                return true;
+            }
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

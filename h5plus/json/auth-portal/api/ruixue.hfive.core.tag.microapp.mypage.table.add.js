@@ -1,0 +1,12 @@
+{
+    "ruixue_hfive_core_tag_microapp_mypage_table_add":
+    {
+        "error"
+    :
+        true,
+            "errno":10000,
+            "message"
+    :
+        "添加成功"
+    }
+}
